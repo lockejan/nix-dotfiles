@@ -161,4 +161,5 @@
       sensibleOnTop = false;
       terminal = "tmux-256color";
     };
+  /* xdg.configFile."tmux/tmux.conf".source = ../configs/tmux/tmux.conf; */
 }
