@@ -1,0 +1,54 @@
+env:
+  TERM: xterm-256color-italic
+  LC_ALL: en_US.UTF-8
+  LANG: en_US.UTF-8
+alt_send_esc: false
+window:
+  dimensions:
+    columns: 0
+    lines: 0
+  padding:
+    x: 6
+    y: 6
+  dynamic_padding: false
+  decorations: full
+  class:
+    instance: Alacritty
+    general: Alacritty
+  gtk_theme_variant: None
+scrolling:
+  history: 50000
+  multiplier: 3
+shell:
+  program: /Users/lockejan/.nix-profile/bin/zsh
+font:
+  normal:
+    family: JetBrainsMono Nerd Font
+    style: Regular
+  bold:
+    family: JetBrainsMono Nerd Font
+    style: Bold
+  italic:
+    family: JetBrainsMono Nerd Font
+    style: Italic
+  bold_italic:
+    family: JetBrainsMono Nerd Font
+    style: Bold Italic
+  size: 14
+  offset:
+    x: 0
+    y: 1
+  glyph_offset:
+    x: 0
+    y: 0
+draw_bold_text_with_bright_colors: true
+cursor:
+  style: Block
+background_opacity: 1
+save_to_clipboard: true
+unfocused_hollow: true
+live_config_reload: true
+working_directory: None
+import:
+  - ~/.config/alacritty/one-dark.yml
+  - ~/.config/alacritty/osx-keybindings.yml
