@@ -92,4 +92,5 @@
     };
   };
   home.file.".ignore".source = ../configs/git/ignore;
+  home.file.".gitignore".source = ../configs/git/gitignore;
 }

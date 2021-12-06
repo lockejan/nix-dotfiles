@@ -20,6 +20,9 @@
   /* programs.zsh.initExtra = builtins.readFile ./configs/zsh/zshrc.zsh; */
   programs.bash.enable = true;
 
+  home.file.".zshrc".source = ../configs/zsh/zshrc;
+  home.file.".aliases".source = ../configs/zsh/aliases;
+
   programs.fzf =
     {
       enable = true;

@@ -1,0 +1,64 @@
+# vim: ft=zsh
+#!/bin/zsh
+
+alias vim=nvim
+alias vf='vim $(fzf --height 40%)'
+alias zc="$EDITOR ~/.zshrc"
+alias vc="$EDITOR ~/.config/nvim/init.lua"
+alias reload="source ~/.zshrc"
+alias www="python -m SimpleHTTPServer 8000"
+alias ls="exa" #-FGh"
+alias ll="exa -l" #FGh"
+alias la="exa -la" #FGh"
+alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep -Eo '([0-9]*\\.){3}[0-9]*' | grep -v '127.0.0.1'"
+alias cp="cp -v"
+alias rm="rm -v"
+alias mv="mv -v"
+alias du="du -cksh"
+alias df="df -h"
+alias diff="diff-so-fancy"
+alias mkdir="command mkdir -p"
+alias ssh='TERM=xterm-256color ssh'
+alias \$=''
+alias tx=tmuxinator
+alias vim-update="brew reinstall neovim && nvim +'au User PackerComplete qa' +PackerSync"
+
+alias sync-dot-work="pushd ~/git/dotfiles && git pull && ansible-playbook main.yml -t dotfiles --ask-vault-pass -e 'workstation_env=work' && popd"
+alias sync-dot-home="pushd ~/git/dotfiles && git pull && ansible-playbook main.yml -t dotfiles --ask-vault-pass -e 'workstation_env=home' && popd"
+
+# use modern regex patterns for sed, i.e. "(one|two)", not "\(one\|two\)"
+alias sed="sed -E"
+
+# osx specific aliases
+if uname | grep -q Darwin; then
+    alias yay="brew update && brew upgrade && brew upgrade --cask && brew cleanup &&
+                cargo install-update -al &&
+                nix-channel --update &&
+                home-manager switch &&
+                nvim --headless +'au User PackerComplete qa' +PackerSync &&
+                lsp-update &&
+                zinit self-update && zinit update"
+    # alias htop="sudo htop"
+;
+fi
+
+# update lsp's
+alias lsp-update="sudo npm update -g &&
+    yarn global upgrade &&
+    pushd ~/.cache/nvim/nlua/sumneko_lua &&
+    git pull &&
+    cd 3rd/luamake &&
+    compile/install.sh &&
+    cd ../.. &&
+    ./3rd/luamake/luamake rebuild && popd"
+
+# linux specific
+# alias vifm='~/.config/vifm/scripts/vifmrun'
+# alias i3c="$EDITOR ~/.config/i3/config"
+# alias sxc="$EDITOR ~/.config/sxhkd/sxhkdrc"
+# alias vc="$EDITOR $VIMRC"
+# alias sipvpn="sudo -A openvpn --config ~/.config/openvpn/telearbeit"
+# alias yup="yay -Syu --nocleanmenu --nodiffmenu && zinit self-update && nvim +PlugUpdate +qall"
+# alias conda="/opt/miniconda3/bin/conda"
+# alias chrome="google-chrome-stable"
