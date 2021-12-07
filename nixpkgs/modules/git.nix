@@ -40,7 +40,6 @@
         ui = "auto";
         branch = "auto";
         diff = "auto";
-        /* status = "auto"; */
         status = {
           added = "green";
           changed = "yellow";
@@ -49,7 +48,10 @@
       };
       diff = {
         tool = "vimdiff3";
-        ansible-vault = "ansible-vault view --vault-password-file=~/ansible-vault.lua";
+        ansible-vault =
+          {
+            textconv = "ansible-vault view --vault-password-file=~/ansible-vault.sh";
+          };
         /* mnemonicprefix = true; */
       };
       difftool = {
@@ -93,4 +95,5 @@
   };
   home.file.".ignore".source = ../configs/git/ignore;
   home.file.".gitignore".source = ../configs/git/gitignore;
+  xdg.configFile."git/attributes".source = ../configs/git/attributes;
 }

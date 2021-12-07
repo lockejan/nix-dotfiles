@@ -30,7 +30,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "$EDITOR";
-    ANSIBLE_VAULT_PASSWORD_FILE = "$HOME/.ansible-vault.lua";
+    ANSIBLE_VAULT_PASSWORD_FILE = "$HOME/ansible-vault.sh";
     PATH = "$PATH:/Library/Developer/CommandLineTools/usr/bin/";
   };
 
