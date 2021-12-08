@@ -1,11 +1,10 @@
 { config, pkgs, libs, ... }:
 {
   programs.git = {
-    /* package = pkgs.gitAndTools.gitFull; */
     enable = true;
-    userEmail = "personal@example.de";
     userName = "Jan Schmitt";
-    signing.key = "A2BC3C6F14351991";
+    userEmail = if builtins.getEnv "USER" ? "schmitt" then "work@example.de" else "personal@example.de";
+    signing.key = if builtins.getEnv "USER" ? "schmitt" then "1A41D1F06DB2A20F" else "A2BC3C6F14351991";
     signing.signByDefault = true;
     aliases = {
       br = "branch";
@@ -52,7 +51,7 @@
           {
             textconv = "ansible-vault view --vault-password-file=~/ansible-vault.sh";
           };
-        /* mnemonicprefix = true; */
+        mnemonicprefix = true;
       };
       difftool = {
         path = "nvim";
@@ -67,9 +66,9 @@
         tool = "vimdiff3";
         conflictstyle = "diff3";
       };
-      /* push = { */
-      /*   default = "simple"; */
-      /* }; */
+      push = {
+        default = "simple";
+      };
       init = {
         defaultBranch = "main";
       };
