@@ -7,6 +7,7 @@ It's still very much work in progress.
 
 ## TODO
 
+- [ ] install terminfo
 - [ ] handling secrets
 - [ ] machine specific configuration
 - [ ] properly registering gui apps
