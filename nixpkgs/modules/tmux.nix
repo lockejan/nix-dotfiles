@@ -3,7 +3,7 @@
   programs.tmux =
     {
       enable = true;
-      /* package = pkgs.tmux; */
+      package = pkgs.tmux;
       baseIndex = 1;
       disableConfirmationPrompt = false;
       escapeTime = 500;
@@ -44,7 +44,7 @@
         bind C-p set-window-option synchronize-panes
 
         # source tmux
-        bind r source-file ~/.tmux.conf \; source-file ~/.config/tmux/tmux.conf \; display "config reloaded!"
+        bind r source-file ~/.config/tmux/tmux.conf \; display "config reloaded!"
 
         # shortcut to kill pane
         #bind x killp
@@ -121,10 +121,10 @@
         # bind P pipe-pane -o "cat >>~/#W.log" \; display "Toggled logging to $HOME/#W.log"
 
         # Load osx specific setting
-        if-shell "uname | grep -q Darwin" "source-file ~/.tmux.mac.conf"
+        if-shell "uname | grep -q Darwin" "source-file ~/.config/tmux/tmux.mac.conf"
 
         # load private settings if they exist
-        if-shell "[ -f ~/.tmux.private ]" "source ~/.tmux.private"
+        if-shell "[ -f ~/.config/tmux/tmux.private ]" "source ~/.config/tmux/tmux.private"
 
         set -g status-right '#{prefix_highlight}'
 
@@ -142,7 +142,7 @@
         set -g @continuum-boot 'alacritty'
         set -g @continuum-boot 'on'
 
-        run '~/.tmux/plugins/tpm/tpm'
+        run '~/.config/tmux/plugins/tpm/tpm'
       '';
       historyLimit = 5000;
       keyMode = "vi";
@@ -161,5 +161,5 @@
       sensibleOnTop = false;
       terminal = "tmux-256color";
     };
-  /* xdg.configFile."tmux/tmux.conf".source = ../configs/tmux/tmux.conf; */
+  xdg.configFile."tmux/tmux.mac.conf".source = ../configs/tmux/tmux.mac.conf;
 }
