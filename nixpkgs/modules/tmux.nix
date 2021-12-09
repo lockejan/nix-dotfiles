@@ -142,7 +142,7 @@
         set -g @continuum-boot 'alacritty'
         set -g @continuum-boot 'on'
 
-        run '~/.config/tmux/plugins/tpm/tpm'
+        run '~/.tmux/plugins/tpm/tpm'
       '';
       historyLimit = 5000;
       keyMode = "vi";
