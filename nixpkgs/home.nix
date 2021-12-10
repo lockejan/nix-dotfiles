@@ -9,8 +9,8 @@
 
   imports = [
     ./modules/cli.nix
-    /* ./gpg.nix */
     ./modules/ssh.nix
+    ./modules/gpg.nix
     ./modules/alacritty.nix
     ./modules/neovim.nix
     ./modules/git.nix
@@ -43,7 +43,6 @@
     entr
     extract_url
     fd
-    gnupg1
     gnugrep
     gopass
     htop
@@ -64,9 +63,6 @@
     yapf
     openssl
     podman
-    pinentry
-    pinentry_mac
-    /* podman-compose */
     ripgrep
     tldr
     tree
