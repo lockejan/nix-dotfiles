@@ -12,10 +12,12 @@
     ./modules/ssh.nix
     ./modules/gpg.nix
     ./modules/alacritty.nix
+    ./modules/kitty.nix
     ./modules/neovim.nix
     ./modules/git.nix
     ./modules/python.nix
     ./modules/tmux.nix
+    ./modules/work.nix
   ];
 
   # Let Home Manager install and manage itself.
@@ -36,39 +38,25 @@
 
   home.packages = with pkgs; [
     ansible
-    /* ansible-lint */
-    curl
     coreutils-full
+    curl
     diff-so-fancy
     entr
-    extract_url
     fd
     gnugrep
-    gopass
     htop
-    hugo
-    ipcalc
-    less
     jq
-    jdk11
-    keychain
-    lua
-    nodejs
-    nodePackages.typescript
-    /* nerdfonts */
+    less
     ninja
-    /* nix-zsh-completions */
-    nixpkgs-fmt
-    stylua
-    yapf
     openssl
     podman
+    pwgen
     ripgrep
     tldr
-    tree
     trash-cli
+    tree
     vagrant
-    yarn
+    wget
   ];
 
   # This value determines the Home Manager release that your

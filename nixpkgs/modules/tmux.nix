@@ -1,5 +1,9 @@
 { config, pkgs, libs, ... }:
 {
+  home.packages = with pkgs; [
+    extract_url
+  ];
+
   programs.tmux =
     {
       enable = true;

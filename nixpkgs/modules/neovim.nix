@@ -1,6 +1,10 @@
 { config, pkgs, libs, ... }:
 {
   home.packages = with pkgs; [
+    yamllint
+    yapf
+    nixpkgs-fmt
+    stylua
     neovim-nightly
     clojure-lsp
     rnix-lsp
