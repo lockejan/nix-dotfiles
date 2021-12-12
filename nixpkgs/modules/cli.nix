@@ -1,31 +1,18 @@
 { lib, config, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    /* zsh-fzf-tab */
     /* zsh-z */
+    /* zsh-fast-syntax-highlighting */
   ];
 
   programs.zsh = {
     enable = true;
+    /* dotDir = ".config/zsh"; */
     enableAutosuggestions = true;
-    enableCompletion = false;
-    /* environment.pathsToLink = ["/share/zsh"]; */
+    enableCompletion = true;
     enableSyntaxHighlighting = true;
+    completionInit = "autoload -Uz compinit; compinit -u";
     defaultKeymap = "emacs";
-    history =
-      {
-        extended = true;
-        ignoreDups = true;
-        ignoreSpace = true;
-        save = 10000;
-        share = true;
-        size = 10000;
-      };
-    /* oh-my-zsh = { */
-    /*   enable = true; */
-    /*   plugins = [ "git" ]; */
-    /*   theme = "robbyrussell"; */
-    /* }; */
     plugins = [
       /* { */
       /*   name = "zsh-z"; */
@@ -38,7 +25,7 @@
       /*   }; */
       /* } */
       {
-        name = "zsh-fzf-tab";
+        name = "fzf-tab";
         src = pkgs.fetchFromGitHub {
           owner = "Aloxaf";
           repo = "fzf-tab";
@@ -48,7 +35,16 @@
       }
     ];
 
-    /* completionInit = "autoload -U compinit && compinit"; */
+    history =
+      {
+        extended = true;
+        ignoreDups = true;
+        ignoreSpace = true;
+        save = 10000;
+        share = true;
+        size = 10000;
+      };
+
     shellAliases = {
       update = ''
         nix-channel --update && home-manager switch && lsp-update
@@ -56,9 +52,6 @@
       zc = "$EDITOR ~/.zshrc";
       vc = "$EDITOR ~/.config/nvim/init.lua";
       www = "python -m SimpleHTTPServer 8000";
-      /* ls = "exa"; #-FGh"; */
-      /* ll = "exa -l"; #FGh"; */
-      /* la = "exa -la"; #FGh"; */
       pubip = "dig +short myip.opendns.com @resolver1.opendns.com";
       localip = ''
         ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep -Eo '([0-9]*\\.){3}[0-9]*' | grep -v '127.0.0.1'
@@ -67,24 +60,19 @@
       df = "df -h";
       mkdir = "command mkdir -p";
       ssh = "TERM=xterm-256color ssh";
-      /* \$ =''; */
-      # use modern regex patterns for sed, i.e. "(one|two)", not "\(one\|two\)"
       sed = "sed -E";
       lsp-update = ''
-          cd ~/.cache/nvim/nlua/sumneko_lua &&
+        cd ~/.cache/nvim/nlua/sumneko_lua &&
         git pull &&
         cd 3rd/luamake &&
         compile/install.sh &&
         cd ../.. &&
         ./3rd/luamake/luamake rebuild && cd '';
-
+      luamake = (builtins.getEnv "HOME" + "/.cache/nvim/nlua/sumneko_lua/3rd/luamake/luamake");
     };
     initExtra = builtins.readFile ../configs/zsh/zshrc;
   };
-  /* programs.bash.enable = true; */
 
-  /* home.file.".zshrc".source = ../configs/zsh/zshrc; */
-  /* home.file.".aliases".source = ../configs/zsh/aliases; */
   programs.z-lua = {
     enable = true;
     enableAliases = true;
