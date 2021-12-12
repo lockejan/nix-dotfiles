@@ -17,7 +17,7 @@
         italic_font      auto
         bold_italic_font auto
         disable_ligatures never
-
+        macos_option_as_alt yes
         include One Dark.conf
       '';
   };
