@@ -8,6 +8,9 @@ bindkey '^x^e' edit-command-line
 # zle -N edit-command-line
 # bindkey -M vicmd v edit-command-line
 
+# brew sbin folder
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 
 # export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
 # source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
