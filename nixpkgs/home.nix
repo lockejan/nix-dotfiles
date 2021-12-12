@@ -8,14 +8,14 @@
   ];
 
   imports = [
-    ./modules/cli.nix
-    ./modules/ssh.nix
-    ./modules/gpg.nix
     ./modules/alacritty.nix
+    ./modules/cli.nix
+    ./modules/git.nix
+    ./modules/gpg.nix
     ./modules/kitty.nix
     ./modules/neovim.nix
-    ./modules/git.nix
     ./modules/python.nix
+    ./modules/ssh.nix
     ./modules/tmux.nix
     ./modules/work.nix
   ];
@@ -32,6 +32,8 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "$EDITOR";
+    /* PAGER = "nvim -R"; */
+    MANPAGER = "nvim +Man!";
     ANSIBLE_VAULT_PASSWORD_FILE = "$HOME/ansible-vault.sh";
     PATH = "$PATH:/Library/Developer/CommandLineTools/usr/bin/";
   };
@@ -40,7 +42,6 @@
     ansible
     coreutils-full
     curl
-    diff-so-fancy
     entr
     fd
     gnugrep
@@ -69,9 +70,20 @@
   # changes in each release.
   home.stateVersion = "22.05";
 
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
-
+  programs =
+    {
+      direnv =
+        {
+          enable = true;
+          nix-direnv.enable = true;
+          enableZshIntegration = true;
+        };
+      starship =
+        {
+          enable = true;
+          enableZshIntegration = true;
+        };
+    };
   xdg.configFile."nix/nix.conf".text = ''
     experimental-features = nix-command flakes
   '';

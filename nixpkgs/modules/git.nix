@@ -77,7 +77,7 @@
       };
       core = {
         editor = "nvim";
-        pager = "diff-so-fancy | less --tabs=4 -RFX";
+        /* pager = "nvim -R"; */
         quotepath = false;
         excludesfile = "~/.ignore";
       };
