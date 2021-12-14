@@ -150,7 +150,7 @@
       '';
       historyLimit = 5000;
       keyMode = "vi";
-      newSession = true;
+      newSession = false;
       plugins = with pkgs; [
         tmuxPlugins.cpu
         tmuxPlugins.urlview

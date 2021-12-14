@@ -36,6 +36,7 @@
     MANPAGER = "nvim +Man!";
     ANSIBLE_VAULT_PASSWORD_FILE = "$HOME/ansible-vault.sh";
     PATH = "$PATH:/Library/Developer/CommandLineTools/usr/bin/";
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080";
   };
 
   home.packages = with pkgs; [

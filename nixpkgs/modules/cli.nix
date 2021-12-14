@@ -10,7 +10,7 @@
     /* dotDir = ".config/zsh"; */
     enableAutosuggestions = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
+    /* enableSyntaxHighlighting = true; */
     completionInit = "autoload -Uz compinit; compinit -u";
     defaultKeymap = "emacs";
     plugins = [
@@ -22,6 +22,24 @@
       /*     rev = "b30bc6050e77abe30ce36761d18ed696e5410f16"; */
       /*     sha256 = "TSX6KooWYGf1NDlD4A3o6CmSsyy1JL7bPeKsuCOuUhY="; */
       /*     /1* sha256 = lib.fakeSha256; *1/ */
+      /*   }; */
+      /* } */
+      {
+        name = "fast-syntax-highlighting";
+        src = pkgs.fetchFromGitHub {
+          owner = "zdharma-continuum";
+          repo = "fast-syntax-highlighting";
+          rev = "585c089968caa1c904cbe926ff04a1be9e3d8f42";
+          sha256 = "x+4C2u03RueNo6/ZXsueqmYoPIpDHnKAZXP5IiKsidE=";
+        };
+      }
+      /* { */
+      /*   name = "zsh-autosuggestions"; */
+      /*   src = pkgs.fetchFromGitHub { */
+      /*     owner = "zsh-users"; */
+      /*     repo = "zsh-autosuggestions"; */
+      /*     rev = "a411ef3e0992d4839f0732ebeb9823024afaaaa8"; */
+      /*     sha256 = "KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w="; */
       /*   }; */
       /* } */
       {
