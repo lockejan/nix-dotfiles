@@ -8,7 +8,7 @@
   ];
 
   imports = [
-    ./modules/alacritty.nix
+    /* ./modules/alacritty.nix */
     ./modules/cli.nix
     ./modules/git.nix
     ./modules/gpg.nix

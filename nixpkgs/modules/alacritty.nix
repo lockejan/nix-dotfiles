@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     alacritty
-    # libsixel
   ];
   xdg.configFile."alacritty/alacritty.yml".source = ../configs/alacritty/alacritty.yml;
   xdg.configFile."alacritty/one-dark.yml".source = ../configs/alacritty/one-dark.yml;
