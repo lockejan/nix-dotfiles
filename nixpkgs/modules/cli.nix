@@ -1,10 +1,5 @@
 { lib, config, pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    /* zsh-z */
-    /* zsh-fast-syntax-highlighting */
-  ];
-
   programs.zsh = {
     enable = true;
     /* dotDir = ".config/zsh"; */
@@ -64,9 +59,7 @@
       };
 
     shellAliases = {
-      update = ''
-        nix-channel --update && home-manager switch && lsp-update
-      '';
+      update = "nix-channel --update && home-manager switch && lsp-update";
       zc = "$EDITOR ~/.zshrc";
       vc = "$EDITOR ~/.config/nvim/init.lua";
       www = "python -m SimpleHTTPServer 8000";

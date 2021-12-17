@@ -4,7 +4,7 @@
     lua
     yamllint
     yapf
-    nixpkgs-fmt
+    nixfmt
     stylua
     neovim-nightly
     clojure-lsp
