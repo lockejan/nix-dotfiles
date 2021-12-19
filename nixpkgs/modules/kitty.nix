@@ -1,5 +1,4 @@
-{ config, pkgs, libs, ... }:
-{
+{ config, pkgs, libs, ... }: {
   programs.kitty = {
     enable = true;
     font = {
@@ -11,14 +10,13 @@
       enable_audio_bell = false;
       update_check_interval = 0;
     };
-    extraConfig =
-      ''
-        bold_font        auto
-        italic_font      auto
-        bold_italic_font auto
-        disable_ligatures never
-        macos_option_as_alt yes
-        include One Dark.conf
-      '';
+    extraConfig = ''
+      bold_font        auto
+      italic_font      auto
+      bold_italic_font auto
+      disable_ligatures never
+      macos_option_as_alt yes
+      include One Dark.conf
+    '';
   };
 }

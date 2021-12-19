@@ -3,12 +3,13 @@
 {
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+      url =
+        "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
     }))
   ];
 
   imports = [
-    /* ./modules/alacritty.nix */
+    # ./modules/alacritty.nix
     ./modules/cli.nix
     ./modules/git.nix
     ./modules/gpg.nix
@@ -32,7 +33,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "$EDITOR";
-    /* PAGER = "nvim -R"; */
+    # PAGER = "nvim -R";
     MANPAGER = "nvim +Man!";
     ANSIBLE_VAULT_PASSWORD_FILE = "$HOME/ansible-vault.sh";
     PATH = "$PATH:/Library/Developer/CommandLineTools/usr/bin/";
@@ -71,20 +72,17 @@
   # changes in each release.
   home.stateVersion = "22.05";
 
-  programs =
-    {
-      direnv =
-        {
-          enable = true;
-          nix-direnv.enable = true;
-          enableZshIntegration = true;
-        };
-      starship =
-        {
-          enable = true;
-          enableZshIntegration = true;
-        };
+  programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      enableZshIntegration = true;
     };
+    starship = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+  };
   xdg.configFile."nix/nix.conf".text = ''
     experimental-features = nix-command flakes
   '';

@@ -44,3 +44,13 @@ flakify() {
   fi
   ${EDITOR:-vim} flake.nix
 }
+
+lsp-update() {
+  cd ~/.cache/nvim/nlua/sumneko_lua
+  git pull
+  cd 3rd/luamake
+  compile/install.sh
+  cd ../..
+  ./3rd/luamake/luamake rebuild
+  cd
+}
