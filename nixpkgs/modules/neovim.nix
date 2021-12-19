@@ -3,6 +3,9 @@
     lua
     yamllint
     yapf
+    shfmt
+    glow
+    haskell-language-server
     nixfmt
     stylua
     neovim-nightly

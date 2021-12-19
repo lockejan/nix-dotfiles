@@ -54,3 +54,15 @@ lsp-update() {
   ./3rd/luamake/luamake rebuild
   cd
 }
+
+# Search content and Edit
+search-edit() {
+  fileline=$(rg -n ''${1:-.} | fzf | awk '{print $1}' | sed 's/.$//')
+  $EDITOR ''${fileline%%:*} +''${fileline##*:}
+}
+
+filter-log() {
+  git log --oneline --color=always | fzf --ansi --preview="echo {} | cut -d ' ' -f 1 | xargs -I @ sh -c 'git log --pretty=medium -n 1 @; git diff @^ @' | bat --color=always" | cut -d ' ' -f 1 | xargs git log --pretty=short -n 1
+}
+
+alias \$=''
