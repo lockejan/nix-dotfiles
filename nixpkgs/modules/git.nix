@@ -70,7 +70,7 @@
           cmd =
             ''nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"'';
         };
-        prompt = false;
+        prompt = true;
         keepBackup = false;
       };
       push = { default = "simple"; };

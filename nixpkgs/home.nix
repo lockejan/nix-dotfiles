@@ -57,7 +57,6 @@
     ripgrep
     tldr
     trash-cli
-    tree
     vagrant
     wget
   ];
