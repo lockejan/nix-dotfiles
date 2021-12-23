@@ -54,14 +54,14 @@
         };
       };
       diff = {
-        tool = "nvimdiff";
+        # tool = "nvimdiff";
         ansible-vault = {
           textconv =
             "ansible-vault view --vault-password-file=~/ansible-vault.sh";
         };
         mnemonicprefix = true;
       };
-      difftool = { path = "nvim"; };
+      # difftool = { path = "nvim"; };
       format = { pretty = "fuller"; };
       fetch = { prune = true; };
       merge = { tool = "nvim"; };
@@ -83,7 +83,7 @@
         excludesfile = "~/.ignore";
       };
       commit = { verbose = true; };
-      rebase = { autostash = true; };
+      rebase = { autoStash = true; };
       submodule = { recurse = true; };
     };
   };
