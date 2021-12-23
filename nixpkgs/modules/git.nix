@@ -7,7 +7,7 @@
     else
       "personal@example.de";
     signing.key = if builtins.getEnv "USER" == "schmitt" then
-      "1A41D1F06DB2A20F"
+      "C3540BA93CE2AE53"
     else
       "A2BC3C6F14351991";
     signing.signByDefault = true;
