@@ -48,6 +48,7 @@
     fd
     gnugrep
     htop
+    jbang
     jq
     less
     ninja
