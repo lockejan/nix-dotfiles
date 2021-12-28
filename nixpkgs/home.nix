@@ -19,9 +19,9 @@
     ./modules/ssh.nix
     ./modules/tmux.nix
     (if builtins.getEnv "USER" == "schmitt" then
-      ./modules/work.nix
+      ./machines/work.nix
     else
-      ./modules/personal.nix)
+      ./machines/personal.nix)
   ];
 
   # Let Home Manager install and manage itself.

@@ -1,0 +1,3 @@
+[submodule "nixpkgs/machines"]
+	path = nixpkgs/machines
+	url = git@github.com:lockejan/nix-machines.git
