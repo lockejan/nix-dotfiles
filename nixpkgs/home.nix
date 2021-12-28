@@ -18,7 +18,10 @@
     ./modules/python.nix
     ./modules/ssh.nix
     ./modules/tmux.nix
-    ./modules/work.nix
+    (if builtins.getEnv "USER" == "schmitt" then
+      ./modules/work.nix
+    else
+      ./modules/personal.nix)
   ];
 
   # Let Home Manager install and manage itself.
@@ -35,7 +38,6 @@
     VISUAL = "$EDITOR";
     # PAGER = "nvim -R";
     MANPAGER = "nvim +Man!";
-    ANSIBLE_VAULT_PASSWORD_FILE = "$HOME/ansible-vault.sh";
     PATH = "$PATH:/Library/Developer/CommandLineTools/usr/bin/";
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
   };

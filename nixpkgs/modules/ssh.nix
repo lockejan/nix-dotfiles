@@ -1,9 +1,21 @@
-{ config, pkgs, libs, ... }:
-{
-  home.packages = with pkgs; [
-    ssh-audit
-    ssh-copy-id
-    sshpass
-  ];
-  /* xdg.configfile.".ssh/config".source = ../configs/ssh/ssh_config; */
+{ config, pkgs, libs, ... }: {
+  home.packages = with pkgs; [ ssh-audit ssh-copy-id sshpass ];
+  # xdg.configfile.".ssh/config".source = ../configs/ssh/ssh_config;
+  home.file.".ssh/config".text = ''
+    HashKnownHosts no
+    VerifyHostKeyDNS ask
+    VisualHostKey no
+
+    ControlMaster auto
+    ControlPath /tmp/ssh_mux_%h_%p_%r
+
+    Include hosts
+
+    Host *
+       AddKeysToAgent yes
+       IdentityFile ~/.ssh/id_rsa
+       ForwardAgent yes
+       GSSAPIDelegateCredentials yes
+       GSSAPIAuthentication yes
+  '';
 }

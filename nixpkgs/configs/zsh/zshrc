@@ -73,5 +73,4 @@ get-gpg-fingerprint () {
 #     get-fingerprint | gpg --armor --export - 2>&1 | tee ~/gpg-pub-$(date +%F).asc
 # }
 
-
 alias \$=''

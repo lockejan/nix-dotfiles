@@ -1,15 +1,6 @@
 { config, pkgs, libs, ... }: {
   programs.git = {
-    enable = true;
     userName = "Jan Schmitt";
-    userEmail = if builtins.getEnv "USER" == "schmitt" then
-      "work@example.de"
-    else
-      "personal@example.de";
-    signing.key = if builtins.getEnv "USER" == "schmitt" then
-      "C3540BA93CE2AE53"
-    else
-      "A2BC3C6F14351991";
     signing.signByDefault = true;
     aliases = {
       br = "branch";
