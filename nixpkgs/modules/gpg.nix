@@ -1,7 +1,7 @@
 { config, pkgs, libs, ... }: {
   home.packages = with pkgs; [
     gnupg1
-    pinentry
+    # pinentry
     pinentry_mac
   ];
 

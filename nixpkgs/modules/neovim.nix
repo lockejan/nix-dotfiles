@@ -5,7 +5,7 @@
     yapf
     shfmt
     glow
-    haskell-language-server
+    # haskell-language-server
     nixfmt
     stylua
     neovim-nightly

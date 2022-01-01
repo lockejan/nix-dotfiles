@@ -74,20 +74,10 @@
   # changes in each release.
   home.stateVersion = "22.05";
 
-  programs = {
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-      enableZshIntegration = true;
-    };
-    starship = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-  };
   xdg.configFile."nix/nix.conf".text = ''
     experimental-features = nix-command flakes
   '';
+
   home.file.".hammerspoon".source = ./configs/hammerspoon;
 
   home.file.".ghci".text = ''

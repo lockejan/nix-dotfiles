@@ -82,5 +82,15 @@
         shellIntegrationOptions = [ "-d 60%" ];
       };
     };
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      enableZshIntegration = true;
+    };
+    starship = {
+      enable = true;
+      enableZshIntegration = true;
+    };
   };
+
 }
