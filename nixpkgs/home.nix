@@ -48,6 +48,7 @@
     curl
     entr
     fd
+    git-filter-repo
     gnugrep
     htop
     jbang
