@@ -29,7 +29,7 @@
 
     shellAliases = {
       update =
-        "nix-channel --update && home-manager switch && lsp-update && nvim --headless +'autocmd User PackerComplete quitall' +PackerSync";
+        "nix-channel --update && home-manager switch && tldr --update && lsp-update && nvim-update";
       zc = "$EDITOR ~/.zshrc";
       vc = "$EDITOR ~/.config/nvim/init.lua";
       www = "python -m SimpleHTTPServer 8000";

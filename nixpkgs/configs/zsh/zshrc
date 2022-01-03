@@ -55,6 +55,13 @@ lsp-update() {
   popd
 }
 
+nvim-update() {
+  pushd ~/.config/nvim
+  git pull
+  nvim --headless +'autocmd User PackerComplete quitall' +PackerSync
+  popd
+}
+
 # Search content and Edit
 search-edit() {
   fileline=$(rg -n ''${1:-.} | fzf | awk '{print $1}' | sed 's/.$//')
@@ -65,8 +72,8 @@ filter-log() {
   git log --oneline --color=always | fzf --ansi --preview="echo {} | cut -d ' ' -f 1 | xargs -I @ sh -c 'git log --pretty=medium -n 1 @; git diff @^ @' | bat --color=always" | cut -d ' ' -f 1 | xargs git log --pretty=short -n 1
 }
 
-get-gpg-fingerprint () {
-    gpg -K | fzf | sed 's/ //g' | cut -d "=" -f2- | pbcopy
+get-gpg-fingerprint() {
+  gpg -K | fzf | sed 's/ //g' | cut -d "=" -f2- | pbcopy
 }
 
 # export-pub-key () {
