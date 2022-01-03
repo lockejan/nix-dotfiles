@@ -6,9 +6,13 @@ hs.hotkey.bindSpec({ hyper, "r" }, function()
 	-- hs.notify.new({ title = "Hammerspoon", informativeText = "Config reloaded" }):send()
 end)
 
--- hs.hotkey.bindSpec({ hyper, "f" }, function()
--- 	hs.execute("touch ~/blub.txt")
--- end)
+hs.hotkey.bindSpec({ hyper, "k" }, function()
+	hs.execute("get-kerberos-pass", true)
+end)
+
+hs.hotkey.bindSpec({ hyper, "l" }, function()
+	hs.execute("get-ldap-pass", true)
+end)
 
 hs.loadSpoon("SpoonInstall")
 

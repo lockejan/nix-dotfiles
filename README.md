@@ -11,7 +11,7 @@ It's still very much work in progress.
 
 2. Install [home-manager](https://github.com/nix-community/home-manager).
 
-3. Clone repository and run (setup.sh)[./setup.sh] to symlink the repo into the proper place.
+3. Clone repository and run [setup.sh](./setup.sh) to symlink the repo into the proper place.
 During home-manager installation a nixpkgs folder has already been created in the target dir.
 Inspect it, make a backup or delete it.
 
