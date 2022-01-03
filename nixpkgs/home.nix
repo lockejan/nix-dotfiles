@@ -55,6 +55,7 @@
     jq
     less
     ninja
+    nix
     openssl
     podman
     pwgen
