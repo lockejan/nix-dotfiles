@@ -42,6 +42,8 @@
       mkdir = "command mkdir -p";
       ssh = "TERM=xterm-256color ssh";
       sed = "sed -E";
+      rollback = ''
+        home-manager generations | fzf | awk '{activate=$NF"/activate"; print activate}' | bash - '';
       luamake = (builtins.getEnv "HOME"
         + "/.cache/nvim/nlua/sumneko_lua/3rd/luamake/luamake");
     };
