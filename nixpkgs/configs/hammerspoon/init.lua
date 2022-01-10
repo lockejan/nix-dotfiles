@@ -14,6 +14,10 @@ hs.hotkey.bindSpec({ hyper, "l" }, function()
 	hs.execute("get-ldap-pass", true)
 end)
 
+hs.hotkey.bindSpec({ hyper, "p" }, function()
+	hs.execute("choose-pass", true)
+end)
+
 hs.loadSpoon("SpoonInstall")
 
 spoon.SpoonInstall.repos = {

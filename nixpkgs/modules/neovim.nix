@@ -1,6 +1,7 @@
 { config, pkgs, libs, ... }: {
   home.packages = with pkgs; [
     lua
+    nodejs
     yamllint
     yapf
     shfmt
