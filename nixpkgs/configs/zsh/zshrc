@@ -47,7 +47,9 @@ flakify() {
 
 lsp-update() {
   pushd ~/.cache/nvim/nlua/sumneko_lua
-  git pull
+  git pull origin master
+  tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+  git checkout $tag
   cd 3rd/luamake
   compile/install.sh
   cd ../..
