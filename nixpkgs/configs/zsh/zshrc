@@ -46,14 +46,26 @@ flakify() {
 }
 
 lsp-update() {
+  tag=$1
   pushd ~/.cache/nvim/nlua/sumneko_lua
+  old_hash=$(git rev-parse HEAD)
   git pull origin master
-  tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+
+  if [[ -z $tag ]]; then
+    tag=$(git describe --tags $(git rev-list --tags --max-count=1))
+  fi
+
   git checkout $tag
-  cd 3rd/luamake
-  compile/install.sh
-  cd ../..
-  ./3rd/luamake/luamake rebuild
+  new_hash=$(git rev-parse HEAD)
+
+  if [[ $old_hash != $new_hash ]]; then
+    cd 3rd/luamake
+    compile/install.sh
+    cd ../..
+    ./3rd/luamake/luamake rebuild
+  else
+    echo "$tag already compiled. Nothing to do!"
+  fi
   popd
 }
 
