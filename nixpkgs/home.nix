@@ -80,7 +80,8 @@
     experimental-features = nix-command flakes
   '';
 
-  home.file.".hammerspoon".source = ./configs/hammerspoon;
+  home.file.".hammerspoon".source =
+    config.lib.file.mkOutOfStoreSymlink ./configs/hammerspoon;
 
   home.file.".ghci".text = ''
     :set prompt "\ESC[1;35m\x03BB> \ESC[m"
