@@ -1,3 +1,7 @@
 [submodule "nixpkgs/machines"]
 	path = nixpkgs/machines
 	url = git@github.com:lockejan/nix-machines.git
+[submodule "nixpkgs/configs/nvim"]
+	path = nixpkgs/configs/nvim
+	url = git@github.com:lockejan/neovim-config.git
+    branch = main

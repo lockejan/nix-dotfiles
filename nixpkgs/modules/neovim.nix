@@ -19,4 +19,6 @@
     nodePackages.yaml-language-server
     nodePackages.dockerfile-language-server-nodejs
   ];
+  xdg.configFile."nvim".source =
+    config.lib.file.mkOutOfStoreSymlink ../configs/nvim;
 }
