@@ -12,8 +12,8 @@
       src = pkgs.fetchFromGitHub {
         owner = "Aloxaf";
         repo = "fzf-tab";
-        rev = "e85f76a3af3b6b6b799ad3d64899047962b9ce52";
-        sha256 = "Qf9AZ2DjO9QUyEF7QG8JtlBHjwHfINOJkrMfu7pipns=";
+        rev = "c5c6e1d82910fb24072a10855c03e31ea2c51563";
+        sha256 = "a1DKAfWpSiy1+34Wrnqdj7lmwOhYRFsdHyCZg1iKo+Y=";
         # sha256 = lib.fakeSha256;
       };
     }];
@@ -29,9 +29,10 @@
 
     shellAliases = {
       update =
-        "nix-channel --update && home-manager switch && tldr --update && lsp-update 2.5.6 && nvim-update";
+        "nix-channel --update && home-manager switch && tldr --update && lsp-update 2.6.3 && nvim-update";
       zc = "$EDITOR ~/.zshrc";
       vc = "$EDITOR ~/.config/nvim/init.lua";
+      n = "nvim";
       www = "python -m SimpleHTTPServer 8000";
       pubip = "dig +short myip.opendns.com @resolver1.opendns.com";
       localip = ''

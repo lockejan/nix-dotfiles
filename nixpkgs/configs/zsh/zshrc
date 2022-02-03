@@ -49,7 +49,7 @@ lsp-update() {
   tag=$1
   pushd ~/.cache/nvim/nlua/sumneko_lua
   old_hash=$(git rev-parse HEAD)
-  git pull origin master
+  git fetch --tags
 
   if [[ -z $tag ]]; then
     tag=$(git describe --tags $(git rev-list --tags --max-count=1))
@@ -93,5 +93,11 @@ get-gpg-fingerprint() {
 # export-pub-key () {
 #     get-fingerprint | gpg --armor --export - 2>&1 | tee ~/gpg-pub-$(date +%F).asc
 # }
+
+diff-dir() {
+  for files in $(diff -rq $1 $2 | grep 'differ$' | sed "s/^Files //g;s/ differ$//g;s/ and /:/g"); do
+    nvim -d ${files%:*} ${files#*:} -c "norm ]c"
+  done
+}
 
 alias \$=''

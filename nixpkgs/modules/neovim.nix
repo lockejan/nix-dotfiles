@@ -6,11 +6,11 @@
     yapf
     shfmt
     glow
-    # haskell-language-server
+    haskell-language-server
     nixfmt
     stylua
     neovim-nightly
-    clojure-lsp
+    # clojure-lsp
     rnix-lsp
     nodePackages.vscode-langservers-extracted
     nodePackages.pyright

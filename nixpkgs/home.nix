@@ -44,18 +44,23 @@
 
   home.packages = with pkgs; [
     ansible
-    coreutils-full
+    cachix
+    ctop
     curl
+    dogdns
     entr
     fd
-    git-filter-repo
+    glances
     gnugrep
     htop
+    hyperfine
+    jdk
     jbang
     jq
     less
     ninja
     nix
+    nix-tree
     openssl
     podman
     pwgen
