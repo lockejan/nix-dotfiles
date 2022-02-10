@@ -1,23 +1,25 @@
 { config, pkgs, libs, ... }: {
   home.packages = with pkgs; [
+    # clojure-lsp
+    glow
+    gopls
+    haskell-language-server
     lua
+    neovim-nightly
+    nixfmt
+    nodePackages.bash-language-server
+    nodePackages.dockerfile-language-server-nodejs
+    nodePackages.eslint
+    nodePackages.intelephense
+    nodePackages.pyright
+    nodePackages.vscode-langservers-extracted
+    nodePackages.yaml-language-server
     nodejs
+    rnix-lsp
+    shfmt
+    stylua
     yamllint
     yapf
-    shfmt
-    glow
-    haskell-language-server
-    nixfmt
-    stylua
-    neovim-nightly
-    # clojure-lsp
-    rnix-lsp
-    nodePackages.vscode-langservers-extracted
-    nodePackages.pyright
-    nodePackages.bash-language-server
-    nodePackages.intelephense
-    nodePackages.yaml-language-server
-    nodePackages.dockerfile-language-server-nodejs
   ];
   xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink ../configs/nvim;
