@@ -16,8 +16,10 @@
     nodePackages.yaml-language-server
     nodejs
     rnix-lsp
+    rubyPackages.solargraph
     shfmt
     stylua
+    # sumneko-lua-language-server
     yamllint
     yapf
   ];
