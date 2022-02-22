@@ -29,7 +29,7 @@
 
     shellAliases = {
       update =
-        "nix-channel --update && home-manager switch && tldr --update && lsp-update 2.6.4 && nvim-update";
+        "nix-channel --update && home-manager switch && tldr --update && nvim-update";
       zc = "$EDITOR ~/.zshrc";
       vc = "$EDITOR ~/.config/nvim/init.lua";
       n = "nvim";

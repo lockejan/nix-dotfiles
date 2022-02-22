@@ -3,7 +3,7 @@
     enable = true;
     font = {
       name = "JetBrainsMono Nerd Font";
-      size = 15;
+      size = 14;
     };
     settings = {
       scrollback_lines = 10000;
