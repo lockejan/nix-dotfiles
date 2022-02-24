@@ -22,6 +22,7 @@
     sumneko-lua-language-server
     yamllint
     yapf
+    yarn
   ];
   xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink ../configs/nvim;
