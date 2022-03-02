@@ -1,6 +1,6 @@
 { config, pkgs, libs, ... }: {
   home.packages = with pkgs; [
-    # clojure-lsp
+    clojure-lsp
     glow
     gopls
     haskell-language-server
