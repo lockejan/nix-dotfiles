@@ -43,10 +43,11 @@
   };
 
   home.packages = with pkgs; [
-    ansible
+    # ansible
     cachix
     ctop
     curl
+    dive
     dogdns
     entr
     fd
@@ -54,17 +55,21 @@
     gnugrep
     htop
     hyperfine
+    # jdk8
+    # jdk11
     jdk
-    jbang
+    # jetbrains.idea-ultimate
+    # jbang
     jq
     less
-    ninja
+    # ninja
     nix
     nix-tree
     openssl
-    podman
+    # podman
     pwgen
     ripgrep
+    tmate
     tldr
     trash-cli
     vagrant
@@ -88,9 +93,22 @@
   home.file.".hammerspoon".source =
     config.lib.file.mkOutOfStoreSymlink ./configs/hammerspoon;
 
-  home.file.".ghci".text = ''
-    :set prompt "\ESC[1;35m\x03BB> \ESC[m"
-    :set prompt-cont "\ESC[1;35m > \ESC[m"
-    :set +t
-  '';
+  home.file = {
+    ".zshrc".text = ''
+      # Aliases
+      alias foo="echo bar"
+    '';
+
+    ".macos".text = ''
+      # Disable the “Are you sure you want to open this application?” dialog
+      defaults write com.apple.LaunchServices LSQuarantine -bool false
+    '';
+
+    ".ghci".text = ''
+      :set prompt "\ESC[1;35m\x03BB> \ESC[m"
+      :set prompt-cont "\ESC[1;35m > \ESC[m"
+      :set +t
+    '';
+
+  };
 }

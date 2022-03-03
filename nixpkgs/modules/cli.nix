@@ -12,8 +12,8 @@
       src = pkgs.fetchFromGitHub {
         owner = "Aloxaf";
         repo = "fzf-tab";
-        rev = "c5c6e1d82910fb24072a10855c03e31ea2c51563";
-        sha256 = "a1DKAfWpSiy1+34Wrnqdj7lmwOhYRFsdHyCZg1iKo+Y=";
+        rev = "e8145d541a35d8a03df49fbbeefa50c4a0076bbf";
+        sha256 = "h/3XP/BiNnUgQI29gEBl6RFee77WDhFyvsnTi1eRbKg=";
         # sha256 = lib.fakeSha256;
       };
     }];
