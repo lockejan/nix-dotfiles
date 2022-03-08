@@ -110,5 +110,11 @@
       :set +t
     '';
 
+    "Library/Application Support/Element/config.json".text = ''
+      {
+        "showLabsSettings": true
+      }
+    '';
+
   };
 }
