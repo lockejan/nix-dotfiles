@@ -1,6 +1,6 @@
 { config, pkgs, libs, ... }: {
   programs.kitty = {
-    enable = true;
+    enable = false;
     font = {
       name = "JetBrainsMono Nerd Font";
       size = 15;
@@ -19,4 +19,8 @@
       include One Dark.conf
     '';
   };
+  xdg.configFile."kitty/kitty.conf".source =
+    config.lib.file.mkOutOfStoreSymlink ../configs/kitty/kitty.conf;
+  xdg.configFile."kitty/OneDark.conf".source =
+    config.lib.file.mkOutOfStoreSymlink ../configs/kitty/OneDark.conf;
 }

@@ -43,7 +43,6 @@
   };
 
   home.packages = with pkgs; [
-    # ansible
     cachix
     ctop
     curl
@@ -55,21 +54,16 @@
     gnugrep
     htop
     hyperfine
-    # jdk8
-    # jdk11
     jdk
-    # jetbrains.idea-ultimate
-    # jbang
     jq
     less
-    # ninja
     nix
     nix-tree
     openssl
+    nix-update
     # podman
     pwgen
     ripgrep
-    tmate
     tldr
     trash-cli
     vagrant
