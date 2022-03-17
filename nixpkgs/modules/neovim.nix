@@ -3,7 +3,7 @@
     clojure-lsp
     glow
     gopls
-    haskell-language-server
+    # haskell-language-server
     lua
     neovim-nightly
     nixfmt
@@ -16,7 +16,7 @@
     nodePackages.yaml-language-server
     nodejs
     rnix-lsp
-    rubyPackages.solargraph
+    # rubyPackages.solargraph
     shfmt
     stylua
     sumneko-lua-language-server

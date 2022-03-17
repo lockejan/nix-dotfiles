@@ -59,14 +59,15 @@
     less
     nix
     nix-tree
-    openssl
     nix-update
+    openssl
     # podman
     pwgen
     ripgrep
     tldr
     trash-cli
     vagrant
+    watch
     wget
   ];
 
