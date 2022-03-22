@@ -43,8 +43,6 @@
       sed = "sed -E";
       rollback = ''
         home-manager generations | fzf | awk '{activate=$NF"/activate"; print activate}' | bash - '';
-      luamake = (builtins.getEnv "HOME"
-        + "/.cache/nvim/nlua/sumneko_lua/3rd/luamake/luamake");
     };
     initExtra = builtins.readFile ../configs/zsh/zshrc;
   };

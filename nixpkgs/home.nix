@@ -61,7 +61,6 @@
     nix-tree
     nix-update
     openssl
-    # podman
     pwgen
     ripgrep
     tldr
@@ -88,28 +87,4 @@
   home.file.".hammerspoon".source =
     config.lib.file.mkOutOfStoreSymlink ./configs/hammerspoon;
 
-  home.file = {
-    ".zshrc".text = ''
-      # Aliases
-      alias foo="echo bar"
-    '';
-
-    ".macos".text = ''
-      # Disable the “Are you sure you want to open this application?” dialog
-      defaults write com.apple.LaunchServices LSQuarantine -bool false
-    '';
-
-    ".ghci".text = ''
-      :set prompt "\ESC[1;35m\x03BB> \ESC[m"
-      :set prompt-cont "\ESC[1;35m > \ESC[m"
-      :set +t
-    '';
-
-    "Library/Application Support/Element/config.json".text = ''
-      {
-        "showLabsSettings": true
-      }
-    '';
-
-  };
 }
