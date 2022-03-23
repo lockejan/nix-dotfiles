@@ -58,6 +58,7 @@
     jq
     less
     nix
+    nixpkgs-fmt
     nix-tree
     nix-update
     openssl

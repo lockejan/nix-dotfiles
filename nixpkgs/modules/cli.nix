@@ -1,6 +1,7 @@
 { lib, config, pkgs, ... }: {
   programs.zsh = {
     enable = true;
+    autocd = true;
     # dotDir = ".config/zsh";
     enableAutosuggestions = true;
     enableCompletion = true;
@@ -48,12 +49,21 @@
   };
 
   programs = {
+
+    # command-not-found.enable = true;
+
+    nix-index = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     z-lua = {
       enable = true;
       enableAliases = true;
       enableZshIntegration = true;
       options = [ "enhanced" "once" "fzf" ];
     };
+
     exa = {
       enable = true;
       enableAliases = true;
@@ -81,11 +91,18 @@
         shellIntegrationOptions = [ "-d 60%" ];
       };
     };
+
+    keychain = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;
       enableZshIntegration = true;
     };
+
     starship = {
       enable = true;
       enableZshIntegration = true;
