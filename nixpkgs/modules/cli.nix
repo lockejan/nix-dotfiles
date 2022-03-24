@@ -8,16 +8,27 @@
     enableSyntaxHighlighting = true;
     completionInit = "autoload -Uz compinit; compinit -u";
     defaultKeymap = "emacs";
-    plugins = [{
-      name = "fzf-tab";
-      src = pkgs.fetchFromGitHub {
-        owner = "Aloxaf";
-        repo = "fzf-tab";
-        rev = "e8145d541a35d8a03df49fbbeefa50c4a0076bbf";
-        sha256 = "h/3XP/BiNnUgQI29gEBl6RFee77WDhFyvsnTi1eRbKg=";
-        # sha256 = lib.fakeSha256;
-      };
-    }];
+    plugins = [
+      {
+        name = "fzf-tab";
+        src = pkgs.fetchFromGitHub {
+          owner = "Aloxaf";
+          repo = "fzf-tab";
+          rev = "e8145d541a35d8a03df49fbbeefa50c4a0076bbf";
+          sha256 = "h/3XP/BiNnUgQI29gEBl6RFee77WDhFyvsnTi1eRbKg=";
+          # sha256 = lib.fakeSha256;
+        };
+      }
+      {
+        name = "zsh-z";
+        src = pkgs.fetchFromGitHub {
+          owner = "agkozak";
+          repo = "zsh-z";
+          rev = "b5e61d03a42a84e9690de12915a006b6745c2a5f";
+          sha256 = "1A6WZ+fJSf2WKZD7CYJB/pbgwV2mX+X8qInqQLeuT78=";
+        };
+      }
+    ];
 
     history = {
       extended = true;
@@ -57,13 +68,6 @@
       enableZshIntegration = true;
     };
 
-    z-lua = {
-      enable = true;
-      enableAliases = true;
-      enableZshIntegration = true;
-      options = [ "enhanced" "once" "fzf" ];
-    };
-
     exa = {
       enable = true;
       enableAliases = true;
@@ -92,10 +96,10 @@
       };
     };
 
-    keychain = {
-      enable = true;
-      enableZshIntegration = true;
-    };
+    # keychain = {
+    #   enable = true;
+    #   enableZshIntegration = true;
+    # };
 
     direnv = {
       enable = true;

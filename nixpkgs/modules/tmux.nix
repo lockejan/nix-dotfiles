@@ -22,7 +22,7 @@
     resizeAmount = 10;
     secureSocket = true;
     sensibleOnTop = false;
-    terminal = "tmux-256color";
+    terminal = "xterm-kitty";
     extraConfig = builtins.readFile ../configs/tmux/tmux.conf;
   };
   xdg.configFile."tmux/tmux.mac.conf".source = ../configs/tmux/tmux.mac.conf;

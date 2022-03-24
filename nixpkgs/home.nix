@@ -44,6 +44,7 @@
 
   home.packages = with pkgs; [
     cachix
+    comma
     ctop
     curl
     dive
