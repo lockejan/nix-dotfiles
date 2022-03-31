@@ -54,6 +54,7 @@
     glances
     gnugrep
     htop
+    google-java-format
     hyperfine
     jdk
     jq
