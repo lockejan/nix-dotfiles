@@ -1,9 +1,9 @@
 { config, pkgs, ... }: {
   home.packages = with pkgs; [
-    clojure-lsp
+    # clojure-lsp
     glow
     gopls
-    # haskell-language-server
+    haskell-language-server
     lua
     neovim-nightly
     nixfmt

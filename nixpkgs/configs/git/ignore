@@ -7,6 +7,9 @@
 .vscode/
 .idea/
 
+#### nix + direnv stuff
+.direnv/
+
 ##### clojure
 pom.xml.asc
 *.jar

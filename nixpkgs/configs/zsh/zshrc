@@ -17,6 +17,10 @@ export PATH="$PATH:$HOME/bin"
 # source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
 export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
 
+if [[ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
+  source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
+
 nixify() {
   if [ ! -e ./.envrc ]; then
     echo "use nix" >.envrc
