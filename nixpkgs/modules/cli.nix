@@ -112,7 +112,12 @@
       enableZshIntegration = true;
       settings.directory = {
         truncation_length = 8;
+        truncation_symbol = "../";
         truncate_to_repo = false;
+      };
+      settings.git_commit = {
+        # only_detached = false;
+        # tag_disabled = false;
       };
     };
   };

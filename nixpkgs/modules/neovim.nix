@@ -1,9 +1,13 @@
 { config, pkgs, ... }: {
   home.packages = with pkgs; [
     # clojure-lsp
+    cargo
+    dotnet-sdk
     glow
     gopls
     haskell-language-server
+    hlint
+    stylish-haskell
     lua
     neovim-nightly
     nixfmt
@@ -15,6 +19,9 @@
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
     nodejs
+    omnisharp-roslyn
+    rust-analyzer
+    rustc
     rnix-lsp
     # rubyPackages.solargraph
     shfmt

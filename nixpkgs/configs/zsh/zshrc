@@ -74,10 +74,7 @@ lsp-update() {
 }
 
 nvim-update() {
-  pushd ~/.config/nvim
-  git pull
   nvim --headless +'autocmd User PackerComplete quitall' +PackerSync
-  popd
 }
 
 # Search content and Edit
@@ -92,6 +89,10 @@ filter-log() {
 
 get-gpg-fingerprint() {
   gpg -K | fzf | sed 's/ //g' | cut -d "=" -f2- | pbcopy
+}
+
+install-java(){
+  sdk install java $(sdk list java | fzf | awk '{print $NF}')
 }
 
 # export-pub-key () {
