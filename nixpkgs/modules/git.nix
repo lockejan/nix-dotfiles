@@ -76,12 +76,12 @@
       commit = { verbose = true; };
       rebase = { autoStash = true; };
       submodule = { recurse = true; };
-      credential.helper =  "osxkeychain";
+      credential.helper = "osxkeychain";
     };
   };
   home.file.".ignore".source = ../configs/git/ignore;
   home.file.".gitignore".source = ../configs/git/gitignore;
   xdg.configFile."git/attributes".source = ../configs/git/attributes;
 
-  home.packages = with pkgs; [ git-crypt git-filter-repo ];
+  home.packages = with pkgs; [ git-crypt git-filter-repo git-trim ];
 }

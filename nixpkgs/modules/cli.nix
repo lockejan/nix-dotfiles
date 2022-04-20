@@ -52,6 +52,7 @@
       df = "df -h";
       mkdir = "command mkdir -p";
       ssh = "TERM=xterm-256color ssh";
+      vagrant = "TERM=xterm-256color vagrant";
       sed = "sed -E";
       rollback = ''
         home-manager generations | fzf | awk '{activate=$NF"/activate"; print activate}' | bash - '';

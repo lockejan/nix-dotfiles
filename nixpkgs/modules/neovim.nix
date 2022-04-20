@@ -27,7 +27,7 @@
     shfmt
     stylua
     sumneko-lua-language-server
-    yamllint
+    # yamllint
     yapf
     yarn
   ];

@@ -95,6 +95,10 @@ install-java(){
   sdk install java $(sdk list java | fzf | awk '{print $NF}')
 }
 
+install-gradle(){
+  sdk install gradle $(sdk list gradle | awk '1' RS='[[:space:]]+' | grep '[0-9]' | sort --reverse | fzf)
+}
+
 # export-pub-key () {
 #     get-fingerprint | gpg --armor --export - 2>&1 | tee ~/gpg-pub-$(date +%F).asc
 # }
