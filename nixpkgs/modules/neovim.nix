@@ -26,7 +26,7 @@
     # rubyPackages.solargraph
     shfmt
     stylua
-    sumneko-lua-language-server
+    # sumneko-lua-language-server
     # yamllint
     yapf
     yarn
