@@ -62,8 +62,7 @@
 
   programs = {
 
-    # command-not-found.enable = true;
-
+    command-not-found.enable = false;
     nix-index = {
       enable = true;
       enableZshIntegration = true;

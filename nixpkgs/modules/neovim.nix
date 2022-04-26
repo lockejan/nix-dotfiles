@@ -1,5 +1,6 @@
 { config, pkgs, ... }: {
   home.packages = with pkgs; [
+    # clojure
     # clojure-lsp
     cargo
     dotnet-sdk
@@ -26,7 +27,7 @@
     # rubyPackages.solargraph
     shfmt
     stylua
-    # sumneko-lua-language-server
+    sumneko-lua-language-server
     # yamllint
     yapf
     yarn
