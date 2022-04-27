@@ -83,5 +83,5 @@
   home.file.".gitignore".source = ../configs/git/gitignore;
   xdg.configFile."git/attributes".source = ../configs/git/attributes;
 
-  home.packages = with pkgs; [ git-crypt git-filter-repo git-trim ];
+  home.packages = with pkgs; [ git-crypt git-filter-repo git-trim gh ];
 }
