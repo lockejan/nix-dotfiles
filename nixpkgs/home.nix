@@ -42,7 +42,6 @@
 
   home.packages = with pkgs; [
     cachix
-    comma
     ctop
     curl
     dive
@@ -72,7 +71,7 @@
     wget
   ];
 
-  home.stateVersion = "22.05";
+  home.stateVersion = "21.11";
 
   xdg.configFile."nix/nix.conf".text = ''
     experimental-features = nix-command flakes
