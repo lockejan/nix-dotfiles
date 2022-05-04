@@ -10,6 +10,7 @@
 
   imports = [
     # ./modules/alacritty.nix
+    ./modules/osx.nix
     ./modules/cli.nix
     ./modules/git.nix
     ./modules/gpg.nix
