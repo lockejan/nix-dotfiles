@@ -78,6 +78,9 @@
     experimental-features = nix-command flakes
   '';
 
+  home.file.".ideavimrc".source =
+    config.lib.file.mkOutOfStoreSymlink ./configs/idea/ideavimrc;
+
   home.file.".hammerspoon".source =
     config.lib.file.mkOutOfStoreSymlink ./configs/hammerspoon;
 }

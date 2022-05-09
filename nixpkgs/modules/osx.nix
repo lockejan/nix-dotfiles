@@ -19,10 +19,10 @@
       LaunchServices = false;
     };
 
-    targets.darwin.search = "Google";
-    targets.darwin.keybindings = {
-      "^u" = "deleteToBeginningOfLine:";
-      "^w" = "deleteWordBackward:";
-    };
   };
+  targets.darwin.search = "Google";
+  # targets.darwin.keybindings = {
+  #   "^u" = "deleteToBeginningOfLine:";
+  #   "^w" = "deleteWordBackward:";
+  # };
 }
