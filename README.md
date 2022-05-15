@@ -21,7 +21,7 @@ Inspect it, make a backup or delete it, because the script will symlink this con
 
 Right now additional specific and sensitive information are provided via a private git submodule.
 
-These live under the folder `machines` and get included inside [home.nix](./nixpkgs/home.nix).
+These live under the folder `machines` and get included inside [home.nix](./home-manager/home.nix).
 
 Especially git configuration and additional tooling is pulled in via such.
 This way each machine gets only what it needs.
@@ -56,8 +56,9 @@ To create your own you can use this example code as a start for a `personal.nix`
 
 - [ ] handling secrets
 - [X] machine specific configuration
-- [ ] properly registering gui apps
-- [ ] setup nix-darwin to add more darwin specific configuration
+- [X] properly registering gui apps
+- [X] setup nix-darwin to add more darwin specific configuration
+- [ ] setup flakes
 
 ## Questions?
 Feel free to open issues if you’re interested in something.

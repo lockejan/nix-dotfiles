@@ -9,9 +9,8 @@
     escapeTime = 500;
     historyLimit = 5000;
     # keyMode = "vi";
-    newSession = false;
+    newSession = true;
     # plugins = with pkgs; [
-    # tmuxPlugins.cpu
     # tmuxPlugins.urlview
     # {
     # plugin = tmuxPlugins.resurrect;
@@ -22,7 +21,7 @@
     resizeAmount = 10;
     secureSocket = true;
     sensibleOnTop = false;
-    terminal = "xterm-kitty";
+    terminal = "xterm-256color";
     extraConfig = builtins.readFile ../configs/tmux/tmux.conf;
   };
   xdg.configFile."tmux/tmux.mac.conf".source = ../configs/tmux/tmux.mac.conf;

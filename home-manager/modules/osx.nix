@@ -16,7 +16,6 @@
       Safari.WebKitPreferences.developerExtrasEnabled = true;
       # menuextra.battery.ShowPercent = "YES";
       desktopservices.DSDontWriteUSBStores = true;
-      LaunchServices = false;
     };
 
   };
