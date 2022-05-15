@@ -6,7 +6,7 @@
     dotnet-sdk
     glow
     gopls
-    haskell-language-server
+    # haskell-language-server
     hlint
     stylish-haskell
     lua

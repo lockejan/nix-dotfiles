@@ -13,9 +13,6 @@
 
     Host *
        AddKeysToAgent yes
-       IdentityFile ~/.ssh/id_rsa
        ForwardAgent yes
-       GSSAPIDelegateCredentials yes
-       GSSAPIAuthentication yes
   '';
 }

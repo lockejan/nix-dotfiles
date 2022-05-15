@@ -1,8 +1,8 @@
-[submodule "nixpkgs/machines"]
-	path = nixpkgs/machines
+[submodule "machines"]
+	path = home-manager/machines
 	url = git@github.com:lockejan/nix-machines.git
 	branch = main
-[submodule "nixpkgs/configs/nvim"]
-	path = nixpkgs/configs/nvim
+[submodule "nvim"]
+	path = home-manager/configs/nvim
 	url = git@github.com:lockejan/neovim-config.git
 	branch = main

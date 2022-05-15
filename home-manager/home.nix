@@ -5,16 +5,17 @@
     (import (builtins.fetchTarball {
       url =
         "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+      # sha256 = "1iff20vql5iwcjdf20r49v7m0mf1qzi8xwg6qx6yvijgl35ac2z4";
     }))
   ];
 
   imports = [
     # ./modules/alacritty.nix
-    ./modules/osx.nix
+    # ./modules/osx.nix
     ./modules/cli.nix
     ./modules/git.nix
     ./modules/gpg.nix
-    ./modules/kitty.nix
+    # ./modules/kitty.nix
     ./modules/neovim.nix
     ./modules/python.nix
     ./modules/ssh.nix
@@ -26,11 +27,11 @@
   ];
 
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  #programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
 
-  home.username = builtins.getEnv "USER";
-  home.homeDirectory = builtins.getEnv "HOME";
+  # home.username = builtins.getEnv "USER";
+  # home.homeDirectory = builtins.getEnv "HOME";
 
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -40,37 +41,6 @@
     PATH = "$PATH:/Library/Developer/CommandLineTools/usr/bin/";
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
   };
-
-  home.packages = with pkgs; [
-    cachix
-    ctop
-    curl
-    dive
-    dogdns
-    entr
-    fd
-    glances
-    gnugrep
-    htop
-    google-java-format
-    hyperfine
-    jdk
-    jq
-    less
-    nix
-    nixpkgs-fmt
-    nixpkgs-review
-    nix-tree
-    nix-update
-    openssl
-    pwgen
-    ripgrep
-    tldr
-    trash-cli
-    vagrant
-    watch
-    wget
-  ];
 
   home.stateVersion = "21.11";
 
