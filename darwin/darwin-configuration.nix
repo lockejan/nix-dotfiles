@@ -53,7 +53,7 @@
       "homebrew/cask-drivers"
     ];
 
-    brews = [ "ykman" ];
+    brews = [ "ykman" "pam-reattach" ];
 
     # whalebrews = [ "whalebrew/wget" ];
 
@@ -67,7 +67,6 @@
       "element"
       "firefox"
       "flux"
-      # "font-jetbrains-mono-nerd-font"
       "hammerspoon"
       "itsycal"
       "iterm2"
@@ -116,8 +115,8 @@
 
   networking.hostName = "lockejan-machine";
 
-  programs.gnupg.agent.enable = true;
-  programs.gnupg.agent.enableSSHSupport = true;
+  # programs.gnupg.agent.enable = true;
+  # programs.gnupg.agent.enableSSHSupport = true;
 
   # services.cachix-agent.enable = true;
   # services.cachix-agent.name = "nix-community";

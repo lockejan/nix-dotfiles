@@ -1,21 +1,21 @@
 # nix-dotfiles
 
-These are my personal nix-dotfiles.
+These are my personal nix-dotfiles to setup my macOs machines.
 Use at your own risk.
 
 It's still very much work in progress.
 
 ## Install
 
-1. Install [nix](https://nixos.org/guides/install-nix.html) on your machine or via docker.
+1. Install [nix](https://nixos.org/guides/install-nix.html) on your machine.
 
-2. Install [home-manager](https://github.com/nix-community/home-manager).
+2. Add [home-manager](https://github.com/nix-community/home-manager)-channel. This way it can be used as a [nix-darwin module](https://nix-community.github.io/home-manager/index.html#sec-install-nix-darwin-module).
 
-3. Clone the repository and run [setup.sh](./setup.sh) to symlink the repo into the proper place.  
-During the initial home-manager installation a nixpkgs folder with a default configuration will be created.  
-Inspect it, make a backup or delete it, because the script will symlink this configuration into its place.
+3. Install [nix-darwin](https://github.com/LnL7/nix-darwin).
 
-4. Run `home-manager switch` to install the dotfiles.
+4. Clone the repository and run [setup.sh](./setup.sh) to symlink the repo into the proper place.
+
+5. Run `darwin-rebuild switch` to install the dotfiles.
 
 ## Machine specific extras
 
