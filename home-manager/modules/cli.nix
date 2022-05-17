@@ -14,8 +14,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "Aloxaf";
           repo = "fzf-tab";
-          rev = "e8145d541a35d8a03df49fbbeefa50c4a0076bbf";
-          sha256 = "h/3XP/BiNnUgQI29gEBl6RFee77WDhFyvsnTi1eRbKg=";
+          rev = "7e0eee64df6c7c81a57792674646b5feaf89f263";
+          sha256 = "sha256-ixUnuNtxxmiigeVjzuV5uG6rIBPY/1vdBZF2/Qv0Trs=";
           # sha256 = lib.fakeSha256;
         };
       }
@@ -51,8 +51,6 @@
       du = "du -cksh";
       df = "df -h";
       mkdir = "command mkdir -p";
-      ssh = "TERM=xterm-256color ssh";
-      vagrant = "TERM=xterm-256color vagrant";
       sed = "sed -E";
       rollback = ''
         home-manager generations | fzf | awk '{activate=$NF"/activate"; print activate}' | bash - '';

@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 let
-  openSSHwithKerberos =
-    pkgs.openSSH.overrideAttrs (oldAttrs: rec { withKerberos = true; });
+  openssh = pkgs.openssh.overrideAttrs (oldAttrs: rec { withKerberos = true; });
 in {
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
