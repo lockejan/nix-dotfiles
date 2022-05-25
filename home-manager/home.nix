@@ -1,7 +1,4 @@
-{ config, pkgs, ... }:
-let
-  openssh = pkgs.openssh.overrideAttrs (oldAttrs: rec { withKerberos = true; });
-in {
+{ config, pkgs, ... }: {
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
       url =
@@ -16,7 +13,7 @@ in {
     ./modules/cli.nix
     ./modules/git.nix
     ./modules/gpg.nix
-    # ./modules/kitty.nix
+    ./modules/kitty.nix
     ./modules/neovim.nix
     ./modules/python.nix
     ./modules/ssh.nix
@@ -39,8 +36,8 @@ in {
     VISUAL = "$EDITOR";
     # PAGER = "nvim -R";
     MANPAGER = "nvim +Man!";
-    PATH = "$PATH:/Library/Developer/CommandLineTools/usr/bin/";
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
+    # PATH = "$PATH:/Library/Developer/CommandLineTools/usr/bin/";
+    # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
   };
 
   home.stateVersion = "21.11";

@@ -4,6 +4,10 @@
     # clojure-lsp
     cargo
     dotnet-sdk
+    elmPackages.elm
+    elmPackages.elm-test
+    elmPackages.elm-format
+    elmPackages.elm-language-server
     glow
     gopls
     # haskell-language-server

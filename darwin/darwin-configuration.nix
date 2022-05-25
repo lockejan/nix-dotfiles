@@ -13,10 +13,10 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
-    # cachix
     ctop
     curl
     dive
+    dockutil
     dogdns
     entr
     fd
@@ -26,14 +26,15 @@
     htop
     hyperfine
     iterm2
-    jdk
+    jdk17_headless
     jq
     less
+    nix-prefetch-git
     nixpkgs-fmt
     nixpkgs-review
     nix-tree
     nix-update
-    # openssh
+    openssh
     openssl
     pwgen
     ripgrep
@@ -119,9 +120,6 @@
   # programs.gnupg.agent.enable = true;
   # programs.gnupg.agent.enableSSHSupport = true;
 
-  # services.cachix-agent.enable = true;
-  # services.cachix-agent.name = "nix-community";
-
   system.defaults = {
     dock.autohide = true;
     # dock.autohide-delay = 0.2;
@@ -179,12 +177,13 @@
   users.nix.configureBuildUsers = true;
 
   # # Enable experimental nix command and flakes
-  # # nix.package = pkgs.nixUnstable;
   nix.extraOptions = ''
     auto-optimise-store = true
     experimental-features = nix-command flakes
   '' + lib.optionalString (pkgs.system == "aarch64-darwin") ''
     extra-platforms = x86_64-darwin aarch64-darwin
+    gc-keep-derivations = true
+    gc-keep-outputs = true
   '';
 
   # https://github.com/nix-community/home-manager/issues/423
