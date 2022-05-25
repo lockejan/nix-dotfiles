@@ -6,7 +6,7 @@
     enableAutosuggestions = true;
     enableCompletion = true;
     enableSyntaxHighlighting = true;
-    completionInit = "autoload -Uz compinit; compinit -u";
+    # completionInit = "autoload -Uz compinit; compinit -u";
     defaultKeymap = "emacs";
     plugins = [
       {

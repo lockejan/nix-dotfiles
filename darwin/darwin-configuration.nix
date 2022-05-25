@@ -205,7 +205,12 @@
 
   # Create /etc/bashrc that loads the nix-darwin environment.
   programs.bash.enable = true;
-  programs.zsh.enable = true; # default shell on catalina
+  programs.zsh = {
+    enable = true;
+    enableCompletion = false;
+    enableBashCompletion = false;
+    promptInit = "";
+  };
   # programs.fish.enable = true;
 
   # Used for backwards compatibility, please read the changelog before changing.
