@@ -1,9 +1,9 @@
 { config, pkgs, ... }: {
   home.packages = with pkgs; [
-    # clojure
-    # clojure-lsp
+    clojure
+    clojure-lsp
     cargo
-    dotnet-sdk
+    # dotnet-sdk
     elmPackages.elm
     elmPackages.elm-test
     elmPackages.elm-format
@@ -24,15 +24,15 @@
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
     nodejs
-    omnisharp-roslyn
+    # omnisharp-roslyn
     rust-analyzer
     rustc
     rnix-lsp
-    # rubyPackages.solargraph
+    rubyPackages.solargraph
     shfmt
     stylua
     sumneko-lua-language-server
-    # yamllint
+    yamllint
     yapf
     yarn
   ];

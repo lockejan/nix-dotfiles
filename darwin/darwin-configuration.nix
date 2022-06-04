@@ -13,36 +13,7 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
-    ctop
-    curl
-    dive
-    dockutil
-    dogdns
-    entr
-    fd
-    glances
-    gnugrep
-    google-java-format
-    htop
-    hyperfine
     iterm2
-    jdk17_headless
-    jq
-    less
-    nix-prefetch-git
-    nixpkgs-fmt
-    nixpkgs-review
-    nix-tree
-    nix-update
-    openssh
-    openssl
-    pwgen
-    ripgrep
-    tldr
-    trash-cli
-    vagrant
-    watch
-    wget2
     vim
   ];
 
@@ -110,7 +81,7 @@
       Keynote = 409183694;
       iMovie = 408981434;
       # Pages = 409201541;
-      # Numbers = 409203825;
+      Numbers = 409203825;
       # GarageBand = 682658836;
     };
   };
@@ -157,6 +128,31 @@
   system.keyboard.nonUS.remapTilde = true;
   system.keyboard.remapCapsLockToControl = true;
 
+  # environment.etc."DefaultKeyBinding.dict".text = ''
+  #   {
+  #     "~f"    = "moveWordForward:";
+  #     "~b"    = "moveWordBackward:";
+  #     "~d"    = "deleteWordForward:";
+  #     "~^h"   = "deleteWordBackward:";
+  #     "~\010" = "deleteWordBackward:";    /* Option-backspace */
+  #     "~\177" = "deleteWordBackward:";    /* Option-delete */
+  #     "~v"    = "pageUp:";
+  #     "^v"    = "pageDown:";
+  #     "~<"    = "moveToBeginningOfDocument:";
+  #     "~>"    = "moveToEndOfDocument:";
+  #     "^/"    = "undo:";
+  #     "~/"    = "complete:";
+  #     "^g"    = "_cancelKey:";
+  #     "^a"    = "moveToBeginningOfLine:";
+  #     "^e"    = "moveToEndOfLine:";
+  #     "~c"	  = "capitalizeWord:"; /* M-c */
+  #     "~u"	  = "uppercaseWord:";	 /* M-u */
+  #     "~l"	  = "lowercaseWord:";	 /* M-l */
+  #     "^t"	  = "transpose:";      /* C-t */
+  #     "~t"	  = "transposeWords:"; /* M-t */
+  #   }
+  # '';
+
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
   # environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
@@ -187,9 +183,10 @@
   '';
 
   # https://github.com/nix-community/home-manager/issues/423
-  environment.variables = {
-    TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";
-  };
+  # environment.variables = {
+  #   TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";
+  # };
+
   # programs.nix-index.enable = true;
 
   # Fonts

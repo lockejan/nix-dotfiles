@@ -24,6 +24,39 @@
       ./machines/personal.nix)
   ];
 
+  home.packages = with pkgs; [
+    ctop
+    curl
+    dive
+    dockutil
+    dogdns
+    entr
+    fd
+    glances
+    gnugrep
+    google-java-format
+    htop
+    hyperfine
+    inetutils
+    jdk17_headless
+    jq
+    less
+    nix-prefetch-git
+    nixpkgs-fmt
+    nixpkgs-review
+    nix-tree
+    nix-update
+    openssh
+    openssl
+    pwgen
+    ripgrep
+    tldr
+    trash-cli
+    vagrant
+    watch
+    wget2
+  ];
+
   # Let Home Manager install and manage itself.
   #programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
