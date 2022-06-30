@@ -1,4 +1,7 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+let unstable = import <unstable> { config.allowUnfree = true; };
+in {
+
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
       url =
