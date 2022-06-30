@@ -15,7 +15,7 @@
     ./modules/gpg.nix
     ./modules/kitty.nix
     ./modules/neovim.nix
-    ./modules/python.nix
+    # ./modules/python.nix
     ./modules/ssh.nix
     ./modules/tmux.nix
     (if builtins.getEnv "USER" == "schmitt" then
@@ -68,12 +68,12 @@
     EDITOR = "nvim";
     VISUAL = "$EDITOR";
     # PAGER = "nvim -R";
-    MANPAGER = "nvim +Man!";
+    # MANPAGER = "nvim +Man!";
     # PATH = "$PATH:/Library/Developer/CommandLineTools/usr/bin/";
     # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
   };
 
-  home.stateVersion = "21.11";
+  home.stateVersion = "22.05";
 
   xdg.configFile."nix/nix.conf".text = ''
     experimental-features = nix-command flakes

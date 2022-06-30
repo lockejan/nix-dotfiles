@@ -10,12 +10,10 @@
 
   home-manager.users.lockejan.imports = [ ../dotfiles/home-manager/home.nix ];
 
+  # programs.gnupg.agent.enable = true;
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs; [
-    iterm2
-    vim
-  ];
+  environment.systemPackages = with pkgs; [ vim ];
 
   homebrew = {
     enable = true;
@@ -26,7 +24,7 @@
       "homebrew/cask-drivers"
     ];
 
-    brews = [ "ykman" "pam-reattach" ];
+    brews = [ "pinentry-mac" "pam-reattach" ];
 
     # whalebrews = [ "whalebrew/wget" ];
 
@@ -63,9 +61,9 @@
       "visual-studio-code"
       "wireshark"
       "yippy"
-      "yubico-authenticator"
+      # "yubico-authenticator"
       # "yubico-piv-tool"
-      "yubico-yubikey-manager"
+      # "yubico-yubikey-manager"
       "zoom"
       # "postman"
     ];

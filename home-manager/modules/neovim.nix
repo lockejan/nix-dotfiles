@@ -19,12 +19,15 @@
     nodePackages.bash-language-server
     nodePackages.dockerfile-language-server-nodejs
     nodePackages.eslint
-    nodePackages.intelephense
+    # nodePackages.intelephense
     nodePackages.pyright
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
     nodejs
     # omnisharp-roslyn
+    python39Packages.python-lsp-server
+    # python39Full
+    # python39Packages.pynvim
     rust-analyzer
     rustc
     rnix-lsp
