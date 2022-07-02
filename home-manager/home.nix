@@ -18,7 +18,7 @@ in {
     ./modules/gpg.nix
     ./modules/kitty.nix
     ./modules/neovim.nix
-    # ./modules/python.nix
+    ./modules/python.nix
     ./modules/ssh.nix
     ./modules/tmux.nix
     (if builtins.getEnv "USER" == "schmitt" then
@@ -62,7 +62,7 @@ in {
 
   # Let Home Manager install and manage itself.
   #programs.home-manager.enable = true;
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
 
   # home.username = builtins.getEnv "USER";
   # home.homeDirectory = builtins.getEnv "HOME";

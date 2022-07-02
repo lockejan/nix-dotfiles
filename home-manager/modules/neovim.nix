@@ -26,8 +26,6 @@
     nodejs
     # omnisharp-roslyn
     python39Packages.python-lsp-server
-    # python39Full
-    # python39Packages.pynvim
     rust-analyzer
     rustc
     rnix-lsp
