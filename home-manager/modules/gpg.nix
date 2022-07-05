@@ -7,12 +7,4 @@
     # yubikey-manager
   ];
 
-  programs.gpg = {
-    enable = true;
-    # scdaemonSettings = {
-    # reader-port = "Yubico Yubi";
-    # disable-ccid = true;
-    # pcsc-shared = true;
-    # };
-  };
 }
