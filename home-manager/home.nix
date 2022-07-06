@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
-let unstable = import <unstable> { config.allowUnfree = true; };
+let
+  unstable = import <unstable> {
+    config.allowUnfree = true;
+  };
 in {
 
   nixpkgs.overlays = [
