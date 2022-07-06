@@ -4,7 +4,10 @@
     pinentry
     gpg-tui
     # pinentry_mac
-    # yubikey-manager
   ];
+
+  programs.gpg = {
+    enable = true;
+  };
 
 }

@@ -14,5 +14,6 @@
     Host *
        AddKeysToAgent yes
        ForwardAgent yes
+       IdentitiesOnly yes
   '';
 }
