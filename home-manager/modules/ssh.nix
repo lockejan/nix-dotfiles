@@ -1,5 +1,5 @@
 { config, pkgs, libs, ... }: {
-  home.packages = with pkgs; [ ssh-audit sshpass openssh ];
+  home.packages = with pkgs; [ ssh-audit sshpass openssh mosh ];
   # xdg.configfile.".ssh/config".source = ../configs/ssh/ssh_config;
   home.file.".ssh/config".text = ''
     HashKnownHosts no
