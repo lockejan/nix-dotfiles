@@ -44,6 +44,7 @@ in {
     htop
     hyperfine
     inetutils
+    unstable.ijq
     jdk17_headless
     jq
     less
