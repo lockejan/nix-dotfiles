@@ -55,6 +55,7 @@
       # difftool = { path = "nvim"; };
       format = { pretty = "fuller"; };
       fetch = { prune = true; };
+      help = { autocorrect = 10; };
       merge = { tool = "nvim"; };
       mergetool = {
         nvim = {
