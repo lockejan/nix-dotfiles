@@ -45,6 +45,7 @@ in {
     hyperfine
     inetutils
     unstable.ijq
+    # unstable.neovim
     jdk17_headless
     jq
     less

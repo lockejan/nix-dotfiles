@@ -12,6 +12,8 @@
     Include hosts
 
     Host *
+       #IgnoreUnkown UseKeychain
+       #UseKeychain yes
        AddKeysToAgent yes
        ForwardAgent yes
        IdentitiesOnly yes

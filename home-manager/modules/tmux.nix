@@ -8,7 +8,7 @@
     disableConfirmationPrompt = false;
     escapeTime = 40;
     historyLimit = 5000;
-    # keyMode = "vi";
+    keyMode = "emacs";
     newSession = true;
     plugins = with pkgs; [
       tmuxPlugins.urlview
@@ -36,7 +36,7 @@
     resizeAmount = 10;
     secureSocket = true;
     sensibleOnTop = false;
-    terminal = "xterm-256color";
+    terminal = "tmux-256color";
     extraConfig = builtins.readFile ../configs/tmux/tmux.conf;
   };
   xdg.configFile."tmux/tmux.mac.conf".source = ../configs/tmux/tmux.mac.conf;
