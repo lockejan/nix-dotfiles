@@ -13,6 +13,7 @@
       cob = "switch -c";
       di = "diff";
       ds = "diff --staged";
+      fixup = "commit --amend --no-edit";
       history = "log --follow --patch";
       last = "log -n 1 --format=%H";
       lgo = "log --pretty=oneline";
@@ -56,6 +57,7 @@
       format = { pretty = "fuller"; };
       fetch = { prune = true; };
       help = { autocorrect = 10; };
+      interactive = { singlekey = true; };
       merge = { tool = "nvim"; };
       mergetool = {
         nvim = {
