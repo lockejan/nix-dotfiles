@@ -6,14 +6,25 @@
   users.users.lockejan = {
     name = "lockejan";
     home = "/Users/lockejan";
+    shell = pkgs.zsh;
   };
 
-  home-manager.users.lockejan.imports = [ ../dotfiles/home-manager/home.nix ];
+  home-manager = {
+    # useUserPackages = true;
+    # useGlobalPkgs = true;
+    users.lockejan = import ../dotfiles/home-manager/home.nix;
+  };
+
+  # https://github.com/nix-community/home-manager/issues/423
+  environment.variables = {
+    TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";
+  };
 
   # programs.gnupg.agent.enable = true;
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [ vim ];
+  environment.shells = [ pkgs.zsh ];
 
   homebrew = {
     enable = true;
@@ -32,6 +43,7 @@
       "anki"
       "authy"
       "brave-browser"
+      "breitbandmessung"
       "coconutbattery"
       "docker"
       "electrum"
@@ -57,30 +69,26 @@
       "telegram-desktop"
       "tomighty"
       "tor-browser"
-      # "virtualbox"
       "visual-studio-code"
       "wireshark"
       "yippy"
-      # "yubico-authenticator"
-      # "yubico-piv-tool"
-      # "yubico-yubikey-manager"
       "zoom"
       # "postman"
     ];
 
     masApps = {
-      # Xcode = 497799835;
-      "Logic Pro" = 634148309;
-      Mactracker = 430255202;
-      "irealb Pro" = 409035833;
-      "Slack for Desktop" = 803453959;
       "AdGuard for Safari" = 1440147259;
       Bitwarden = 1352778147;
-      Keynote = 409183694;
       iMovie = 408981434;
-      # Pages = 409201541;
+      "irealb Pro" = 409035833;
+      Keynote = 409183694;
+      Kindle = 405399194;
+      "Logic Pro" = 634148309;
+      Mactracker = 430255202;
       Numbers = 409203825;
-      # GarageBand = 682658836;
+      # Pages = 409201541;
+      "Slack for Desktop" = 803453959;
+      # Xcode = 497799835;
     };
   };
 
@@ -180,12 +188,8 @@
     gc-keep-outputs = true
   '';
 
-  # https://github.com/nix-community/home-manager/issues/423
-  # environment.variables = {
-  #   TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";
-  # };
-
   # programs.nix-index.enable = true;
+  nixpkgs.config.allowUnfree = true;
 
   # Fonts
   fonts.fontDir.enable = true;
@@ -210,7 +214,5 @@
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
-
-  nixpkgs.config.allowUnfree = true;
 
 }

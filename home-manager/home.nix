@@ -38,6 +38,7 @@ in {
     dogdns
     entr
     fd
+    geckodriver
     glances
     gnugrep
     google-java-format
@@ -66,7 +67,7 @@ in {
   ];
 
   # Let Home Manager install and manage itself.
-  #programs.home-manager.enable = true;
+  programs.home-manager.enable = true;
   # nixpkgs.config.allowUnfree = true;
 
   # home.username = builtins.getEnv "USER";
@@ -78,7 +79,7 @@ in {
     # PAGER = "nvim -R";
     # MANPAGER = "nvim +Man!";
     # PATH = "$PATH:/Library/Developer/CommandLineTools/usr/bin/";
-    # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
   };
 
   home.stateVersion = "22.05";

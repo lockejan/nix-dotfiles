@@ -1,6 +1,6 @@
 { config, pkgs, libs, ... }: {
   programs.kitty = {
-    enable = false;
+    enable = true;
     font = {
       name = "JetBrainsMono Nerd Font";
       size = 14;
@@ -16,11 +16,11 @@
       bold_italic_font auto
       disable_ligatures never
       macos_option_as_alt yes
-      include One Dark.conf
+      include OneDark.conf
     '';
   };
-  xdg.configFile."kitty/kitty.conf".source =
-    config.lib.file.mkOutOfStoreSymlink ../configs/kitty/kitty.conf;
+  # xdg.configFile."kitty/kitty.conf".source =
+  #   config.lib.file.mkOutOfStoreSymlink ../configs/kitty/kitty.conf;
   xdg.configFile."kitty/OneDark.conf".source =
     config.lib.file.mkOutOfStoreSymlink ../configs/kitty/OneDark.conf;
 }
