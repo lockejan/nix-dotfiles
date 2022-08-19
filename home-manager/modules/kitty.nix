@@ -1,6 +1,6 @@
 { config, pkgs, libs, ... }: {
   programs.kitty = {
-    enable = true;
+    enable = false;
     font = {
       name = "JetBrainsMono Nerd Font";
       size = 14;
@@ -12,15 +12,22 @@
     };
     extraConfig = ''
       bold_font        auto
+      cursor_shape     beam
       italic_font      auto
       bold_italic_font auto
       disable_ligatures never
       macos_option_as_alt yes
-      include OneDark.conf
+      tab_bar_style powerline
+      macos_titlebar_color background
+      include everforestDarkMedium.conf
     '';
   };
-  # xdg.configFile."kitty/kitty.conf".source =
-  #   config.lib.file.mkOutOfStoreSymlink ../configs/kitty/kitty.conf;
+  xdg.configFile."kitty/kitty.conf".source =
+    config.lib.file.mkOutOfStoreSymlink ../configs/kitty/kitty.conf;
+  xdg.configFile."kitty/kanagawa.conf".source =
+    config.lib.file.mkOutOfStoreSymlink ../configs/kitty/kanagawa.conf;
   xdg.configFile."kitty/OneDark.conf".source =
     config.lib.file.mkOutOfStoreSymlink ../configs/kitty/OneDark.conf;
+  xdg.configFile."kitty/everforestDarkMedium.conf".source =
+    config.lib.file.mkOutOfStoreSymlink ../configs/kitty/everforestDarkMedium.conf;
 }

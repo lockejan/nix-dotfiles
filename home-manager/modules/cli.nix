@@ -43,6 +43,9 @@
       zc = "$EDITOR ~/.zshrc";
       vc = "$EDITOR ~/.config/nvim/init.lua";
       n = "nvim";
+      s = "kitty +kitten ssh";
+      diff="diff --color=auto";
+      grep="grep --color=auto";
       www = "python -m SimpleHTTPServer 8000";
       pubip = "dig +short myip.opendns.com @resolver1.opendns.com";
       localip = ''

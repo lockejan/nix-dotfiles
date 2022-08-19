@@ -9,10 +9,11 @@
     escapeTime = 40;
     historyLimit = 5000;
     keyMode = "emacs";
-    newSession = true;
+    newSession = false;
     plugins = with pkgs; [
-      tmuxPlugins.urlview
-      tmuxPlugins.onedark-theme
+      tmuxPlugins.tmux-fzf
+      tmuxPlugins.fzf-tmux-url
+      # tmuxPlugins.fingers
       tmuxPlugins.prefix-highlight
       {
         plugin = tmuxPlugins.resurrect;
@@ -36,6 +37,7 @@
     resizeAmount = 10;
     secureSocket = true;
     sensibleOnTop = false;
+    # terminal = "screen-256color";
     terminal = "xterm-kitty";
     extraConfig = builtins.readFile ../configs/tmux/tmux.conf;
   };
