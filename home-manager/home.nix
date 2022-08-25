@@ -26,7 +26,6 @@ in {
     (if builtins.getEnv "USER" == "schmitt" then
       ./machines/work.nix
     else
-      ./modules/ssh.nix
       ./machines/personal.nix)
   ];
 

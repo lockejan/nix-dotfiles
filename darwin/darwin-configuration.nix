@@ -118,7 +118,7 @@
   system.defaults.loginwindow.autoLoginUser = "lockejan";
   # system.defaults.ActivityMonitor.SortDirection = 0;
 
-    system.defaults.SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
+  system.defaults.SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
 
   system.defaults.NSGlobalDomain.AppleMeasurementUnits = "Centimeters";
   system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
