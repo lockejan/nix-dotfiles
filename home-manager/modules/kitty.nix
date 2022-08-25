@@ -19,7 +19,7 @@
       macos_option_as_alt yes
       tab_bar_style powerline
       macos_titlebar_color background
-      include everforestDarkMedium.conf
+      include kanagawa.conf
     '';
   };
   xdg.configFile."kitty/kitty.conf".source =

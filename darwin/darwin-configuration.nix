@@ -24,7 +24,7 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [ vim ];
-  environment.shells = [ pkgs.zsh ];
+  # environment.shells = [ pkgs.zsh ];
 
   homebrew = {
     enable = true;
@@ -118,6 +118,8 @@
   system.defaults.loginwindow.autoLoginUser = "lockejan";
   # system.defaults.ActivityMonitor.SortDirection = 0;
 
+    system.defaults.SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
+
   system.defaults.NSGlobalDomain.AppleMeasurementUnits = "Centimeters";
   system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
   # system.defaults.NSGlobalDomain.AppleShowScrollBars = "Always";
@@ -167,25 +169,30 @@
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
 
-  nix.binaryCaches = [ # "https://cache.nixos.org/"
-    "https://nix-community.cachix.org"
-  ];
+  nix.configureBuildUsers = true;
 
-  nix.binaryCachePublicKeys = [
-    # "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-  ];
-  nix.trustedUsers = [ "@admin" ];
-  users.nix.configureBuildUsers = true;
+  nix.settings = {
+      sandbox = true;
+      trusted-users = [ "@admin" ];
+      extra-sandbox-paths = [ "/private/tmp" "/private/var/tmp" "/usr/bin/env" ];
+      substituters = [
+        "https://nix-community.cachix.org"
+      ];
+      trusted-public-keys = [
+        # "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+
+      };
 
   # # Enable experimental nix command and flakes
   nix.extraOptions = ''
-    auto-optimise-store = true
     experimental-features = nix-command flakes
   '' + lib.optionalString (pkgs.system == "aarch64-darwin") ''
     extra-platforms = x86_64-darwin aarch64-darwin
     gc-keep-derivations = true
     gc-keep-outputs = true
+    log-lines = 128
   '';
 
   # programs.nix-index.enable = true;
