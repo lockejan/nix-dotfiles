@@ -90,6 +90,10 @@
       "Slack for Desktop" = 803453959;
       # Xcode = 497799835;
     };
+
+    extraConfig = ''
+      cask_args appdir: "~/Applications", require_sha: true
+    '';
   };
 
   networking.hostName = "lockejan-machine";
@@ -98,6 +102,7 @@
   # programs.gnupg.agent.enableSSHSupport = true;
 
   system.defaults = {
+    dock.appswitcher-all-displays = false;
     dock.autohide = true;
     # dock.autohide-delay = 0.2;
     dock.mru-spaces = false;
@@ -172,18 +177,15 @@
   nix.configureBuildUsers = true;
 
   nix.settings = {
-      sandbox = true;
-      trusted-users = [ "@admin" ];
-      extra-sandbox-paths = [ "/private/tmp" "/private/var/tmp" "/usr/bin/env" ];
-      substituters = [
-        "https://nix-community.cachix.org"
-      ];
-      trusted-public-keys = [
-        # "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      ];
+    sandbox = true;
+    trusted-users = [ "@admin" ];
+    extra-sandbox-paths = [ "/private/tmp" "/private/var/tmp" "/usr/bin/env" ];
+    substituters = [ "https://nix-community.cachix.org" ];
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
 
-      };
+  };
 
   # # Enable experimental nix command and flakes
   nix.extraOptions = ''
