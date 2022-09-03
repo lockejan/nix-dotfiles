@@ -14,7 +14,7 @@ in {
   ];
 
   imports = [
-    # ./modules/alacritty.nix
+    ./modules/alacritty.nix
     # ./modules/osx.nix
     ./modules/cli.nix
     ./modules/git.nix
@@ -30,6 +30,7 @@ in {
   ];
 
   home.packages = with pkgs; [
+    cachix
     ctop
     curl
     dive
@@ -45,7 +46,6 @@ in {
     hyperfine
     inetutils
     unstable.ijq
-    # unstable.neovim
     jdk17_headless
     jq
     less
@@ -78,10 +78,8 @@ in {
     VISUAL = "$EDITOR";
     # PAGER = "nvim -R";
     # MANPAGER = "nvim +Man!";
-    # PATH = "$PATH:/Library/Developer/CommandLineTools/usr/bin/";
     LESS="-R --use-color Du+b";
     # MANPAGER="less -R --use-color -Dd+r -Du+b";
-    # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
   };
 
   home.stateVersion = "22.05";

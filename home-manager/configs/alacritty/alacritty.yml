@@ -1,5 +1,5 @@
 env:
-  TERM: xterm-256color-italic
+  TERM: alacritty
   LC_ALL: en_US.UTF-8
   LANG: en_US.UTF-8
 alt_send_esc: false
@@ -16,6 +16,7 @@ window:
     instance: Alacritty
     general: Alacritty
   gtk_theme_variant: None
+  opacity: 1
 scrolling:
   history: 50000
   multiplier: 3
@@ -44,11 +45,11 @@ font:
 draw_bold_text_with_bright_colors: true
 cursor:
   style: Block
-background_opacity: 1
+# background_opacity: 1
 save_to_clipboard: true
 unfocused_hollow: true
 live_config_reload: true
 working_directory: None
 import:
-  - ~/.config/alacritty/one-dark.yml
+  - ~/.config/alacritty/kanagawa.yml
   - ~/.config/alacritty/osx-keybindings.yml

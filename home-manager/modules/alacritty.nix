@@ -1,11 +1,13 @@
 { config, pkgs, libs, ... }: {
-  home.packages = with pkgs; [ alacritty ];
+  # home.packages = with pkgs; [ alacritty ];
   xdg.configFile."alacritty/alacritty.yml".source =
-    ../configs/alacritty/alacritty.yml;
+    config.lib.file.mkOutOfStoreSymlink ../configs/alacritty/alacritty.yml;
   xdg.configFile."alacritty/one-dark.yml".source =
-    ../configs/alacritty/one-dark.yml;
+    config.lib.file.mkOutOfStoreSymlink ../configs/alacritty/one-dark.yml;
+  xdg.configFile."alacritty/kanagawa.yml".source =
+    config.lib.file.mkOutOfStoreSymlink ../configs/alacritty/kanagawa.yml;
   xdg.configFile."alacritty/osx-keybindings.yml".source =
-    ../configs/alacritty/osx-keybindings.yml;
+    config.lib.file.mkOutOfStoreSymlink ../configs/alacritty/osx-keybindings.yml;
 
   # programs.alacritty = {
   # enable = true;

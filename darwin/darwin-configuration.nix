@@ -15,11 +15,6 @@
     users.lockejan = import ../dotfiles/home-manager/home.nix;
   };
 
-  # https://github.com/nix-community/home-manager/issues/423
-  environment.variables = {
-    TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";
-  };
-
   # programs.gnupg.agent.enable = true;
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
@@ -41,6 +36,7 @@
 
     casks = [
       "anki"
+      "alacritty"
       "authy"
       "brave-browser"
       "breitbandmessung"
@@ -181,8 +177,10 @@
     trusted-users = [ "@admin" ];
     extra-sandbox-paths = [ "/private/tmp" "/private/var/tmp" "/usr/bin/env" ];
     substituters = [ "https://nix-community.cachix.org" ];
+    trusted-substituters = ["https://lockejan-nur.cachix.org" ];
     trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "lockejan-nur.cachix.org-1:hdALF1TiIpsnkkXp2Ymtev16iGE9FhYUDXhF6OWglWA="
     ];
 
   };
@@ -195,6 +193,7 @@
     gc-keep-derivations = true
     gc-keep-outputs = true
     log-lines = 128
+    # auto-optimise-store = true
   '';
 
   # programs.nix-index.enable = true;

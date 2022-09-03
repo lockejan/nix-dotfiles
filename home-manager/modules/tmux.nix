@@ -29,7 +29,7 @@
           set -g @continuum-restore 'on'
           set -g @continuum-save-interval '10' # minutes
           set -g @continuum-boot 'on'
-          set -g @continuum-boot-options 'kitty'
+          set -g @continuum-boot-options 'iterm'
         '';
       }
     ];
@@ -37,8 +37,7 @@
     resizeAmount = 10;
     secureSocket = true;
     sensibleOnTop = false;
-    # terminal = "screen-256color";
-    terminal = "xterm-kitty";
+    terminal = "screen-256color";
     extraConfig = builtins.readFile ../configs/tmux/tmux.conf;
   };
   xdg.configFile."tmux/tmux.mac.conf".source = ../configs/tmux/tmux.mac.conf;
