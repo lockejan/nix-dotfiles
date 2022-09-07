@@ -80,6 +80,7 @@ in {
     # MANPAGER = "nvim +Man!";
     LESS="-R --use-color Du+b";
     # MANPAGER="less -R --use-color -Dd+r -Du+b";
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
   };
 
   home.stateVersion = "22.05";

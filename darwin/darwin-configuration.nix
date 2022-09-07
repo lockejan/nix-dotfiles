@@ -23,8 +23,10 @@
 
   homebrew = {
     enable = true;
-    autoUpdate = true;
-    cleanup = "zap";
+    onActivation = {
+        autoUpdate = true;
+        cleanup = "zap";
+        };
     taps = [
       "homebrew/cask" # "homebrew/cask-fonts"
       "homebrew/cask-drivers"
@@ -44,6 +46,7 @@
       "docker"
       "electrum"
       "element"
+      "emacs"
       "firefox"
       "flux"
       "hammerspoon"
@@ -176,11 +179,10 @@
     sandbox = true;
     trusted-users = [ "@admin" ];
     extra-sandbox-paths = [ "/private/tmp" "/private/var/tmp" "/usr/bin/env" ];
-    substituters = [ "https://nix-community.cachix.org" ];
-    trusted-substituters = ["https://lockejan-nur.cachix.org" ];
+    substituters = [ "https://nix-community.cachix.org" "https://lockejan-nur.cachix.org" ];
     trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "lockejan-nur.cachix.org-1:hdALF1TiIpsnkkXp2Ymtev16iGE9FhYUDXhF6OWglWA="
+      "lockejan-nur.cachix.org-1:xRzsQG4xTHMx7piti7DD6iwu+bR7pdeAJEd5VwdZCv4="
     ];
 
   };
