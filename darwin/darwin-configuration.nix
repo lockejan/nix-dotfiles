@@ -24,9 +24,9 @@
   homebrew = {
     enable = true;
     onActivation = {
-        autoUpdate = true;
-        cleanup = "zap";
-        };
+      autoUpdate = true;
+      cleanup = "zap";
+    };
     taps = [
       "homebrew/cask" # "homebrew/cask-fonts"
       "homebrew/cask-drivers"
@@ -90,9 +90,6 @@
       # Xcode = 497799835;
     };
 
-    extraConfig = ''
-      cask_args appdir: "~/Applications", require_sha: true
-    '';
   };
 
   networking.hostName = "lockejan-machine";
@@ -157,11 +154,11 @@
   #     "^g"    = "_cancelKey:";
   #     "^a"    = "moveToBeginningOfLine:";
   #     "^e"    = "moveToEndOfLine:";
-  #     "~c"	  = "capitalizeWord:"; /* M-c */
-  #     "~u"	  = "uppercaseWord:";	 /* M-u */
-  #     "~l"	  = "lowercaseWord:";	 /* M-l */
-  #     "^t"	  = "transpose:";      /* C-t */
-  #     "~t"	  = "transposeWords:"; /* M-t */
+  #     "~c"    = "capitalizeWord:"; /* M-c */
+  #     "~u"    = "uppercaseWord:";   /* M-u */
+  #     "~l"    = "lowercaseWord:";   /* M-l */
+  #     "^t"    = "transpose:";      /* C-t */
+  #     "~t"    = "transposeWords:"; /* M-t */
   #   }
   # '';
 
