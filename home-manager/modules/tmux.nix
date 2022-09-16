@@ -1,5 +1,10 @@
-{ config, pkgs, libs, ... }: {
-  home.packages = with pkgs; [ extract_url ];
+{ config, pkgs, libs, ... }:
+let
+  unstable = import <unstable> {
+    config.allowUnfree = true;
+  };
+in
+{
 
   programs.tmux = {
     enable = true;
@@ -10,7 +15,7 @@
     historyLimit = 5000;
     keyMode = "emacs";
     newSession = false;
-    plugins = with pkgs; [
+    plugins = with unstable; [
       tmuxPlugins.tmux-fzf
       tmuxPlugins.fzf-tmux-url
       # tmuxPlugins.fingers
@@ -40,5 +45,6 @@
     terminal = "screen-256color";
     extraConfig = builtins.readFile ../configs/tmux/tmux.conf;
   };
+
   xdg.configFile."tmux/tmux.mac.conf".source = ../configs/tmux/tmux.mac.conf;
 }
