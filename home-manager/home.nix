@@ -23,6 +23,7 @@ in
     ./modules/kitty.nix
     ./modules/neovim.nix
     ./modules/python.nix
+    # ./modules/ssh.nix
     ./modules/tmux.nix
     (if builtins.getEnv "USER" == "schmitt" then
       ./machines/work.nix

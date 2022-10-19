@@ -1,5 +1,6 @@
 { config, pkgs, libs, ... }: {
   home.packages = with pkgs; [ ssh-audit sshpass openssh mosh ];
+
   # xdg.configfile.".ssh/config".source = ../configs/ssh/ssh_config;
   home.file.".ssh/config".text = ''
     HashKnownHosts no
@@ -18,4 +19,31 @@
        ForwardAgent yes
        IdentitiesOnly yes
   '';
+
+  home.programs.ssh = {
+    enable = true;
+    compression = true;
+    controlMaster = "auto";
+    controlPath = "/tmp/ssh_mux_%h_%p_%r";
+    controlPersist = "10m";
+    forwardAgent = true;
+    hashKnownHosts = false;
+
+    matchBlocks.main = {
+      forwardAgent = true;
+      host = "*";
+      identitiesOnly = true;
+    };
+
+    extraConfig = ''
+      Host *
+         #IgnoreUnkown UseKeychain
+         #UseKeychain yes
+         AddKeysToAgent yes
+         ForwardAgent yes
+         IdentitiesOnly yes
+    '';
+
+  };
+
 }

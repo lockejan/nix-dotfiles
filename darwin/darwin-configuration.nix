@@ -69,6 +69,7 @@
       "tomighty"
       "tor-browser"
       "visual-studio-code"
+      "whatsapp"
       "wireshark"
       "yippy"
       "zoom"
@@ -137,6 +138,7 @@
   system.keyboard.nonUS.remapTilde = true;
   system.keyboard.remapCapsLockToControl = true;
 
+  security.pam.enableSudoTouchIdAuth = true;
   # environment.etc."DefaultKeyBinding.dict".text = ''
   #   {
   #     "~f"    = "moveWordForward:";

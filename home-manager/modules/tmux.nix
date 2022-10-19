@@ -14,6 +14,7 @@ in
     escapeTime = 40;
     historyLimit = 5000;
     keyMode = "emacs";
+    # aggressiveResize = true;
     newSession = false;
     plugins = with unstable; [
       tmuxPlugins.tmux-fzf
