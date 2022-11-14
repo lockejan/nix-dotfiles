@@ -17,6 +17,12 @@ if [[ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
   source "$HOME/.sdkman/bin/sdkman-init.sh"
 fi
 
+if [[ -f "$HOME/.config/fzf/fzf-git.sh" ]]; then
+  source "$HOME/.config/fzf/fzf-git.sh"
+else
+  echo "fzf-git.sh not found. CHECK PATH!!!"
+fi
+
 nixify() {
   if [ ! -e ./.envrc ]; then
     echo "use nix" >.envrc

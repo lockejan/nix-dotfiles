@@ -23,9 +23,11 @@
 
   homebrew = {
     enable = true;
+    # global.autoUpdate = false;
     onActivation = {
-      autoUpdate = true;
+      autoUpdate = false;
       cleanup = "zap";
+      upgrade = true;
     };
     taps = [
       "homebrew/cask" # "homebrew/cask-fonts"
@@ -139,6 +141,7 @@
   system.keyboard.remapCapsLockToControl = true;
 
   security.pam.enableSudoTouchIdAuth = true;
+  # security.pam.enablePamReattach = true;
   # environment.etc."DefaultKeyBinding.dict".text = ''
   #   {
   #     "~f"    = "moveWordForward:";

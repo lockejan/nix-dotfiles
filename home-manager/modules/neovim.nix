@@ -33,6 +33,7 @@
     rnix-lsp
     rubyPackages.solargraph
     shfmt
+    statix
     stylua
     sumneko-lua-language-server
     yamllint
