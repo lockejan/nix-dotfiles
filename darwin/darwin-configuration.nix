@@ -1,5 +1,9 @@
 { config, pkgs, lib, ... }:
-
+let
+  unstable = import <unstable> {
+    config.allowUnfree = true;
+  };
+in
 {
   imports = [ <home-manager/nix-darwin> ];
 
@@ -173,7 +177,7 @@
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  nix.package = pkgs.nix;
+  nix.package = unstable.nix;
 
   nix.configureBuildUsers = true;
 

@@ -15,8 +15,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "Aloxaf";
           repo = "fzf-tab";
-          rev = "938eef72e93ddb0609205a663bf0783f4e1b5fae";
-          sha256 = "0s3mnl045a02hic35pcipvkgpj8012591512z8a2crxj4yh0izf4";
+          rev = "14f66e4d3d0b366552c0412eb08ca9e0f7c797bd";
+          sha256 = "sha256-YkfHPSuSKParz7JidR924CJSuXO6Rk0RZTlxPOBwLJk=";
           # sha256 = lib.fakeSha256;
         };
       }
@@ -25,8 +25,9 @@
         src = pkgs.fetchFromGitHub {
           owner = "agkozak";
           repo = "zsh-z";
-          rev = "b5e61d03a42a84e9690de12915a006b6745c2a5f";
-          sha256 = "1A6WZ+fJSf2WKZD7CYJB/pbgwV2mX+X8qInqQLeuT78=";
+          rev = "82f5088641862d0e83561bb251fb60808791c76a";
+          sha256 = "sha256-6BNYzfTcjWm+0lJC83IdLxHwwG4/DKet2QNDvVBR6Eo=";
+          # sha256 = lib.fakeSha256;
         };
       }
     ];
@@ -112,14 +113,70 @@
     starship = {
       enable = true;
       enableZshIntegration = true;
-      settings.directory = {
-        truncation_length = 8;
-        truncation_symbol = "../";
-        truncate_to_repo = false;
-      };
-      settings.git_commit = {
-        # only_detached = false;
-        # tag_disabled = false;
+      settings = {
+
+        add_newline = true;
+        format = lib.concatStrings [
+          "$username"
+          "$hostname"
+          "$directory"
+          "$git_branch"
+          "$git_state"
+          "$git_status"
+          "$nix_shell"
+          "$cmd_duration"
+          "$line_break"
+          "$jobs"
+          "$python"
+          "$character"
+        ];
+
+        # directory = {
+        #   style = "blue";
+        # };
+
+        character = {
+          success_symbol = "[λ](purple)";
+          error_symbol = "[λ](red)";
+          vicmd_symbol = "[vi](green)";
+        };
+
+        git_branch = {
+          format = "[$branch]($style)";
+          style = "bright-black";
+        };
+
+        git_status = {
+          format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style) ";
+          style = "cyan";
+          conflicted = "​";
+          untracked = "​";
+          modified = "​";
+          staged = "​";
+          renamed = "​";
+          deleted = "​";
+          stashed = "≡";
+        };
+
+        git_state = {
+          format = "\([ $state ($progress_current/$progress_total) ] ($style)\) ";
+          style = "bright-black";
+        };
+
+        cmd_duration = {
+          format = "[$duration]($style) ";
+          style = "yellow";
+        };
+
+        python = {
+          format = "[$virtualenv]($style) ";
+          style = "bright-black";
+        };
+
+        nix_shell = {
+          format = "[$symbol$state]($style) ";
+          symbol = " ";
+        };
       };
     };
   };

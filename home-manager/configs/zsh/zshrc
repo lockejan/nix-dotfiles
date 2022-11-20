@@ -111,6 +111,17 @@ diff-dir() {
   done
 }
 
+dupl()
+{
+    cp "$1" $1.bak
+}
+
+swap()
+{
+    local TMPFILE=tmp.$$
+    mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE "$2"
+}
+
 man() {
         LESS_TERMCAP_mb=$'\e[01;31m' \
         LESS_TERMCAP_md=$'\e[01;31m' \
