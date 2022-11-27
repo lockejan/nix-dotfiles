@@ -16,7 +16,7 @@ in
   home-manager = {
     # useUserPackages = true;
     # useGlobalPkgs = true;
-    users.lockejan = import ../dotfiles/home-manager/home.nix;
+    users.lockejan = import ../home-manager/home.nix;
   };
 
   # programs.gnupg.agent.enable = true;
@@ -55,6 +55,7 @@ in
       "emacs"
       "firefox"
       "flux"
+      "google-chrome"
       "hammerspoon"
       "itsycal"
       "iterm2"
@@ -173,7 +174,7 @@ in
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  # environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
+  environment.darwinConfig = "$HOME/dotfiles/darwin/darwin-configuration.nix";
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;

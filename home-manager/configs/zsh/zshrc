@@ -51,6 +51,22 @@ flakify() {
   ${EDITOR:-vim} flake.nix
 }
 
+# search Files and Edit
+# https://github.com/jonringer/nixpkgs-config/blob/37ddfefa1773f2c24e1e60bc86a21498c084f8fc/bash.nix#L103
+fe() {
+  rg --files ''${1:-.} | fzf --preview 'bat -f {}' | xargs $EDITOR
+}
+
+# Search content and Edit
+se() {
+  fileline=$(rg -n ''${1:-.} | fzf | awk '{print $1}' | sed 's/.$//')
+  $EDITOR ''${fileline%%:*} +''${fileline##*:}
+}
+
+battail() {
+  tail -f $@ | bat --paging=never -l log
+}
+
 lsp-update() {
   tag=$1
   pushd ~/.cache/nvim/nlua/sumneko_lua
