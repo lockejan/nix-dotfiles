@@ -131,6 +131,7 @@
           "$character"
         ];
 
+        scan_timeout = 10;
         # directory = {
         #   style = "blue";
         # };
@@ -138,7 +139,7 @@
         character = {
           success_symbol = "[λ](purple)";
           error_symbol = "[λ](red)";
-          vicmd_symbol = "[vi](green)";
+          vicmd_symbol = "[](green)";
         };
 
         git_branch = {
