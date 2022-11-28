@@ -51,34 +51,6 @@ flakify() {
   ${EDITOR:-vim} flake.nix
 }
 
-lsp-update() {
-  tag=$1
-  pushd ~/.cache/nvim/nlua/sumneko_lua
-  old_hash=$(git rev-parse HEAD)
-  git fetch --tags
-
-  if [[ -z $tag ]]; then
-    tag=$(git describe --tags $(git rev-list --tags --max-count=1))
-  fi
-
-  git checkout $tag
-  new_hash=$(git rev-parse HEAD)
-
-  if [[ $old_hash != $new_hash ]]; then
-    cd 3rd/luamake
-    compile/install.sh
-    cd ../..
-    ./3rd/luamake/luamake rebuild
-  else
-    echo "$tag already compiled. Nothing to do!"
-  fi
-  popd
-}
-
-nvim-update() {
-  nvim --headless +'autocmd User PackerComplete quitall' +PackerSync
-}
-
 # Search content and Edit
 search-edit() {
   fileline=$(rg -n ''${1:-.} | fzf | awk '{print $1}' | sed 's/.$//')
