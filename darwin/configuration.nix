@@ -176,7 +176,7 @@ in
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  environment.darwinConfig = "$HOME/dotfiles/darwin/darwin-configuration.nix";
+  environment.darwinConfig = "$HOME/dotfiles/darwin/configuration.nix";
   nix.nixPath = [
     {
       nixpkgs = "${sources.nixpkgs.outPath}";
