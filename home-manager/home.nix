@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  sources = import ../nix/sources.nix;
-  unstable = import sources.unstable {
+  unstable = import <unstable> {
     config.allowUnfree = true;
   };
 in

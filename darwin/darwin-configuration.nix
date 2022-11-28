@@ -2,12 +2,12 @@
 
 let
   sources = import ../nix/sources.nix;
-  unstable = import sources.unstable {
+  unstable = import <unstable> {
     config.allowUnfree = true;
   };
 in
 {
-  imports = [ (sources.home-manager + "/nix-darwin") ];
+  imports = [ <home-manager/nix-darwin> ];
 
   users.users.lockejan = {
     name = "lockejan";
@@ -177,6 +177,14 @@ in
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
   environment.darwinConfig = "$HOME/dotfiles/darwin/darwin-configuration.nix";
+  nix.nixPath = [
+    {
+      nixpkgs = "${sources.nixpkgs.outPath}";
+      home-manager = "${sources.home-manager.outPath}";
+      darwin = "${sources.darwin.outPath}";
+      unstable = "${sources.unstable.outPath}";
+    }
+  ];
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
