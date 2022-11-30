@@ -5,7 +5,7 @@ let
   };
 in
 {
-  imports = [ <home-manager/nix-darwin> ];
+  # imports = [ <home-manager/nix-darwin> ];
 
   users.users.lockejan = {
     name = "lockejan";
@@ -16,7 +16,7 @@ in
   home-manager = {
     # useUserPackages = true;
     # useGlobalPkgs = true;
-    users.lockejan = import ../dotfiles/home-manager/home.nix;
+    users.lockejan = import ./home-manager/home.nix;
   };
 
   # programs.gnupg.agent.enable = true;

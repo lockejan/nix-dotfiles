@@ -26,9 +26,9 @@ in
     # ./modules/ssh.nix
     ./modules/tmux.nix
     (if builtins.getEnv "USER" == "schmitt" then
-      ./machines/work.nix
+      ./home-manager/machines/work.nix
     else
-      ./machines/personal.nix)
+      ./home-manager/machines/personal.nix)
   ];
 
   home.packages = with pkgs; [
