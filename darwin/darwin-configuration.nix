@@ -1,22 +1,12 @@
 { config, pkgs, lib, ... }:
 let
-  unstable = import <unstable> {
-    config.allowUnfree = true;
-  };
+  user = "lockejan";
 in
 {
-  # imports = [ <home-manager/nix-darwin> ];
-
-  users.users.lockejan = {
-    name = "lockejan";
+  users.users."${user}" = {
+    name = "${user}";
     home = "/Users/lockejan";
     shell = pkgs.zsh;
-  };
-
-  home-manager = {
-    # useUserPackages = true;
-    # useGlobalPkgs = true;
-    users.lockejan = import ./home-manager/home.nix;
   };
 
   # programs.gnupg.agent.enable = true;
@@ -34,7 +24,8 @@ in
       upgrade = true;
     };
     taps = [
-      "homebrew/cask" # "homebrew/cask-fonts"
+      "homebrew/cask" 
+      # "homebrew/cask-fonts"
       "homebrew/cask-drivers"
     ];
 
@@ -99,7 +90,7 @@ in
 
   };
 
-  networking.hostName = "lockejan-machine";
+  networking.hostName = "${user}-machine";
 
   # programs.gnupg.agent.enable = true;
   # programs.gnupg.agent.enableSSHSupport = true;
@@ -123,7 +114,7 @@ in
   system.defaults.finder.ShowPathbar = true;
   system.defaults.finder.ShowStatusBar = true;
   system.defaults.loginwindow.GuestEnabled = false;
-  system.defaults.loginwindow.autoLoginUser = "lockejan";
+  system.defaults.loginwindow.autoLoginUser = "${user}";
   # system.defaults.ActivityMonitor.SortDirection = 0;
 
   system.defaults.SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
@@ -177,7 +168,7 @@ in
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  nix.package = unstable.nix;
+  nix.package = pkgs.nix;
 
   nix.configureBuildUsers = true;
 
@@ -207,6 +198,7 @@ in
   # programs.nix-index.enable = true;
   nixpkgs.config.allowUnfree = true;
 
+  documentation.enable = false;
   # Fonts
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [

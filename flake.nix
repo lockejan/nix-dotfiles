@@ -18,6 +18,10 @@
   outputs = { self, home-manager, darwin, ... }@inputs:
 
     let
+      machines = {
+        "personal" = { user = "lockejan"; arch = "aarch64-darwin"; };
+        "work" = { user = "schmitt"; arch = "x86_64-darwin"; };
+      };
       overlays = [
         inputs.neovim-nightly-overlay.overlay
       ];
@@ -32,13 +36,36 @@
       darwinConfigurations = {
 
         m1 = darwin.lib.darwinSystem {
-          # you can have multiple darwinConfigurations per flake, one per hostname
-
           modules = [
             home-manager.darwinModules.home-manager
             ./darwin/darwin-configuration.nix
+            {
+              # nixpkgs = nixpkgsConfig;
+              # `home-manager` config
+              # home-manager.useGlobalPkgs = true;
+              # home-manager.useUserPackages = true;
+              home-manager.users.${machines.personal.user}.imports =
+                [
+                  ./home-manager/home.nix
+                  ./home-manager/modules/alacritty.nix
+                  # ./home-manager/modules/osx.nix
+                  ./home-manager/modules/cli.nix
+                  ./home-manager/modules/git.nix
+                  ./home-manager/modules/gpg.nix
+                  ./home-manager/modules/kitty.nix
+                  ./home-manager/modules/neovim.nix
+                  ./home-manager/modules/python.nix
+                  #./home-manager/modules/ssh.nix
+                  ./home-manager/modules/tmux.nix
+                  # (if user == "lockejan" then
+                  ./home-manager/machines/personal.nix
+                  # else
+                  # ./home-manager/machines/work.nix
+                  # )
+                ];
+            }
           ];
-          system = "aarch64-darwin";
+          system = machines.personal.arch;
         };
 
       };

@@ -1,8 +1,9 @@
 { config, pkgs, libs, ... }:
 let
-  unstable = import <unstable> {
-    config.allowUnfree = true;
-  };
+  unstable = pkgs;
+  # unstable = import <unstable> {
+  #   config.allowUnfree = true;
+  # };
 in
 {
 

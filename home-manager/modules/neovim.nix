@@ -14,7 +14,7 @@
     hlint
     stylish-haskell
     lua
-    neovim-nightly
+    neovim
     nixfmt
     nodePackages.bash-language-server
     nodePackages.dockerfile-language-server-nodejs
@@ -41,5 +41,5 @@
     yarn
   ];
   xdg.configFile."nvim".source =
-    config.lib.file.mkOutOfStoreSymlink ../configs/nvim;
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/configs/nvim";
 }

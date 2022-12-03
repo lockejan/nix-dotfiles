@@ -1,35 +1,11 @@
 { config, pkgs, ... }:
 let
-  unstable = import <unstable> {
-    config.allowUnfree = true;
-  };
+  unstable = pkgs;
+  # unstable = import <unstable> {
+  #   config.allowUnfree = true;
+  # };
 in
 {
-
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url =
-        "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-      # sha256 = "1iff20vql5iwcjdf20r49v7m0mf1qzi8xwg6qx6yvijgl35ac2z4";
-    }))
-  ];
-
-  imports = [
-    ./modules/alacritty.nix
-    # ./modules/osx.nix
-    ./modules/cli.nix
-    ./modules/git.nix
-    ./modules/gpg.nix
-    ./modules/kitty.nix
-    ./modules/neovim.nix
-    ./modules/python.nix
-    # ./modules/ssh.nix
-    ./modules/tmux.nix
-    (if builtins.getEnv "USER" == "schmitt" then
-      ./home-manager/machines/work.nix
-    else
-      ./home-manager/machines/personal.nix)
-  ];
 
   home.packages = with pkgs; [
     cachix
