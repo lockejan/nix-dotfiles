@@ -5,7 +5,7 @@ in
 {
   users.users."${user}" = {
     name = "${user}";
-    home = "/Users/lockejan";
+    home = "/Users/${user}";
     shell = pkgs.zsh;
   };
 
@@ -24,7 +24,7 @@ in
       upgrade = true;
     };
     taps = [
-      "homebrew/cask" 
+      "homebrew/cask"
       # "homebrew/cask-fonts"
       "homebrew/cask-drivers"
     ];
@@ -46,6 +46,7 @@ in
       "emacs"
       "firefox"
       "flux"
+      "google-chrome"
       "hammerspoon"
       "itsycal"
       "iterm2"

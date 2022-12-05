@@ -20,6 +20,7 @@ in
     glances
     gnugrep
     google-java-format
+    hexyl
     htop
     hyperfine
     inetutils

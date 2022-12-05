@@ -18,10 +18,8 @@
   outputs = { self, home-manager, darwin, ... }@inputs:
 
     let
-      machines = {
-        "personal" = { user = "lockejan"; arch = "aarch64-darwin"; };
-        "work" = { user = "schmitt"; arch = "x86_64-darwin"; };
-      };
+      system = "aarch64-darwin";
+      user = "lockejan";
       overlays = [
         inputs.neovim-nightly-overlay.overlay
       ];
@@ -44,7 +42,7 @@
               # `home-manager` config
               # home-manager.useGlobalPkgs = true;
               # home-manager.useUserPackages = true;
-              home-manager.users.${machines.personal.user}.imports =
+              home-manager.users.${user}.imports =
                 [
                   ./home-manager/home.nix
                   ./home-manager/modules/alacritty.nix
@@ -57,15 +55,15 @@
                   ./home-manager/modules/python.nix
                   #./home-manager/modules/ssh.nix
                   ./home-manager/modules/tmux.nix
-                  # (if user == "lockejan" then
-                  ./home-manager/machines/personal.nix
-                  # else
-                  # ./home-manager/machines/work.nix
-                  # )
+                  (if user == "lockejan" then
+                    ./home-manager/machines/personal.nix
+                  else
+                    ./home-manager/machines/work.nix
+                  )
                 ];
             }
           ];
-          system = machines.personal.arch;
+          inherit system;
         };
 
       };

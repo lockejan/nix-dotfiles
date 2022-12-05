@@ -14,6 +14,7 @@
     hlint
     stylish-haskell
     lua
+    # neovim-nightly
     neovim
     nixfmt
     nodePackages.bash-language-server
