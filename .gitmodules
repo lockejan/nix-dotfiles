@@ -1,7 +1,3 @@
-[submodule "machines"]
-	path = home-manager/machines
-	url = git@github.com:lockejan/nix-machines.git
-	branch = main
 [submodule "nvim"]
 	path = home-manager/configs/nvim
 	url = git@github.com:lockejan/neovim-config.git
