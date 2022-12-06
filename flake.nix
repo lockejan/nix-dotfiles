@@ -3,42 +3,44 @@
 
   inputs = {
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-22.05-darwin";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-22.11-darwin";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-nixos.url = "github:NixOs/nixpkgs/nixos-22.11";
 
-    darwin.url = "github:lnl7/nix-darwin";
+    darwin.url = "github:n8henrie/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-stable";
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    nvim-config = {
+      url = "github:lockejan/neovim-config";
+      flake = false;
+    };
   };
 
   outputs = { self, home-manager, darwin, ... }@inputs:
-
     let
       system = "aarch64-darwin";
+      system.raspbi = "aarch64-linux";
       user = "lockejan";
-      overlays = [
-        inputs.neovim-nightly-overlay.overlay
-      ];
+      pkgs = import inputs.nixpkgs-stable {
+        inherit system;
+        config = { allowUnfree = true; };
+        overlays = [ inputs.neovim-nightly-overlay.overlay ];
+      };
     in
     {
-      nixpkgsDefaults = {
-        config = {
-          allowUnfree = true;
-        };
-      };
 
       darwinConfigurations = {
-
         m1 = darwin.lib.darwinSystem {
           modules = [
             home-manager.darwinModules.home-manager
             ./darwin/darwin-configuration.nix
             {
-              # nixpkgs = nixpkgsConfig;
               # `home-manager` config
               # home-manager.useGlobalPkgs = true;
               # home-manager.useUserPackages = true;
@@ -61,11 +63,22 @@
                     ./home-manager/machines/work.nix
                   )
                 ];
+              # inherit pkgs;
             }
           ];
           inherit system;
         };
-
       };
+
+      nixosConfigurations = {
+        nixos-raspbi = inputs.nixpkgs-nixos.lib.nixosSystem {
+          system = system.raspbi;
+          modules = [
+            ./nixos/configuration.nix
+            inputs.nixos-hardware.nixosModules.raspberry-pi-4
+          ];
+        };
+      };
+
     };
 }

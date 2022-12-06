@@ -1,4 +1,4 @@
 home-manager/configs/hammerspoon/**/* linguist-vendored
-secretfile filter=git-crypt diff=git-crypt
+nixos/configuration.nix filter=git-crypt diff=git-crypt
 *.key filter=git-crypt diff=git-crypt
 **/machines/** filter=git-crypt diff=git-crypt
