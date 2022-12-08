@@ -9,7 +9,6 @@ in
     shell = pkgs.zsh;
   };
 
-  # programs.gnupg.agent.enable = true;
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [ vim ];
@@ -136,8 +135,10 @@ in
   system.keyboard.nonUS.remapTilde = true;
   system.keyboard.remapCapsLockToControl = true;
 
+  # Add ability to used TouchID for sudo authentication
   security.pam.enableSudoTouchIdAuth = true;
   # security.pam.enablePamReattach = true;
+
   # environment.etc."DefaultKeyBinding.dict".text = ''
   #   {
   #     "~f"    = "moveWordForward:";
@@ -162,10 +163,6 @@ in
   #     "~t"    = "transposeWords:"; /* M-t */
   #   }
   # '';
-
-  # Use a custom configuration.nix location.
-  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  # environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
@@ -206,9 +203,6 @@ in
     recursive
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
-
-  # Add ability to used TouchID for sudo authentication
-  # security.pam.enableSudoTouchIdAuth = true;
 
   # Create /etc/bashrc that loads the nix-darwin environment.
   programs.bash.enable = true;
