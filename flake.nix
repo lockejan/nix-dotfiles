@@ -7,6 +7,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-nixos.url = "github:NixOs/nixpkgs/nixos-22.11";
 
+    # darwin.url = "github:lnl7/nix-darwin";
     darwin.url = "github:n8henrie/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
@@ -24,9 +25,11 @@
 
   outputs = { self, home-manager, darwin, ... }@inputs:
     let
-      system = "aarch64-darwin";
+      system.work = "x86_64-darwin";
+      user.work = "schmitt";
+      system.m1 = "aarch64-darwin";
+      user.m1 = "lockejan";
       system.raspbi = "aarch64-linux";
-      user = "lockejan";
       pkgs = import inputs.nixpkgs-stable {
         inherit system;
         config = { allowUnfree = true; };
@@ -39,12 +42,12 @@
         m1 = darwin.lib.darwinSystem {
           modules = [
             home-manager.darwinModules.home-manager
-            ./darwin/darwin-configuration.nix
+            ./darwin/configuration.nix
             {
               # `home-manager` config
               # home-manager.useGlobalPkgs = true;
               # home-manager.useUserPackages = true;
-              home-manager.users.${user}.imports =
+              home-manager.users.${user.m1}.imports =
                 [
                   ./home-manager/home.nix
                   ./home-manager/modules/alacritty.nix
@@ -55,18 +58,43 @@
                   ./home-manager/modules/kitty.nix
                   ./home-manager/modules/neovim.nix
                   ./home-manager/modules/python.nix
-                  #./home-manager/modules/ssh.nix
+                  # ./home-manager/modules/ssh.nix
                   ./home-manager/modules/tmux.nix
-                  (if user == "lockejan" then
-                    ./home-manager/machines/personal.nix
-                  else
-                    ./home-manager/machines/work.nix
-                  )
+                  ./home-manager/machines/personal.nix
                 ];
               # inherit pkgs;
             }
           ];
-          inherit system;
+          system = system.m1;
+        };
+
+        work = darwin.lib.darwinSystem {
+          modules = [
+            home-manager.darwinModules.home-manager
+            ./darwin/work-configuration.nix
+            {
+              # `home-manager` config
+              # home-manager.useGlobalPkgs = true;
+              # home-manager.useUserPackages = true;
+              home-manager.users.${user.work}.imports =
+                [
+                  ./home-manager/home.nix
+                  ./home-manager/modules/alacritty.nix
+                  # ./home-manager/modules/osx.nix
+                  ./home-manager/modules/cli.nix
+                  ./home-manager/modules/git.nix
+                  ./home-manager/modules/gpg.nix
+                  ./home-manager/modules/kitty.nix
+                  ./home-manager/modules/neovim.nix
+                  ./home-manager/modules/python.nix
+                  # ./home-manager/modules/ssh.nix
+                  ./home-manager/modules/tmux.nix
+                  ./home-manager/machines/work.nix
+                ];
+              # inherit pkgs;
+            }
+          ];
+          system = system.work;
         };
       };
 
