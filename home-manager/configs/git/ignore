@@ -1,5 +1,12 @@
 !*
 
+### vscode
+.lsp
+.clj-kondo
+
+### Nix artifacts
+result
+
 #### OSX
 .DS_Store
 
