@@ -3,13 +3,13 @@
 
   inputs = {
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-22.11-darwin";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-22.11-darwin";
     nixpkgs-nixos.url = "github:NixOs/nixpkgs/nixos-22.11";
 
     # darwin.url = "github:lnl7/nix-darwin";
-    darwin.url = "github:n8henrie/nix-darwin";
-    darwin.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    darwin.url = "github:n8henrie/nix-darwin?ref=issue_549";
+    darwin.inputs.nixpkgs.follows = "nixpkgs-stable";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-stable";
@@ -17,6 +17,8 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly-overlay.inputs.nixpkgs.follows = "nixpkgs-stable";
+
     nvim-config = {
       url = "github:lockejan/neovim-config";
       flake = false;

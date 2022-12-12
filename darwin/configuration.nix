@@ -196,7 +196,6 @@ in
   # programs.nix-index.enable = true;
   nixpkgs.config.allowUnfree = true;
 
-  documentation.enable = false;
   # Fonts
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
