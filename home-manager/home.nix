@@ -28,6 +28,7 @@ in
     jdk17_headless
     jq
     less
+    ncurses
     nix-prefetch-git
     nixpkgs-fmt
     nixpkgs-review

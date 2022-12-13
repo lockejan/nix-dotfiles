@@ -36,7 +36,7 @@ in
           set -g @continuum-restore 'on'
           set -g @continuum-save-interval '10' # minutes
           set -g @continuum-boot 'on'
-          set -g @continuum-boot-options 'iterm'
+          set -g @continuum-boot-options 'alacritty'
         '';
       }
     ];
@@ -44,7 +44,7 @@ in
     resizeAmount = 10;
     secureSocket = true;
     sensibleOnTop = false;
-    terminal = "screen-256color";
+    terminal = "alacritty";
     extraConfig = builtins.readFile ../configs/tmux/tmux.conf;
   };
 

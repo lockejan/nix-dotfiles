@@ -46,6 +46,7 @@
       vc = "$EDITOR ~/.config/nvim/init.lua";
       n = "nvim";
       s = "kitty +kitten ssh";
+      ssh = "TERM=xterm-256color ssh";
       diff = "diff --color=auto";
       grep = "grep --color=auto";
       www = "python -m SimpleHTTPServer 8000";
