@@ -1,4 +1,8 @@
-{ config, pkgs, libs, ... }: {
+{ config, pkgs, libs, ... }:
+let
+  dir = "${config.home.homeDirectory}/dotfiles/home-manager/configs/kitty";
+in
+{
   programs.kitty = {
     enable = false;
     font = {
@@ -23,11 +27,11 @@
     '';
   };
   xdg.configFile."kitty/kitty.conf".source =
-    config.lib.file.mkOutOfStoreSymlink ../configs/kitty/kitty.conf;
+    config.lib.file.mkOutOfStoreSymlink "${dir}/kitty.conf";
   xdg.configFile."kitty/kanagawa.conf".source =
-    config.lib.file.mkOutOfStoreSymlink ../configs/kitty/kanagawa.conf;
+    config.lib.file.mkOutOfStoreSymlink "${dir}/kanagawa.conf";
   xdg.configFile."kitty/OneDark.conf".source =
-    config.lib.file.mkOutOfStoreSymlink ../configs/kitty/OneDark.conf;
+    config.lib.file.mkOutOfStoreSymlink "${dir}/OneDark.conf";
   xdg.configFile."kitty/everforestDarkMedium.conf".source =
-    config.lib.file.mkOutOfStoreSymlink ../configs/kitty/everforestDarkMedium.conf;
+    config.lib.file.mkOutOfStoreSymlink "${dir}/everforestDarkMedium.conf";
 }

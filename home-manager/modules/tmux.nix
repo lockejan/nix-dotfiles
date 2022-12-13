@@ -44,7 +44,7 @@ in
     resizeAmount = 10;
     secureSocket = true;
     sensibleOnTop = false;
-    terminal = "alacritty";
+    terminal = "xterm-kitty";
     extraConfig = builtins.readFile ../configs/tmux/tmux.conf;
   };
 

@@ -1,13 +1,18 @@
-{ config, pkgs, libs, ... }: {
+{ config, pkgs, libs, ... }:
+
+let
+  dir = "${config.home.homeDirectory}/dotfiles/home-manager/configs/alacritty";
+in
+{
   # home.packages = with pkgs; [ alacritty ];
   xdg.configFile."alacritty/alacritty.yml".source =
-    config.lib.file.mkOutOfStoreSymlink ../configs/alacritty/alacritty.yml;
+    config.lib.file.mkOutOfStoreSymlink "${dir}/alacritty.yml";
   xdg.configFile."alacritty/one-dark.yml".source =
-    config.lib.file.mkOutOfStoreSymlink ../configs/alacritty/one-dark.yml;
+    config.lib.file.mkOutOfStoreSymlink "${dir}/one-dark.yml";
   xdg.configFile."alacritty/kanagawa.yml".source =
-    config.lib.file.mkOutOfStoreSymlink ../configs/alacritty/kanagawa.yml;
+    config.lib.file.mkOutOfStoreSymlink "${dir}/kanagawa.yml";
   xdg.configFile."alacritty/osx-keybindings.yml".source =
-    config.lib.file.mkOutOfStoreSymlink ../configs/alacritty/osx-keybindings.yml;
+    config.lib.file.mkOutOfStoreSymlink "${dir}/osx-keybindings.yml";
 
   # programs.alacritty = {
   # enable = true;
