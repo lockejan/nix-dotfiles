@@ -36,7 +36,7 @@ in
           set -g @continuum-restore 'on'
           set -g @continuum-save-interval '10' # minutes
           set -g @continuum-boot 'on'
-          set -g @continuum-boot-options 'alacritty'
+          set -g @continuum-boot-options 'kitty'
         '';
       }
     ];
