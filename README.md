@@ -1,6 +1,6 @@
 # nix-dotfiles
 
-These are my personal nix-dotfiles to setup my macOs machines.
+These are my personal nix-dotfiles to setup my macOS machines.
 Use at your own risk.
 
 It's still very much work in progress.
@@ -9,22 +9,26 @@ It's still very much work in progress.
 
 1. Install [nix](https://nixos.org/guides/install-nix.html) on your machine.
 
-2. Add [home-manager](https://github.com/nix-community/home-manager)-channel. This way it can be used as a [nix-darwin module](https://nix-community.github.io/home-manager/index.html#sec-install-nix-darwin-module).
+2. Install [nix-darwin](https://github.com/LnL7/nix-darwin).
 
-3. Install [nix-darwin](https://github.com/LnL7/nix-darwin).
+3. The first build needs to be made manually:
+```shell
+nix build '$HOME/dotfiles?submodules=1#darwinConfigurations.m1.system'
+./result/sw/bin/darwin-rebuild switch --flake $HOME/dotfiles?submodules=1#m1
+```
 
-4. Clone the repository and run [setup.sh](./setup.sh) to symlink the repo into the proper place.
-
-5. Run `darwin-rebuild switch` to install the dotfiles.
+Consecutive runs can be done via
+```shell
+darwin-rebuild switch --flake "$HOME/dotfiles?submodules=1#m1"
+```
 
 ## Machine specific extras
 
-Right now additional specific and sensitive information are provided via a private git submodule.
+Neovim configuration is currently pulled in via git submodule.
 
-These live under the folder `machines` and get included inside [home.nix](./home-manager/home.nix).
+Additional sensitive information are encrypted with git-crypt.
 
-Especially git configuration and additional tooling is pulled in via such.
-This way each machine gets only what it needs.
+These live under the folder `machines` and get included inside [flake.nix](./flake.nix).
 To create your own you can use this example code as a start for a `personal.nix`:
 
 ```nix
@@ -52,13 +56,22 @@ To create your own you can use this example code as a start for a `personal.nix`
 }
 ```
 
+## Further Resources and inspiration
+
+- [malob's dotfiles](https://github.com/malob/nixpkgs)
+- [nix.dev](https://nix.dev)
+- [nix book](https://book.divnix.com/ch00-00-the-nix-package-manager.html)
+- [nix pills](https://nixos.org/guides/nix-pills/index.html)
+- [nix-tutorial](https://nix-tutorial.gitlabpages.inria.fr/nix-tutorial/index.html)
+- [nix manual](https://nixos.org/manual/nix/stable/introduction.html)
+
 ## TODO
 
-- [ ] handling secrets
+- [X] handling secrets &rarr; git-crypt
 - [X] machine specific configuration
-- [X] properly registering gui apps
+- [X] properly registering gui apps &rarr; homebrew until nix takes over
 - [X] setup nix-darwin to add more darwin specific configuration
-- [ ] setup flakes
+- [X] setup flakes
 
 ## Questions?
 Feel free to open issues if you’re interested in something.
