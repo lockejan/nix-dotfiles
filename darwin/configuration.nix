@@ -65,6 +65,7 @@ in
       "telegram-desktop"
       "tomighty"
       "tor-browser"
+      "utm"
       "visual-studio-code"
       "whatsapp"
       "wireshark"

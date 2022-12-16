@@ -60,15 +60,16 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1670280307,
-        "narHash": "sha256-3x+0whP1nCz5adQMIsBA3L9fI/ABOpRUJdbw0AmxBnU=",
-        "owner": "nix-community",
+        "lastModified": 1671138381,
+        "narHash": "sha256-dwbkT08JFzARhqR9m39mNt73+7v3y+GYjOEedwP3DSQ=",
+        "owner": "lockejan",
         "repo": "home-manager",
-        "rev": "2af0d07678fc15612345e0dd55337550dcf6465f",
+        "rev": "a2e5d4d039284a061181d0e20f97698b7044f3cb",
         "type": "github"
       },
       "original": {
-        "owner": "nix-community",
+        "owner": "lockejan",
+        "ref": "ssh-addKeysToAgent",
         "repo": "home-manager",
         "type": "github"
       }

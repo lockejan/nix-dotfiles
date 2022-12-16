@@ -11,7 +11,8 @@
     darwin.url = "github:n8henrie/nix-darwin?ref=issue_549";
     darwin.inputs.nixpkgs.follows = "nixpkgs-stable";
 
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:lockejan/home-manager/ssh-addKeysToAgent";
+    # home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-stable";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -60,7 +61,7 @@
                   ./home-manager/modules/kitty.nix
                   ./home-manager/modules/neovim.nix
                   ./home-manager/modules/python.nix
-                  # ./home-manager/modules/ssh.nix
+                  ./home-manager/modules/ssh.nix
                   ./home-manager/modules/tmux.nix
                   ./home-manager/machines/personal.nix
                 ];
