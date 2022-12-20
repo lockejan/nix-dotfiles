@@ -9,8 +9,11 @@
     controlPersist = "10m";
     forwardAgent = true;
     hashKnownHosts = false;
-    addKeysToAgent = "yes";
+    # addKeysToAgent = "yes";
     # includes = [ "hosts" ];
+    extraConfig = ''
+      addKeysToAgent = yes
+    '';
 
   };
 

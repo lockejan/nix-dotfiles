@@ -75,16 +75,16 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1671178445,
-        "narHash": "sha256-dp2UYMBLaQPNJf9iNL0WVzT5ycLstMOilyQtRlT1ejo=",
-        "owner": "lockejan",
+        "lastModified": 1670253003,
+        "narHash": "sha256-/tJIy4+FbsQyslq1ipyicZ2psOEd8dvl4OJ9lfisjd0=",
+        "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d23ce6273d349bb9e0f9643e47b4112a8a68843b",
+        "rev": "0e8125916b420e41bf0d23a0aa33fadd0328beb3",
         "type": "github"
       },
       "original": {
-        "owner": "lockejan",
-        "ref": "ssh-addKeysToAgent",
+        "owner": "nix-community",
+        "ref": "release-22.11",
         "repo": "home-manager",
         "type": "github"
       }
@@ -99,11 +99,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1671405047,
-        "narHash": "sha256-lvuERXG09/zB1+yiQdEWrkLUtesRI50U9chEFSm7BsQ=",
+        "lastModified": 1671505418,
+        "narHash": "sha256-kWK3A7OkZqjI51Ntad25JwAEdx81a2yCmFVqUd2vOMc=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "a7332ba9b429f9676723eb88cffb2068f5a95c9b",
+        "rev": "de90a8bfe5ff4b440597e6d3301bdc3bde01990a",
         "type": "github"
       },
       "original": {
@@ -122,11 +122,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1671437680,
-        "narHash": "sha256-gjON/cQFXBivOj9aQjRJifA5RyjIub69GluyYi6MHEk=",
+        "lastModified": 1671524068,
+        "narHash": "sha256-cn8sDsbMVEqHyc5vuC1bxxaN+ogmG7mu+9uQAiF/kn0=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "2e2af29e763c6b28f62e7990769f5f12d3f9be01",
+        "rev": "c7d0de1fc663052e51ce0ff11983e7b6222bf225",
         "type": "github"
       },
       "original": {
@@ -169,11 +169,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1671486378,
-        "narHash": "sha256-i0N889k9LIE3llLhPbAzgybys77s9oq7EBB97nWKyVY=",
+        "lastModified": 1671524001,
+        "narHash": "sha256-bLdjUA8ZRucNnn/tP85A8xXOlJSxluO6qQzob4Cm564=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "424480f05603222193ba5a9d477311adef9806ee",
+        "rev": "3014c6792181eba45af6d6e282bb5819044c4367",
         "type": "github"
       },
       "original": {
