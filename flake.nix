@@ -4,26 +4,28 @@
   inputs = {
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-22.11-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-22.11-darwin";
     nixpkgs-nixos.url = "github:NixOs/nixpkgs/nixos-22.11";
 
     # darwin.url = "github:lnl7/nix-darwin";
     darwin.url = "github:n8henrie/nix-darwin?ref=issue_549";
-    darwin.inputs.nixpkgs.follows = "nixpkgs-stable";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:lockejan/home-manager/ssh-addKeysToAgent";
-    # home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs-stable";
+    # home-manager.url = "github:nix-community/home-manager/release-22.11";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    neovim-nightly-overlay.inputs.nixpkgs.follows = "nixpkgs-stable";
+    flake-utils.url = "github:numtide/flake-utils";
 
-    nvim-config = {
-      url = "github:lockejan/neovim-config";
-      flake = false;
-    };
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
+    # nvim-config = {
+    #   url = "github:lockejan/neovim-config";
+    #   flake = false;
+    # };
   };
 
   outputs = { self, home-manager, darwin, ... }@inputs:
@@ -33,7 +35,7 @@
       system.m1 = "aarch64-darwin";
       user.m1 = "lockejan";
       system.raspbi = "aarch64-linux";
-      pkgs = import inputs.nixpkgs-stable {
+      pkgs = import inputs.nixpkgs {
         inherit system;
         config = { allowUnfree = true; };
         overlays = [ inputs.neovim-nightly-overlay.overlay ];
