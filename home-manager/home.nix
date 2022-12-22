@@ -63,7 +63,7 @@ in
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
   };
 
-  home.stateVersion = "22.05";
+  home.stateVersion = "22.11";
 
   xdg.configFile."nix/nix.conf".text = ''
     experimental-features = nix-command flakes
