@@ -14,6 +14,25 @@ in
   environment.systemPackages = with pkgs; [ vim ];
   # environment.shells = [ pkgs.zsh ];
 
+  environment.etc."sudoers.d/000-sudo-touchid" = {
+    text = ''
+      Defaults pam_service=sudo-touchid
+      Defaults pam_login_service=sudo-touchid
+    '';
+  };
+
+  environment.etc."pam.d/sudo-touchid" = {
+    text = ''
+      auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so ignore_ssh
+      auth       sufficient     pam_tid.so
+      auth       sufficient     pam_smartcard.so
+      auth       required       pam_opendirectory.so
+      account    required       pam_permit.so
+      password   required       pam_deny.so
+      session    required       pam_permit.so
+    '';
+  };
+
   homebrew = {
     enable = true;
     # global.autoUpdate = false;
@@ -138,7 +157,7 @@ in
   system.keyboard.remapCapsLockToControl = true;
 
   # Add ability to used TouchID for sudo authentication
-  security.pam.enableSudoTouchIdAuth = true;
+  # security.pam.enableSudoTouchIdAuth = true;
   # security.pam.enablePamReattach = true;
 
   # environment.etc."DefaultKeyBinding.dict".text = ''
