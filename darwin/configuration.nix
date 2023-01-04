@@ -45,6 +45,7 @@ in
       "emacs"
       "firefox"
       "flux"
+      "focusrite-control"
       "google-chrome"
       "hammerspoon"
       "itsycal"

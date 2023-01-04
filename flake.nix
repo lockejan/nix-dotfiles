@@ -22,10 +22,10 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     neovim-nightly-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
-    # nvim-config = {
-    #   url = "github:lockejan/neovim-config";
-    #   flake = false;
-    # };
+    nvim-config = {
+      url = "github:lockejan/neovim-config";
+      flake = false;
+    };
   };
 
   outputs = { self, home-manager, darwin, ... }@inputs:
