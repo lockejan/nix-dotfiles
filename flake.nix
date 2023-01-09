@@ -7,8 +7,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-22.11-darwin";
     nixpkgs-nixos.url = "github:NixOs/nixpkgs/nixos-22.11";
 
-    # darwin.url = "github:lnl7/nix-darwin";
-    darwin.url = "github:n8henrie/nix-darwin?ref=issue_549";
+    darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     # home-manager.url = "github:lockejan/home-manager/ssh-addKeysToAgent";
