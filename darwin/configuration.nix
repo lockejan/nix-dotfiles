@@ -47,7 +47,7 @@ in
       "homebrew/cask-drivers"
     ];
 
-    brews = [ "pinentry-mac" "pam-reattach" ];
+    brews = [ "pinentry-mac" ];
 
     # whalebrews = [ "whalebrew/wget" ];
 

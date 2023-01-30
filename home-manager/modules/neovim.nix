@@ -23,7 +23,7 @@
     # nodePackages.intelephense
     nodePackages.pyright
     nodePackages.typescript-language-server
-    nodePackages.vim-language-server
+    # nodePackages.vim-language-server
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
     nodejs
@@ -32,7 +32,7 @@
     rust-analyzer
     rustc
     rnix-lsp
-    rubyPackages.solargraph
+    # rubyPackages.solargraph
     shfmt
     statix
     stylua

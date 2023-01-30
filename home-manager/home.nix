@@ -8,6 +8,7 @@ in
 {
 
   home.packages = with pkgs; [
+    babashka
     cachix
     ctop
     curl
@@ -29,6 +30,7 @@ in
     jq
     less
     ncurses
+    ncdu
     nix-prefetch-git
     nixpkgs-fmt
     nixpkgs-review
