@@ -1,0 +1,24 @@
+name: "Build System Configuration"
+on:
+  pull_request:
+  push:
+jobs:
+  tests:
+    runs-on: "macos-11"
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
+    - uses: cachix/install-nix-action@v18
+      with:
+        extra_nix_config: "access-tokens = github.com=${{ secrets.TOKEN }}"
+    - run: nix profile install nixpkgs#git-crypt
+    - run: |
+        echo "$GIT_CRYPT_KEY" | base64  -d > ./git-crypt-key && \
+        git-crypt unlock ./git-crypt-key && \
+        rm ./git-crypt-key
+      env:
+        GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
+    - run: echo " " >> flake.nix
+    - run: nix build '.?submodules=1#darwinConfigurations.work.system'
+    - run: nix flake check

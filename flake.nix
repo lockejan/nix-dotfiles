@@ -2,8 +2,8 @@
   description = "Machine configurations with nix";
 
   inputs = {
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-22.11-darwin";
     nixpkgs-nixos.url = "github:NixOs/nixpkgs/nixos-22.11";
 
@@ -18,13 +18,13 @@
 
     flake-utils.url = "github:numtide/flake-utils";
 
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    neovim-nightly-overlay.inputs.nixpkgs.follows = "nixpkgs";
+    # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    # neovim-nightly-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
-    nvim-config = {
-      url = "github:lockejan/neovim-config";
-      flake = false;
-    };
+    # nvim-config = {
+    #   url = "github:lockejan/neovim-config";
+    #   flake = false;
+    # };
   };
 
   outputs = { self, home-manager, darwin, ... }@inputs:
@@ -37,7 +37,7 @@
       pkgs = import inputs.nixpkgs {
         inherit system;
         config = { allowUnfree = true; };
-        overlays = [ inputs.neovim-nightly-overlay.overlay ];
+        # overlays = [ inputs.neovim-nightly-overlay.overlay ];
       };
     in
     {
