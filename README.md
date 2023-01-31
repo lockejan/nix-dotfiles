@@ -5,6 +5,11 @@ Use at your own risk.
 
 It's still very much work in progress.
 
+## Code Status
+
+[![CI](https://github.com/lockejan/nix-dotfiles/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/lockejan/nix-dotfiles/actions/workflows/test.yml)
+
+
 ## Install
 
 1. Install [nix](https://nixos.org/guides/install-nix.html) on your machine.
