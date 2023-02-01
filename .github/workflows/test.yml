@@ -12,13 +12,17 @@ jobs:
     - uses: cachix/install-nix-action@v18
       with:
         extra_nix_config: "access-tokens = github.com=${{ secrets.TOKEN }}"
-    - run: nix profile install nixpkgs#git-crypt
-    - run: |
+    - name: install git-crypt on the runner via nix flakes
+      run: nix profile install nixpkgs#git-crypt
+    - name: provide and temporarily unlock secrets as preparation for nix build
+      run: |
         echo "$GIT_CRYPT_KEY" | base64  -d > ./git-crypt-key && \
         git-crypt unlock ./git-crypt-key && \
         rm ./git-crypt-key
       env:
         GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
-    - run: echo " " >> flake.nix
-    - run: nix build '.?submodules=1#darwinConfigurations.work.system'
+    - name: create dirty git worktree to omit git-crypt errors with flakes
+      run: echo " " >> flake.nix #
+    - name: build darwinConfiguration for work machine
+      run: nix build '.?submodules=1#darwinConfigurations.work.system'
     - run: nix flake check
