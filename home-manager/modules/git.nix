@@ -8,6 +8,7 @@
       bd = "branch -d";
       bdr = "push origin --delete";
       cm = "commit";
+      cmns = "-c commit.gpgsign=false commit";
       cma = "commit --amend";
       co = "checkout";
       cob = "switch -c";
@@ -26,6 +27,7 @@
       praise = "blame";
       push-branch = "!git push -u origin $(git branch-name)";
       st = "status";
+      sti = "status --ignored";
       unstage = "reset HEAD --";
       undo = "reset HEAD~1 --mixed";
       amend = "commit -a --amend";
@@ -67,7 +69,10 @@
         prompt = true;
         keepBackup = false;
       };
-      push = { default = "simple"; };
+      push = {
+        default = "simple";
+        autoSetupRemote = true;
+      };
       init = { defaultBranch = "main"; };
       pull = { rebase = true; };
       core = {

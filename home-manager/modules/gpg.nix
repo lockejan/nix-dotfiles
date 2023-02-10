@@ -3,6 +3,7 @@
     gnupg1
     pinentry
     gpg-tui
+    yubikey-manager
     # pinentry_mac
   ];
 
