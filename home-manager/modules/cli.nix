@@ -1,4 +1,8 @@
-{ lib, config, pkgs, ... }: {
+{ lib, config, pkgs, ... }:
+let
+  dir = "${config.home.homeDirectory}/dotfiles/home-manager/machines";
+in
+{
 
   programs.zsh = {
     enable = true;
@@ -43,6 +47,7 @@
 
     shellAliases = {
       zc = "$EDITOR ~/.zshrc";
+      clj-tip = "bb ~/random_doc.clj";
       vc = "$EDITOR ~/.config/nvim/init.lua";
       n = "nvim";
       s = "kitty +kitten ssh";
@@ -184,4 +189,6 @@
     };
   };
 
+  home.file."random_doc.clj".source =
+    config.lib.file.mkOutOfStoreSymlink "${dir}/random_doc.clj";
 }

@@ -23,6 +23,9 @@ else
   echo "fzf-git.sh not found. CHECK PATH!!!"
 fi
 
+echo "Docstring of the day:"
+~/random_doc.clj
+
 nixify() {
   if [ ! -e ./.envrc ]; then
     echo "use nix" >.envrc
