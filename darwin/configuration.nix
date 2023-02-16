@@ -73,7 +73,7 @@ in
       "joplin"
       "keycastr"
       "kitty"
-      "logitech-options"
+      # "logitech-options"
       "microsoft-teams"
       "nextcloud"
       "owasp-zap"

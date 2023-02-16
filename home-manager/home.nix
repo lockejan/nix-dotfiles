@@ -43,9 +43,9 @@ in
     sourceHighlight
     tldr
     trash-cli
+    tree-sitter
     vagrant
     watch
-    wget2
   ];
 
   # Let Home Manager install and manage itself.

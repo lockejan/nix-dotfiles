@@ -169,6 +169,13 @@ in
         git_state = {
           format = "\([ $state ($progress_current/$progress_total) ] ($style)\) ";
           style = "bright-black";
+          cherry_pick = "[🍒 PICKING](bold red)";
+          disabled = true;
+        };
+
+        git_commit = {
+          commit_hash_length = 4;
+          tag_symbol = "🔖 ";
         };
 
         cmd_duration = {
