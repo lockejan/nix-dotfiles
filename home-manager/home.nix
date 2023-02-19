@@ -38,6 +38,7 @@ in
     nix-update
     niv
     openssl
+    # page
     pwgen
     ripgrep
     sourceHighlight
