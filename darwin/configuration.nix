@@ -87,7 +87,7 @@ in
       "tor-browser"
       "utm"
       "visual-studio-code"
-      "whatsapp"
+      # "whatsapp"
       "wireshark"
       "yippy"
       "zoom"
