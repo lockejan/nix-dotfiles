@@ -31,6 +31,7 @@ in
     less
     ncurses
     ncdu
+    nix-doc
     nix-prefetch-git
     nixpkgs-fmt
     nixpkgs-review

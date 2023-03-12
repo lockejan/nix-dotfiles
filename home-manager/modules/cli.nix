@@ -52,9 +52,9 @@ in
       n = "nvim";
       s = "kitty +kitten ssh";
       ssh = "TERM=xterm-256color ssh";
-      diff = "diff --color=auto";
+      # diff = "diff --color=auto";
       grep = "grep --color=auto";
-      www = "python -m SimpleHTTPServer 8000";
+      www = "python3 -m http.server 8000";
       pubip = "dig +short myip.opendns.com @resolver1.opendns.com";
       localip = ''
         ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep -Eo '([0-9]*\\.){3}[0-9]*' | grep -v '127.0.0.1'

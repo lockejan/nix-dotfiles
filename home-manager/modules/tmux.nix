@@ -20,14 +20,13 @@ in
     plugins = with unstable; [
       tmuxPlugins.tmux-fzf
       tmuxPlugins.fzf-tmux-url
-      # tmuxPlugins.fingers
       tmuxPlugins.prefix-highlight
       {
         plugin = tmuxPlugins.resurrect;
         extraConfig = ''
           set -g @resurrect-strategy-nvim 'session'
           set -g @resurrect-dir '~/.local/share/tmux/resurrect'
-          set -g @resurrect-capture-pane-contents 'on'
+          set -g @resurrect-capture-pane-contents 'off'
         '';
       }
       {
@@ -35,8 +34,6 @@ in
         extraConfig = ''
           set -g @continuum-restore 'on'
           set -g @continuum-save-interval '10' # minutes
-          set -g @continuum-boot 'on'
-          set -g @continuum-boot-options 'kitty'
         '';
       }
     ];
