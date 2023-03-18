@@ -3,7 +3,7 @@
 
   inputs = {
     # nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-22.11-darwin";
     nixpkgs-nixos.url = "github:NixOs/nixpkgs/nixos-22.11";
 
@@ -53,7 +53,7 @@
               # home-manager.useUserPackages = true;
               home-manager.users.${user.m1}.imports =
                 [
-                  ./home-manager/home.nix
+                  (import ./home-manager/home.nix inputs)
                   ./home-manager/modules/alacritty.nix
                   # ./home-manager/modules/osx.nix
                   ./home-manager/modules/cli.nix
@@ -63,7 +63,7 @@
                   ./home-manager/modules/neovim.nix
                   ./home-manager/modules/python.nix
                   ./home-manager/modules/ssh.nix
-                  ./home-manager/modules/tmux.nix
+                  (import ./home-manager/modules/tmux.nix inputs)
                   ./home-manager/machines/personal.nix
                 ];
               # inherit pkgs;
@@ -82,7 +82,7 @@
               # home-manager.useUserPackages = true;
               home-manager.users.${user.work}.imports =
                 [
-                  ./home-manager/home.nix
+                  (import ./home-manager/home.nix inputs)
                   ./home-manager/modules/alacritty.nix
                   # ./home-manager/modules/osx.nix
                   ./home-manager/modules/cli.nix
@@ -92,7 +92,7 @@
                   ./home-manager/modules/neovim.nix
                   ./home-manager/modules/python.nix
                   # ./home-manager/modules/ssh.nix
-                  ./home-manager/modules/tmux.nix
+                  (import ./home-manager/modules/tmux.nix inputs)
                   ./home-manager/machines/work.nix
                 ];
               # inherit pkgs;

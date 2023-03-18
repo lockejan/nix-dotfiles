@@ -1,9 +1,7 @@
+{ nixpkgs-unstable, ... }:
 { config, pkgs, libs, ... }:
 let
-  unstable = pkgs;
-  # unstable = import <unstable> {
-  #   config.allowUnfree = true;
-  # };
+  unstable = nixpkgs-unstable.legacyPackages.${pkgs.system};
 in
 {
 
