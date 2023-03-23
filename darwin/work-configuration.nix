@@ -1,4 +1,9 @@
+{ nixpkgs-unstable, ... }:
 { config, pkgs, ... }:
+let
+  user = "lockejan";
+  unstable = nixpkgs-unstable.legacyPackages.${pkgs.system};
+in
 {
 
   users.users.schmitt = {
@@ -8,7 +13,7 @@
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs; [ vim ];
+  environment.systemPackages = [ unstable.vim ];
 
   documentation.enable = false;
 

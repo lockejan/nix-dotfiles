@@ -46,7 +46,7 @@
         m1 = darwin.lib.darwinSystem {
           modules = [
             home-manager.darwinModules.home-manager
-            ./darwin/configuration.nix
+            (import ./darwin/configuration.nix inputs)
             {
               # `home-manager` config
               # home-manager.useGlobalPkgs = true;
@@ -75,7 +75,7 @@
         work = darwin.lib.darwinSystem {
           modules = [
             home-manager.darwinModules.home-manager
-            ./darwin/work-configuration.nix
+            (import ./darwin/work-configuration.nix inputs)
             {
               # `home-manager` config
               # home-manager.useGlobalPkgs = true;

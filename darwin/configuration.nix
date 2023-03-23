@@ -1,6 +1,8 @@
+{ nixpkgs-unstable, ... }:
 { config, pkgs, lib, ... }:
 let
   user = "lockejan";
+  unstable = nixpkgs-unstable.legacyPackages.${pkgs.system};
 in
 {
   users.users."${user}" = {
@@ -13,7 +15,7 @@ in
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs; [ vim ];
+  environment.systemPackages = [ unstable.vim ];
   # environment.shells = [ pkgs.zsh ];
 
   environment.etc."sudoers.d/000-sudo-touchid" = {
@@ -76,6 +78,7 @@ in
       "keycastr"
       "kitty"
       # "logitech-options"
+      "maccy"
       "microsoft-teams"
       "nextcloud"
       "owasp-zap"
@@ -91,7 +94,6 @@ in
       "visual-studio-code"
       # "whatsapp"
       "wireshark"
-      "yippy"
       "zoom"
       # "postman"
     ];
