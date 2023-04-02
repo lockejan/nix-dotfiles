@@ -92,6 +92,7 @@ in
       "tor-browser"
       "utm"
       "visual-studio-code"
+      "vlc"
       # "whatsapp"
       "wireshark"
       "zoom"
