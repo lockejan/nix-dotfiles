@@ -93,7 +93,7 @@ in
       "utm"
       "visual-studio-code"
       "vlc"
-      # "whatsapp"
+      "yubico-authenticator"
       "wireshark"
       "zoom"
       # "postman"
@@ -111,6 +111,7 @@ in
       Numbers = 409203825;
       # Pages = 409201541;
       "Slack for Desktop" = 803453959;
+      "WireGuard" = 1451685025;
       # Xcode = 497799835;
     };
 
