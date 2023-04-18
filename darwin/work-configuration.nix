@@ -13,7 +13,7 @@ in
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = [ unstable.vim ];
+  environment.systemPackages = [ unstable.vim pkgs._1password ];
 
   documentation.enable = false;
 
@@ -36,7 +36,7 @@ in
 
     casks = [
       "1password"
-      "alacritty"
+      # "alacritty"
       "brave-browser"
       "coconutbattery"
       "docker"
@@ -50,11 +50,13 @@ in
       "joplin"
       "keycastr"
       "kitty"
+      "maccy"
       "mimestream"
       "miro"
       "owasp-zap"
       "postman"
       "rectangle"
+      "signal"
       "soapui"
       "spotify"
       "teamviewer"
@@ -62,7 +64,6 @@ in
       "virtualbox"
       "visual-studio-code"
       "wireshark"
-      "yippy"
       "yubico-authenticator"
       "yubico-yubikey-manager"
       # "yubico-piv-tool"
@@ -81,7 +82,7 @@ in
   networking.hostName = "smittie-at-sipgate";
 
   system.defaults = {
-    dock.appswitcher-all-displays = false;
+    dock.appswitcher-all-displays = true;
     dock.autohide = true;
     # dock.autohide-delay = 0.2;
     dock.mru-spaces = false;

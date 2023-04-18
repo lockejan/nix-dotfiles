@@ -15,7 +15,7 @@ hs.hotkey.bindSpec({ hyper, "l" }, function()
 end)
 
 hs.hotkey.bindSpec({ hyper, "p" }, function()
-	hs.execute("choose-pass", true)
+	hs.execute("get-pass", true)
 end)
 
 hs.loadSpoon("SpoonInstall")
