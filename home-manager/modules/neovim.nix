@@ -16,6 +16,7 @@
     lua
     # neovim-nightly
     neovim
+    nil
     nixfmt
     nodePackages.bash-language-server
     nodePackages.dockerfile-language-server-nodejs
@@ -31,7 +32,7 @@
     python39Packages.python-lsp-server
     rust-analyzer
     rustc
-    rnix-lsp
+    # rnix-lsp
     # rubyPackages.solargraph
     shfmt
     statix

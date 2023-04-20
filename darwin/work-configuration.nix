@@ -52,7 +52,7 @@ in
       "kitty"
       "maccy"
       "mimestream"
-      "miro"
+      # "miro"
       "owasp-zap"
       "postman"
       "rectangle"
