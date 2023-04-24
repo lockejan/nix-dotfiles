@@ -51,7 +51,7 @@ in
       "homebrew/cask-drivers"
     ];
 
-    brews = [ "pinentry-mac" ];
+    # brews = [ "pinentry-mac" ];
 
     # whalebrews = [ "whalebrew/wget" ];
 
@@ -82,6 +82,7 @@ in
       "microsoft-teams"
       "nextcloud"
       "owasp-zap"
+      # "rancher"
       "raspberry-pi-imager"
       "rectangle"
       "signal"

@@ -23,6 +23,14 @@ else
   echo "fzf-git.sh not found. CHECK PATH!!!"
 fi
 
+if [[ -d "$HOME/.rd" ]]; then
+  export PATH="$PATH:$HOME/.rd/bin"
+elif [[ -d "$HOME/.docker" ]]; then
+  export PATH="$PATH:$HOME/.docker/bin"
+fi
+
+export GPG_TTY=$(tty)
+
 # echo "Docstring of the day:"
 # ~/random_doc.clj
 
