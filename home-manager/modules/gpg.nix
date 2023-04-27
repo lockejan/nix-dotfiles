@@ -1,10 +1,10 @@
 { config, pkgs, libs, ... }: {
   home.packages = with pkgs; [
     gnupg1
-    pinentry
     gpg-tui
-    yubikey-manager
+    # pinentry
     # pinentry_mac
+    yubikey-manager
   ];
 
   programs.gpg = {
