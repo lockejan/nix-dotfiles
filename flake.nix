@@ -34,11 +34,11 @@
       system.m1 = "aarch64-darwin";
       user.m1 = "lockejan";
       system.raspbi = "aarch64-linux";
-      pkgs = import inputs.nixpkgs {
-        inherit system;
-        config = { allowUnfree = true; };
-        # overlays = [ inputs.neovim-nightly-overlay.overlay ];
-      };
+      # pkgs = import inputs.nixpkgs {
+      #   inherit system;
+      #   config = { allowUnfree = true; };
+      #   # overlays = [ inputs.neovim-nightly-overlay.overlay ];
+      # };
     in
     {
 
@@ -77,25 +77,19 @@
             home-manager.darwinModules.home-manager
             (import ./darwin/work-configuration.nix inputs)
             {
-              # `home-manager` config
-              # home-manager.useGlobalPkgs = true;
-              # home-manager.useUserPackages = true;
               home-manager.users.${user.work}.imports =
                 [
                   (import ./home-manager/home.nix inputs)
                   ./home-manager/modules/alacritty.nix
-                  # ./home-manager/modules/osx.nix
                   ./home-manager/modules/cli.nix
                   ./home-manager/modules/git.nix
                   ./home-manager/modules/gpg.nix
                   ./home-manager/modules/kitty.nix
                   ./home-manager/modules/neovim.nix
                   ./home-manager/modules/python.nix
-                  # ./home-manager/modules/ssh.nix
                   (import ./home-manager/modules/tmux.nix inputs)
                   ./home-manager/machines/work.nix
                 ];
-              # inherit pkgs;
             }
           ];
           system = system.work;

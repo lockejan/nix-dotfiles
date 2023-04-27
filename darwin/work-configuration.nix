@@ -1,19 +1,38 @@
 { nixpkgs-unstable, ... }:
 { config, pkgs, ... }:
 let
-  user = "lockejan";
+  user = "schmitt";
   unstable = nixpkgs-unstable.legacyPackages.${pkgs.system};
 in
 {
 
   users.users.schmitt = {
-    name = "schmitt";
-    home = "/Users/schmitt";
+    name = user;
+    home = "/Users/${user}";
   };
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = [ unstable.vim pkgs._1password ];
+
+  environment.etc."sudoers.d/000-sudo-touchid" = {
+    text = ''
+      Defaults pam_service=sudo-touchid
+      Defaults pam_login_service=sudo-touchid
+    '';
+  };
+
+  environment.etc."pam.d/sudo-touchid" = {
+    text = ''
+      auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so ignore_ssh
+      auth       sufficient     pam_tid.so
+      auth       sufficient     pam_smartcard.so
+      auth       required       pam_opendirectory.so
+      account    required       pam_permit.so
+      password   required       pam_deny.so
+      session    required       pam_permit.so
+    '';
+  };
 
   documentation.enable = false;
 
@@ -30,7 +49,12 @@ in
       "homebrew/cask-drivers"
     ];
 
-    brews = [ "ykman" "pam-reattach" "openssh" "podman" ];
+    brews = [
+      "ykman"
+      # "pam-reattach"
+      "openssh"
+      "podman"
+    ];
 
     # whalebrews = [ "whalebrew/wget" ];
 
@@ -39,7 +63,7 @@ in
       # "alacritty"
       "brave-browser"
       "coconutbattery"
-      "docker"
+      # "docker"
       "firefox"
       "flux"
       "google-chrome"
@@ -55,6 +79,7 @@ in
       # "miro"
       "owasp-zap"
       "postman"
+      "rancher"
       "rectangle"
       "signal"
       "soapui"
@@ -100,7 +125,7 @@ in
   system.defaults.finder.ShowPathbar = true;
   system.defaults.finder.ShowStatusBar = true;
   system.defaults.loginwindow.GuestEnabled = false;
-  system.defaults.loginwindow.autoLoginUser = "schmitt";
+  system.defaults.loginwindow.autoLoginUser = user;
   # system.defaults.ActivityMonitor.SortDirection = 0;
 
   system.defaults.NSGlobalDomain.AppleMeasurementUnits = "Centimeters";
