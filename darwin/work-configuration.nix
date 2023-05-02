@@ -53,7 +53,7 @@ in
       "ykman"
       # "pam-reattach"
       "openssh"
-      "podman"
+      # "podman"
     ];
 
     # whalebrews = [ "whalebrew/wget" ];
@@ -63,7 +63,7 @@ in
       # "alacritty"
       "brave-browser"
       "coconutbattery"
-      # "docker"
+      "docker"
       "firefox"
       "flux"
       "google-chrome"
@@ -77,9 +77,10 @@ in
       "maccy"
       "mimestream"
       # "miro"
+      "notion"
       "owasp-zap"
       "postman"
-      "rancher"
+      # "rancher"
       "rectangle"
       "signal"
       "soapui"
