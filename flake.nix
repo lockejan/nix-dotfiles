@@ -60,7 +60,7 @@
                   ./home-manager/modules/git.nix
                   ./home-manager/modules/gpg.nix
                   ./home-manager/modules/kitty.nix
-                  ./home-manager/modules/neovim.nix
+                  (import ./home-manager/modules/neovim.nix inputs)
                   ./home-manager/modules/python.nix
                   ./home-manager/modules/ssh.nix
                   (import ./home-manager/modules/tmux.nix inputs)
@@ -85,7 +85,7 @@
                   ./home-manager/modules/git.nix
                   ./home-manager/modules/gpg.nix
                   ./home-manager/modules/kitty.nix
-                  ./home-manager/modules/neovim.nix
+                  (import ./home-manager/modules/neovim.nix inputs)
                   ./home-manager/modules/python.nix
                   (import ./home-manager/modules/tmux.nix inputs)
                   ./home-manager/machines/work.nix

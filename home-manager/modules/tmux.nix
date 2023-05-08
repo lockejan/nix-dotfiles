@@ -11,7 +11,7 @@ in
     baseIndex = 1;
     disableConfirmationPrompt = false;
     escapeTime = 40;
-    historyLimit = 10000;
+    historyLimit = 50000;
     keyMode = "emacs";
     # aggressiveResize = true;
     newSession = false;

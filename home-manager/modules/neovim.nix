@@ -1,4 +1,9 @@
-{ config, pkgs, ... }: {
+{ nixpkgs-unstable, ... }:
+{ config, pkgs, ... }:
+let
+  unstable = nixpkgs-unstable.legacyPackages.${pkgs.system};
+in
+{
   home.packages = with pkgs; [
     clojure
     clojure-lsp
@@ -15,7 +20,7 @@
     stylish-haskell
     lua
     # neovim-nightly
-    neovim
+    unstable.neovim
     nil
     nixfmt
     nodePackages.bash-language-server
@@ -38,6 +43,7 @@
     statix
     stylua
     sumneko-lua-language-server
+    terraform-ls
     yamllint
     yapf
     yarn
