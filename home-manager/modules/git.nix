@@ -35,6 +35,7 @@
       prc = "!gh pr create";
       prs = "!gh pr status";
       prm = "!gh pr merge -d";
+      nosub = "push --recurse-submodules=no";
     };
     extraConfig = {
       color = {
