@@ -45,6 +45,7 @@ in
     stylua
     sumneko-lua-language-server
     terraform-ls
+    unstable.texlab
     yamllint
     yapf
     yarn

@@ -2,8 +2,6 @@
   home.packages = with pkgs; [
     gnupg1
     gpg-tui
-    # pinentry
-    # pinentry_mac
     yubikey-manager
   ];
 
