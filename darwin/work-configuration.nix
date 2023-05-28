@@ -121,31 +121,28 @@ in
 
     trackpad.Clicking = true;
     trackpad.TrackpadThreeFingerDrag = false;
+    finder.ShowPathbar = true;
+    finder.ShowStatusBar = true;
+    loginwindow.GuestEnabled = false;
+    loginwindow.autoLoginUser = user;
+    # ActivityMonitor.SortDirection = 0;
+
+    NSGlobalDomain.AppleMeasurementUnits = "Centimeters";
+    NSGlobalDomain.AppleShowAllExtensions = true;
+    # NSGlobalDomain.AppleShowScrollBars = "Always";
+    NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
+    NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
+    NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
+    NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
+    NSGlobalDomain.PMPrintingExpandedStateForPrint = true;
+    # NSGlobalDomain.com.apple.mouse.tapBehavior = 1;
+
+    LaunchServices.LSQuarantine = false;
   };
-
-  system.defaults.finder.ShowPathbar = true;
-  system.defaults.finder.ShowStatusBar = true;
-  system.defaults.loginwindow.GuestEnabled = false;
-  system.defaults.loginwindow.autoLoginUser = user;
-  # system.defaults.ActivityMonitor.SortDirection = 0;
-
-  system.defaults.NSGlobalDomain.AppleMeasurementUnits = "Centimeters";
-  system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
-  # system.defaults.NSGlobalDomain.AppleShowScrollBars = "Always";
-  system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
-  system.defaults.NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
-  system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
-  system.defaults.NSGlobalDomain.PMPrintingExpandedStateForPrint = true;
-  # system.defaults.NSGlobalDomain.com.apple.mouse.tapBehavior = 1;
-
-  system.defaults.LaunchServices.LSQuarantine = false;
 
   system.keyboard.enableKeyMapping = true;
   system.keyboard.nonUS.remapTilde = true;
   system.keyboard.remapCapsLockToControl = true;
-
-  security.pam.enableSudoTouchIdAuth = true;
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
@@ -172,7 +169,6 @@ in
   # # Enable experimental nix command and flakes
   nix.extraOptions = ''
     # auto-optimise-store = true
-    experimental-features = nix-command flakes
     gc-keep-derivations = true
     gc-keep-outputs = true
     log-lines = 128
