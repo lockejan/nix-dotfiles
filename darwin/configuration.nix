@@ -135,37 +135,33 @@ in
     dock.wvous-tl-corner = 1;
     dock.wvous-tr-corner = 1;
 
+    finder.ShowPathbar = true;
+    finder.ShowStatusBar = true;
+    loginwindow.GuestEnabled = false;
+    loginwindow.autoLoginUser = "${user}";
+    # ActivityMonitor.SortDirection = 0;
+
+    SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
+
+    NSGlobalDomain.AppleMeasurementUnits = "Centimeters";
+    NSGlobalDomain.AppleShowAllExtensions = true;
+    # NSGlobalDomain.AppleShowScrollBars = "Always";
+    NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
+    NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
+    NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
+    NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
+    NSGlobalDomain.PMPrintingExpandedStateForPrint = true;
+    # NSGlobalDomain.com.apple.mouse.tapBehavior = 1;
+
+    LaunchServices.LSQuarantine = false;
+
     trackpad.Clicking = true;
     trackpad.TrackpadThreeFingerDrag = false;
   };
 
-  system.defaults.finder.ShowPathbar = true;
-  system.defaults.finder.ShowStatusBar = true;
-  system.defaults.loginwindow.GuestEnabled = false;
-  system.defaults.loginwindow.autoLoginUser = "${user}";
-  # system.defaults.ActivityMonitor.SortDirection = 0;
-
-  system.defaults.SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
-
-  system.defaults.NSGlobalDomain.AppleMeasurementUnits = "Centimeters";
-  system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
-  # system.defaults.NSGlobalDomain.AppleShowScrollBars = "Always";
-  system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
-  system.defaults.NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
-  system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
-  system.defaults.NSGlobalDomain.PMPrintingExpandedStateForPrint = true;
-  # system.defaults.NSGlobalDomain.com.apple.mouse.tapBehavior = 1;
-
-  system.defaults.LaunchServices.LSQuarantine = false;
-
   system.keyboard.enableKeyMapping = true;
   system.keyboard.nonUS.remapTilde = true;
   system.keyboard.remapCapsLockToControl = true;
-
-  # Add ability to used TouchID for sudo authentication
-  # security.pam.enableSudoTouchIdAuth = true;
-  # security.pam.enablePamReattach = true;
 
   # environment.etc."DefaultKeyBinding.dict".text = ''
   #   {
@@ -210,11 +206,8 @@ in
 
   };
 
-  # # Enable experimental nix command and flakes
+  # Enable experimental nix command and flakes
   nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '' + lib.optionalString (pkgs.system == "aarch64-darwin") ''
-    extra-platforms = x86_64-darwin aarch64-darwin
     gc-keep-derivations = true
     gc-keep-outputs = true
     log-lines = 128
