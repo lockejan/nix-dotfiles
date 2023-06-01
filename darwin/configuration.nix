@@ -17,6 +17,7 @@ in
   # $ nix-env -qaP | grep wget
   environment.systemPackages = [ unstable.vim ];
   # environment.shells = [ pkgs.zsh ];
+  environment.variables.SHELL = "${pkgs.zsh}/bin/zsh";
 
   environment.etc."sudoers.d/000-sudo-touchid" = {
     text = ''
