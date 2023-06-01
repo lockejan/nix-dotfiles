@@ -35,7 +35,7 @@ in
     nodePackages.yaml-language-server
     nodejs
     # omnisharp-roslyn
-    python39Packages.python-lsp-server
+    # python39Packages.python-lsp-server
     rust-analyzer
     rustc
     # rnix-lsp
