@@ -175,15 +175,6 @@ in
   '';
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = [
-    (self: super: {
-      openssh = super.openssh.override {
-        hpnSupport = true;
-        withKerberos = true;
-        kerberos = self.libkrb5;
-      };
-    })
-  ];
 
   # Fonts
   fonts.fontDir.enable = true;
