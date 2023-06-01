@@ -40,9 +40,9 @@ in
       extended = true;
       ignoreDups = true;
       ignoreSpace = true;
-      save = 10000;
+      save = 20000;
       share = true;
-      size = 10000;
+      size = 20000;
     };
 
     shellAliases = {
