@@ -209,10 +209,10 @@ in
 
   # Enable experimental nix command and flakes
   nix.extraOptions = ''
+    auto-optimise-store = true
     gc-keep-derivations = true
     gc-keep-outputs = true
     log-lines = 128
-    # auto-optimise-store = true
   '';
 
   # programs.nix-index.enable = true;

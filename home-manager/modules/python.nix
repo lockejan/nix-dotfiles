@@ -7,7 +7,8 @@
         pip
         poetry-core
         pynvim
-        python-lsp-server
+        # python-lsp-server
+        ruff-lsp
       ]))
   ];
 }
