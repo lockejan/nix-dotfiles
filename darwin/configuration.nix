@@ -58,7 +58,7 @@ in
 
     casks = [
       "anki"
-      "alacritty"
+      # "alacritty"
       "authy"
       "brave-browser"
       "breitbandmessung"
@@ -66,38 +66,38 @@ in
       "docker"
       "electrum"
       "element"
-      "emacs"
+      # "emacs"
       "firefox"
       "flux"
       "focusrite-control"
       "google-chrome"
       "hammerspoon"
       "itsycal"
-      "iterm2"
+      # "iterm2"
       "jetbrains-toolbox"
       "joplin"
-      "keycastr"
+      # "keycastr"
       "kitty"
       # "logitech-options"
       "maccy"
-      "microsoft-teams"
+      # "microsoft-teams"
       "nextcloud"
       "owasp-zap"
       # "rancher"
-      "raspberry-pi-imager"
+      # "raspberry-pi-imager"
       "rectangle"
       "signal"
       "spotify"
       "teamviewer"
       "telegram-desktop"
       "tomighty"
-      "tor-browser"
+      # "tor-browser"
       "utm"
       "visual-studio-code"
       "vlc"
       "yubico-authenticator"
       "wireshark"
-      "zoom"
+      # "zoom"
       # "postman"
     ];
 
@@ -132,7 +132,7 @@ in
     dock.orientation = "left";
     dock.showhidden = true;
     dock.wvous-bl-corner = 1;
-    dock.wvous-br-corner = 1;
+    dock.wvous-br-corner = 2;
     dock.wvous-tl-corner = 1;
     dock.wvous-tr-corner = 1;
 
