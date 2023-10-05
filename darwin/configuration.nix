@@ -47,9 +47,7 @@ in
       upgrade = true;
     };
     taps = [
-      "homebrew/cask"
-      # "homebrew/cask-fonts"
-      "homebrew/cask-drivers"
+      # "homebrew/cask"
     ];
 
     # brews = [ "pinentry-mac" ];
@@ -107,7 +105,7 @@ in
       iMovie = 408981434;
       "irealb Pro" = 409035833;
       Keynote = 409183694;
-      Kindle = 405399194;
+      Kindle = 302584613;
       "Logic Pro" = 634148309;
       Mactracker = 430255202;
       Numbers = 409203825;
@@ -132,8 +130,8 @@ in
     dock.orientation = "left";
     dock.showhidden = true;
     dock.wvous-bl-corner = 1;
-    dock.wvous-br-corner = 2;
-    dock.wvous-tl-corner = 1;
+    dock.wvous-br-corner = 1;
+    dock.wvous-tl-corner = 2;
     dock.wvous-tr-corner = 1;
 
     finder.ShowPathbar = true;
@@ -207,7 +205,7 @@ in
 
   };
 
-  # Enable experimental nix command and flakes
+  # Automatically remove unused packages and their dependencies.
   nix.extraOptions = ''
     auto-optimise-store = true
     gc-keep-derivations = true

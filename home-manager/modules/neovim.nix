@@ -15,6 +15,7 @@ in
     elmPackages.elm-language-server
     glow
     gopls
+    graphviz
     # haskell-language-server
     hlint
     stylish-haskell
