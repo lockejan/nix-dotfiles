@@ -1,4 +1,4 @@
-{ config, pkgs, libs, ... }: {
+{ config, pkgs, ... }: {
   targets.darwin.defaults = {
     NSGlobalDomain = {
       AppleLanguages = [ "en" "de" ];
@@ -14,7 +14,7 @@
       dock.tilesize = 64;
       Safari.SandboxBroker.ShowDevelopMenu = true;
       Safari.WebKitPreferences.developerExtrasEnabled = true;
-      # menuextra.battery.ShowPercent = "YES";
+      menuextra.battery.ShowPercent = "YES";
       desktopservices.DSDontWriteUSBStores = true;
     };
 

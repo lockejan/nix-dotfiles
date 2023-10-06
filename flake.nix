@@ -29,7 +29,7 @@
 
   outputs = { self, home-manager, darwin, ... }@inputs:
     let
-      system.work = "x86_64-darwin";
+      system.work = "aarch64-darwin";
       user.work = "schmitt";
       system.m1 = "aarch64-darwin";
       user.m1 = "lockejan";
@@ -81,6 +81,7 @@
                 [
                   (import ./home-manager/home.nix inputs)
                   ./home-manager/modules/alacritty.nix
+                  ./home-manager/modules/osx.nix
                   ./home-manager/modules/cli.nix
                   ./home-manager/modules/git.nix
                   ./home-manager/modules/gpg.nix

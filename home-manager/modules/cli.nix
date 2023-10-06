@@ -63,6 +63,7 @@ in
       df = "df -h";
       mkdir = "command mkdir -p";
       sed = "sed -E";
+      uuid = "uuidgen | tr '[:upper:]' '[:lower:]' | tr -d '\n' | pbcopy";
       rollback = ''
         home-manager generations | fzf | awk '{activate=$NF"/activate"; print activate}' | bash - '';
     };

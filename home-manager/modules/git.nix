@@ -1,4 +1,4 @@
-{ config, pkgs, libs, ... }: {
+{ pkgs, ... }: {
   programs.git = {
     userName = "Jan Schmitt";
     signing.signByDefault = true;

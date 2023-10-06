@@ -45,27 +45,23 @@ in
         upgrade = true;
       };
     taps = [
-      "homebrew/cask" # "homebrew/cask-fonts"
-      "homebrew/cask-drivers"
+      # "homebrew/cask"
     ];
 
     brews = [
-      "ykman"
-      # "pam-reattach"
       "openssh"
-      # "podman"
     ];
 
     # whalebrews = [ "whalebrew/wget" ];
 
     casks = [
-      "1password"
       # "alacritty"
       "brave-browser"
       "coconutbattery"
       "docker"
       "firefox"
       "flux"
+      "focusrite-control"
       "google-chrome"
       "gpg-suite-no-mail"
       "hammerspoon"
@@ -75,26 +71,28 @@ in
       "keycastr"
       "kitty"
       "maccy"
-      # "mimestream"
-      # "miro"
-      "notion"
       "owasp-zap"
       "postman"
       # "rancher"
       "rectangle"
       "signal"
       "sequel-ace"
-      "soapui"
       "spotify"
       "teamviewer"
       "tomighty"
-      "virtualbox"
       "visual-studio-code"
       "wireshark"
       "yubico-authenticator"
       "yubico-yubikey-manager"
       # "yubico-piv-tool"
     ];
+
+    masApps = {
+      "AdGuard for Safari" = 1440147259;
+      "Slack for Desktop" = 803453959;
+      # Xcode = 497799835;
+    };
+
   };
 
   # https://github.com/nix-community/home-manager/issues/423
@@ -117,7 +115,7 @@ in
     dock.showhidden = true;
     dock.wvous-bl-corner = 1;
     dock.wvous-br-corner = 1;
-    dock.wvous-tl-corner = 1;
+    dock.wvous-tl-corner = 2;
     dock.wvous-tr-corner = 1;
 
     trackpad.Clicking = true;
@@ -169,7 +167,7 @@ in
 
   # # Enable experimental nix command and flakes
   nix.extraOptions = ''
-    # auto-optimise-store = true
+    auto-optimise-store = true
     gc-keep-derivations = true
     gc-keep-outputs = true
     log-lines = 128
