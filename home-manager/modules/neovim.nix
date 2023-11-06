@@ -34,7 +34,7 @@ in
     # nodePackages.vim-language-server
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
-    nodejs
+    unstable.nodejs_20
     # omnisharp-roslyn
     # python39Packages.python-lsp-server
     rust-analyzer
@@ -49,7 +49,7 @@ in
     unstable.texlab
     yamllint
     yapf
-    yarn
+    (yarn.override { nodejs = unstable.nodejs_20; })
   ];
   xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/configs/nvim";
