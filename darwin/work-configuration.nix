@@ -56,9 +56,11 @@ in
 
     casks = [
       # "alacritty"
+      # "blackhole-2ch"
       "brave-browser"
       "coconutbattery"
       "docker"
+      "discord"
       "firefox"
       "flux"
       "focusrite-control"
@@ -75,6 +77,7 @@ in
       "postman"
       # "rancher"
       "rectangle"
+      "slack"
       "signal"
       "sequel-ace"
       "spotify"
@@ -89,7 +92,7 @@ in
 
     masApps = {
       "AdGuard for Safari" = 1440147259;
-      "Slack for Desktop" = 803453959;
+      # "Slack for Desktop" = 803453959;
       # Xcode = 497799835;
     };
 
