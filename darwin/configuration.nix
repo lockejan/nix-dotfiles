@@ -94,6 +94,7 @@ in
       "visual-studio-code"
       "vlc"
       "yubico-authenticator"
+      "whatsapp"
       "wireshark"
       # "zoom"
       # "postman"
