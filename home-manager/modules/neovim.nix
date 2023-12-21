@@ -5,6 +5,7 @@ let
 in
 {
   home.packages = with pkgs; [
+    black
     clojure
     clojure-lsp
     cargo

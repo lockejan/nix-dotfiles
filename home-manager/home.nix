@@ -27,6 +27,7 @@ in
     jdk17_headless
     jq
     less
+    mob
     ncurses
     ncdu
     nix-doc
@@ -40,6 +41,7 @@ in
     # page
     pwgen
     ripgrep
+    solo2-cli
     sourceHighlight
     tldr
     trash-cli
