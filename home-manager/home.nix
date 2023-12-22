@@ -30,7 +30,7 @@ in
     mob
     ncurses
     ncdu
-    nix-doc
+    # nix-doc
     nix-prefetch-git
     nixpkgs-fmt
     nixpkgs-review
@@ -46,7 +46,7 @@ in
     tldr
     trash-cli
     tree-sitter
-    vagrant
+    # vagrant
     watch
   ];
 
@@ -67,7 +67,7 @@ in
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
   };
 
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 
   xdg.configFile."nix/nix.conf".text = ''
     experimental-features = nix-command flakes

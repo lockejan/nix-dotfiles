@@ -7,7 +7,7 @@ in
   home.packages = with pkgs; [
     black
     clojure
-    clojure-lsp
+    # clojure-lsp
     cargo
     # dotnet-sdk
     elmPackages.elm
@@ -49,7 +49,6 @@ in
     terraform-ls
     unstable.texlab
     yamllint
-    yapf
     (yarn.override { nodejs = unstable.nodejs_20; })
   ];
   xdg.configFile."nvim".source =
