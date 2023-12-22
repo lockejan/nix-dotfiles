@@ -61,7 +61,7 @@
       fetch = { prune = true; };
       help = { autocorrect = 10; };
       interactive = { singlekey = true; };
-      merge = { tool = "nvim"; };
+      merge = { tool = "nvim"; ff = true; };
       mergetool = {
         nvim = {
           cmd =

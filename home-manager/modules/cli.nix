@@ -10,7 +10,7 @@ in
     # dotDir = ".config/zsh";
     enableAutosuggestions = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     # completionInit = "autoload -Uz compinit; compinit -u";
     defaultKeymap = "emacs";
     plugins = [
@@ -78,7 +78,7 @@ in
       enableZshIntegration = true;
     };
 
-    exa = {
+    eza = {
       enable = true;
       enableAliases = true;
     };
