@@ -46,53 +46,57 @@
         m1 = darwin.lib.darwinSystem {
           modules = [
             home-manager.darwinModules.home-manager
-            (import ./darwin/configuration.nix inputs)
+            ./darwin/configuration.nix
             {
-              # `home-manager` config
-              # home-manager.useGlobalPkgs = true;
-              # home-manager.useUserPackages = true;
-              home-manager.users.${user.m1}.imports =
-                [
-                  (import ./home-manager/home.nix inputs)
-                  ./home-manager/modules/alacritty.nix
-                  # ./home-manager/modules/osx.nix
-                  ./home-manager/modules/cli.nix
-                  ./home-manager/modules/git.nix
-                  ./home-manager/modules/gpg.nix
-                  ./home-manager/modules/kitty.nix
-                  (import ./home-manager/modules/neovim.nix inputs)
-                  ./home-manager/modules/python.nix
-                  ./home-manager/modules/ssh.nix
-                  (import ./home-manager/modules/tmux.nix inputs)
-                  ./home-manager/machines/personal.nix
-                ];
-              # inherit pkgs;
+              home-manager = {
+                users.${user.m1}.imports =
+                  [
+                    ./home-manager/home.nix
+                    ./home-manager/modules/alacritty.nix
+                    # ./home-manager/modules/osx.nix
+                    ./home-manager/modules/cli.nix
+                    ./home-manager/modules/git.nix
+                    ./home-manager/modules/gpg.nix
+                    ./home-manager/modules/kitty.nix
+                    ./home-manager/modules/neovim.nix
+                    ./home-manager/modules/python.nix
+                    ./home-manager/modules/ssh.nix
+                    ./home-manager/modules/tmux.nix
+                    ./home-manager/machines/personal.nix
+                  ];
+                extraSpecialArgs = { inherit inputs; };
+              };
             }
           ];
+          specialArgs = { inherit inputs; };
           system = system.m1;
         };
 
         work = darwin.lib.darwinSystem {
           modules = [
             home-manager.darwinModules.home-manager
-            (import ./darwin/work-configuration.nix inputs)
+            ./darwin/work-configuration.nix
             {
-              home-manager.users.${user.work}.imports =
-                [
-                  (import ./home-manager/home.nix inputs)
-                  ./home-manager/modules/alacritty.nix
-                  ./home-manager/modules/osx.nix
-                  ./home-manager/modules/cli.nix
-                  ./home-manager/modules/git.nix
-                  ./home-manager/modules/gpg.nix
-                  ./home-manager/modules/kitty.nix
-                  (import ./home-manager/modules/neovim.nix inputs)
-                  ./home-manager/modules/python.nix
-                  (import ./home-manager/modules/tmux.nix inputs)
-                  ./home-manager/machines/work.nix
-                ];
+              home-manager = {
+                users.${user.work}.imports =
+                  [
+                    ./home-manager/home.nix
+                    ./home-manager/modules/alacritty.nix
+                    ./home-manager/modules/osx.nix
+                    ./home-manager/modules/cli.nix
+                    ./home-manager/modules/git.nix
+                    ./home-manager/modules/gpg.nix
+                    ./home-manager/modules/kitty.nix
+                    ./home-manager/modules/neovim.nix
+                    ./home-manager/modules/python.nix
+                    ./home-manager/modules/tmux.nix
+                    ./home-manager/machines/work.nix
+                  ];
+                extraSpecialArgs = { inherit inputs; };
+              };
             }
           ];
+          specialArgs = { inherit inputs; };
           system = system.work;
         };
       };

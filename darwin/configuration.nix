@@ -1,8 +1,7 @@
-{ nixpkgs-unstable, ... }:
-{ config, pkgs, lib, ... }:
+{ pkgs, inputs, ... }:
 let
   user = "lockejan";
-  unstable = nixpkgs-unstable.legacyPackages.${pkgs.system};
+  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
 in
 {
   users.users."${user}" = {
