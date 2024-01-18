@@ -49,7 +49,7 @@ in
       # "homebrew/cask"
     ];
 
-    # brews = [ "pinentry-mac" ];
+    brews = [ "clojure-lsp/brew/clojure-lsp-native" ];
 
     # whalebrews = [ "whalebrew/wget" ];
 
