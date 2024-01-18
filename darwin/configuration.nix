@@ -137,6 +137,7 @@ in
 
     finder.ShowPathbar = true;
     finder.ShowStatusBar = true;
+    finder.FXPreferredViewStyle = "clmv";
     loginwindow.GuestEnabled = false;
     loginwindow.autoLoginUser = "${user}";
     # ActivityMonitor.SortDirection = 0;
@@ -212,6 +213,7 @@ in
     gc-keep-derivations = true
     gc-keep-outputs = true
     log-lines = 128
+    extra-platforms = x86_64-darwin aarch64-darwin
   '';
 
   # programs.nix-index.enable = true;
