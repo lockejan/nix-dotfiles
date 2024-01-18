@@ -47,9 +47,10 @@ in
     };
     taps = [
       # "homebrew/cask"
+      "clojure-lsp/brew"
     ];
 
-    brews = [ "clojure-lsp/brew/clojure-lsp-native" ];
+    brews = [ "clojure-lsp-native" ];
 
     # whalebrews = [ "whalebrew/wget" ];
 
