@@ -60,6 +60,7 @@ in
       "coconutbattery"
       "docker"
       "discord"
+      "element"
       "firefox"
       "flux"
       "focusrite-control"
@@ -120,10 +121,9 @@ in
     dock.wvous-tl-corner = 2;
     dock.wvous-tr-corner = 1;
 
-    trackpad.Clicking = true;
-    trackpad.TrackpadThreeFingerDrag = false;
     finder.ShowPathbar = true;
     finder.ShowStatusBar = true;
+    finder.FXPreferredViewStyle = "clmv";
     loginwindow.GuestEnabled = false;
     loginwindow.autoLoginUser = user;
     # ActivityMonitor.SortDirection = 0;
@@ -139,6 +139,9 @@ in
     # NSGlobalDomain.com.apple.mouse.tapBehavior = 1;
 
     LaunchServices.LSQuarantine = false;
+
+    trackpad.Clicking = true;
+    trackpad.TrackpadThreeFingerDrag = false;
   };
 
   system.keyboard.enableKeyMapping = true;
@@ -147,35 +150,46 @@ in
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  nix.package = pkgs.nix;
 
-  nix.configureBuildUsers = true;
+  nix = {
 
-  nix.settings = {
-    trusted-users = [ "@admin" ];
-    sandbox = true;
-    extra-sandbox-paths = [ "/private/tmp" "/private/var/tmp" "/usr/bin/env" ];
+    package = pkgs.nix;
 
-    substituters = [
-      # "https://cache.nixos.org/"
-      "https://nix-community.cachix.org"
-    ];
+    configureBuildUsers = true;
 
-    trusted-public-keys = [
-      # "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
+    settings = {
+      trusted-users = [ "@admin" ];
+      sandbox = true;
+      extra-sandbox-paths = [ "/private/tmp" "/private/var/tmp" "/usr/bin/env" ];
+
+      substituters = [
+        # "https://cache.nixos.org/"
+        "https://nix-community.cachix.org"
+      ];
+
+      trusted-public-keys = [
+        # "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+    };
+
+    # # Enable experimental nix command and flakes
+    extraOptions = ''
+      auto-optimise-store = true
+      gc-keep-derivations = true
+      gc-keep-outputs = true
+      log-lines = 128
+      extra-platforms = x86_64-darwin aarch64-darwin
+    '';
+
+    # linux-builder.enable = true;
+
   };
 
-  # # Enable experimental nix command and flakes
-  nix.extraOptions = ''
-    auto-optimise-store = true
-    gc-keep-derivations = true
-    gc-keep-outputs = true
-    log-lines = 128
-  '';
-
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config =
+    {
+      allowUnfree = true;
+    };
 
   # Fonts
   fonts.fontDir.enable = true;

@@ -24,4 +24,10 @@
   #   "^u" = "deleteToBeginningOfLine:";
   #   "^w" = "deleteWordBackward:";
   # };
+
+  #   home.file."Library/Keyboard Layouts/EurKEY.icns".source =
+  #     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/configs/KeyboardLayouts/EurKEY.icns";
+  #
+  #   home.file."Library/Keyboard Layouts/EurKEY.keylayout".source =
+  #     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/configs/KeyboardLayouts/EurKEY.keylayout";
 }

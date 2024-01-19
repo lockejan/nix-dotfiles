@@ -191,30 +191,36 @@ in
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  nix.package = pkgs.nix;
 
-  nix.configureBuildUsers = true;
+  nix = {
 
-  nix.settings = {
-    sandbox = true;
-    trusted-users = [ "@admin" ];
-    extra-sandbox-paths = [ "/private/tmp" "/private/var/tmp" "/usr/bin/env" ];
-    substituters = [ "https://nix-community.cachix.org" "https://lockejan-nur.cachix.org" ];
-    trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "lockejan-nur.cachix.org-1:xRzsQG4xTHMx7piti7DD6iwu+bR7pdeAJEd5VwdZCv4="
-    ];
+    package = pkgs.nix;
+
+    configureBuildUsers = true;
+
+    settings = {
+      sandbox = true;
+      trusted-users = [ "@admin" ];
+      extra-sandbox-paths = [ "/private/tmp" "/private/var/tmp" "/usr/bin/env" ];
+
+      substituters = [ "https://nix-community.cachix.org" "https://lockejan-nur.cachix.org" ];
+
+      trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "lockejan-nur.cachix.org-1:xRzsQG4xTHMx7piti7DD6iwu+bR7pdeAJEd5VwdZCv4="
+      ];
+    };
+
+    # Automatically remove unused packages and their dependencies.
+    extraOptions = ''
+      auto-optimise-store = true
+      gc-keep-derivations = true
+      gc-keep-outputs = true
+      log-lines = 128
+      extra-platforms = x86_64-darwin aarch64-darwin
+    '';
 
   };
-
-  # Automatically remove unused packages and their dependencies.
-  nix.extraOptions = ''
-    auto-optimise-store = true
-    gc-keep-derivations = true
-    gc-keep-outputs = true
-    log-lines = 128
-    extra-platforms = x86_64-darwin aarch64-darwin
-  '';
 
   # programs.nix-index.enable = true;
   nixpkgs.config.allowUnfree = true;

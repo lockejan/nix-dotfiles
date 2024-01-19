@@ -184,3 +184,6 @@ latex.out/
 
 # tags file for vim
 tags
+
+# ignore docker volumes
+docker-mysql-home/

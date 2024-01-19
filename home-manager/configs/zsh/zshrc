@@ -11,7 +11,7 @@ bindkey '^x^e' edit-command-line
 # brew sbin folder
 # export PATH="/usr/local/sbin:$PATH"
 # export PATH="/usr/local/bin:$PATH"
-export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/bin:/opt/homebrew/bin"
 
 if [[ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
   source "$HOME/.sdkman/bin/sdkman-init.sh"
