@@ -51,7 +51,7 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
   # home.username = builtins.getEnv "USER";
   # home.homeDirectory = builtins.getEnv "HOME";
