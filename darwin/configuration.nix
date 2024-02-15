@@ -80,7 +80,7 @@ in
       "maccy"
       # "microsoft-teams"
       "nextcloud"
-      "owasp-zap"
+      "zap"
       # "rancher"
       # "raspberry-pi-imager"
       "rectangle"
