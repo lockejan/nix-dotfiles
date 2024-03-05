@@ -19,8 +19,8 @@ in
         src = pkgs.fetchFromGitHub {
           owner = "Aloxaf";
           repo = "fzf-tab";
-          rev = "14f66e4d3d0b366552c0412eb08ca9e0f7c797bd";
-          sha256 = "sha256-YkfHPSuSKParz7JidR924CJSuXO6Rk0RZTlxPOBwLJk=";
+          rev = "f3d892cf19bba09c0c44fa9fcaf6d616fe5b18e6";
+          sha256 = "sha256-5vQodWvw9akVvvmpVQH0KjdWmCP7vQz2QOK4Yn24MbA=";
           # sha256 = lib.fakeSha256;
         };
       }
@@ -29,8 +29,8 @@ in
         src = pkgs.fetchFromGitHub {
           owner = "agkozak";
           repo = "zsh-z";
-          rev = "82f5088641862d0e83561bb251fb60808791c76a";
-          sha256 = "sha256-6BNYzfTcjWm+0lJC83IdLxHwwG4/DKet2QNDvVBR6Eo=";
+          rev = "afaf2965b41fdc6ca66066e09382726aa0b6aa04";
+          sha256 = "sha256-FnGjp/VJLPR6FaODY0GtCwcsTYA4d6D8a6dMmNpXQ+g=";
           # sha256 = lib.fakeSha256;
         };
       }
