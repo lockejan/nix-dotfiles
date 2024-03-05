@@ -28,7 +28,7 @@ in
     less
     mob
     ncurses
-    ncdu
+    # ncdu
     # nix-doc
     nix-prefetch-git
     nixpkgs-fmt
