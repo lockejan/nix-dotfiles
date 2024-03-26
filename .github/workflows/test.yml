@@ -6,10 +6,10 @@ jobs:
   tests:
     runs-on: macos-14
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: true
-    - uses: cachix/install-nix-action@v22
+    - uses: cachix/install-nix-action@v26
       with:
         extra_nix_config: "access-tokens = github.com=${{ secrets.TOKEN }}"
     - name: install git-crypt on the runner via nix flakes
