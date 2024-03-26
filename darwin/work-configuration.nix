@@ -156,6 +156,8 @@ in
     package = pkgs.nix;
 
     configureBuildUsers = true;
+    gc.user = "root";
+    gc.automatic = true;
 
     settings = {
       trusted-users = [ "@admin" ];
