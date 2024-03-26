@@ -14,6 +14,7 @@ in
     elmPackages.elm-format
     elmPackages.elm-language-server
     glow
+    go
     gopls
     graphviz
     # haskell-language-server

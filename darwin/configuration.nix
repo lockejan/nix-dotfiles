@@ -57,7 +57,6 @@ in
     casks = [
       "anki"
       # "alacritty"
-      "authy"
       "brave-browser"
       "breitbandmessung"
       "coconutbattery"
