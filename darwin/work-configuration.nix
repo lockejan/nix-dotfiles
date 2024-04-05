@@ -72,6 +72,7 @@ in
       "joplin"
       "keycastr"
       "kitty"
+      "krisp"
       "maccy"
       "owasp-zap"
       "postman"

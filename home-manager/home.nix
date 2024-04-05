@@ -5,6 +5,7 @@ in
 {
 
   home.packages = with pkgs; [
+    unstable.act
     babashka
     cachix
     ctop
