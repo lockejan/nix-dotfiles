@@ -56,6 +56,7 @@
         };
         mnemonicprefix = true;
       };
+      remote.origin.fetch = "+refs/pull/*/head:refs/remotes/origin/pull/*";
       # difftool = { path = "nvim"; };
       format = { pretty = "fuller"; };
       fetch = { prune = true; };

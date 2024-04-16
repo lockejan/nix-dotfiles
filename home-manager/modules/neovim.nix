@@ -4,6 +4,7 @@ let
 in
 {
   home.packages = with pkgs; [
+    ansible-lint
     black
     clojure
     # clojure-lsp
