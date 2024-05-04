@@ -26,6 +26,7 @@ in
     unstable.ijq
     jdk17_headless
     jq
+    unstable.kubernetes-helm
     less
     mob
     ncurses
