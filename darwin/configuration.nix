@@ -80,12 +80,14 @@ in
       # "logitech-options"
       "maccy"
       # "microsoft-teams"
+      "monitorcontrol"
       "nextcloud"
       "zap"
       # "rancher"
       # "raspberry-pi-imager"
       "rectangle"
       "signal"
+      "sonos"
       "spotify"
       "teamviewer"
       "telegram-desktop"
@@ -104,6 +106,7 @@ in
 
     masApps = {
       "AdGuard for Safari" = 1440147259;
+      "AusweisApp Bund" = 948660805;
       Bitwarden = 1352778147;
       iMovie = 408981434;
       "irealb Pro" = 409035833;

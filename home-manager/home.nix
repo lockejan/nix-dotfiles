@@ -42,7 +42,7 @@ in
     # page
     pwgen
     ripgrep
-    solo2-cli
+    # solo2-cli
     sourceHighlight
     tldr
     trash-cli
