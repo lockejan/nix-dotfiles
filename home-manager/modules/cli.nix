@@ -8,7 +8,7 @@ in
     enable = true;
     autocd = true;
     # dotDir = ".config/zsh";
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     # completionInit = "autoload -Uz compinit; compinit -u";
@@ -87,7 +87,7 @@ in
 
     eza = {
       enable = true;
-      enableAliases = true;
+      enableZshIntegration = true;
     };
 
     bat = {

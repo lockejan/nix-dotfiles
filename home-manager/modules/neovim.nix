@@ -25,7 +25,7 @@ in
     # neovim-nightly
     unstable.neovim
     nil
-    nixfmt
+    nixfmt-classic
     nodePackages.bash-language-server
     nodePackages.dockerfile-language-server-nodejs
     nodePackages.eslint
