@@ -14,6 +14,7 @@ in
     dockutil
     dogdns
     entr
+    exif
     fd
     geckodriver
     glances

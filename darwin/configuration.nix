@@ -14,27 +14,30 @@ in
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = [ unstable.vim ];
-  # environment.shells = [ pkgs.zsh ];
-  environment.variables.SHELL = "${pkgs.zsh}/bin/zsh";
+  environment = {
 
-  environment.etc."sudoers.d/000-sudo-touchid" = {
-    text = ''
-      Defaults pam_service=sudo-touchid
-      Defaults pam_login_service=sudo-touchid
-    '';
-  };
+    systemPackages = [ unstable.vim ];
+    # environment.shells = [ pkgs.zsh ];
+    variables.SHELL = "${pkgs.zsh}/bin/zsh";
 
-  environment.etc."pam.d/sudo-touchid" = {
-    text = ''
-      auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so ignore_ssh
-      auth       sufficient     pam_tid.so
-      auth       sufficient     pam_smartcard.so
-      auth       required       pam_opendirectory.so
-      account    required       pam_permit.so
-      password   required       pam_deny.so
-      session    required       pam_permit.so
-    '';
+    etc."sudoers.d/000-sudo-touchid" = {
+      text = ''
+        Defaults pam_service=sudo-touchid
+        Defaults pam_login_service=sudo-touchid
+      '';
+    };
+
+    etc."pam.d/sudo-touchid" = {
+      text = ''
+        auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so ignore_ssh
+        auth       sufficient     pam_tid.so
+        auth       sufficient     pam_smartcard.so
+        auth       required       pam_opendirectory.so
+        account    required       pam_permit.so
+        password   required       pam_deny.so
+        session    required       pam_permit.so
+      '';
+    };
   };
 
   homebrew = {
@@ -56,52 +59,57 @@ in
 
     casks = [
       "anki"
-      # "alacritty"
       "brave-browser"
       "breitbandmessung"
-      "coconutbattery"
       "docker"
       "electrum"
       "element"
-      # "emacs"
-      "espanso"
       "firefox"
       "flux"
       "focusrite-control"
       "google-chrome"
       "hammerspoon"
       "hiddenbar"
+      "insomnia"
       "itsycal"
-      # "iterm2"
       "jetbrains-toolbox"
       "joplin"
-      # "keycastr"
       "kitty"
-      # "logitech-options"
       "maccy"
-      # "microsoft-teams"
+      "microsoft-teams"
       "monitorcontrol"
       "nextcloud"
-      "zap"
-      # "rancher"
-      # "raspberry-pi-imager"
+      "obsidian"
+      "postman"
       "rectangle"
       "signal"
       "sonos"
       "spotify"
+      "stats"
       "teamviewer"
       "telegram-desktop"
       "tomighty"
-      # "tor-browser"
       "utm"
       "visual-studio-code"
       "vlc"
-      "yubico-authenticator"
-      "yubico-yubikey-manager"
       "whatsapp"
       "wireshark"
+      "yubico-authenticator"
+      "yubico-yubikey-manager"
+      "zap"
+      # "alacritty"
+      # "coconutbattery"
+      # "emacs"
+      # "espanso"
+      # "iterm2"
+      # "keycastr"
+      # "logitech-options"
+      # "rancher"
+      # "raspberry-pi-imager"
+      # "raycast"
+      # "tor-browser"
+      # "znotch"
       # "zoom"
-      # "postman"
     ];
 
     masApps = {
@@ -206,9 +214,16 @@ in
     settings = {
       sandbox = true;
       trusted-users = [ "@admin" ];
-      extra-sandbox-paths = [ "/private/tmp" "/private/var/tmp" "/usr/bin/env" ];
+      extra-sandbox-paths = [
+        "/private/tmp"
+        "/private/var/tmp"
+        "/usr/bin/env"
+      ];
 
-      substituters = [ "https://nix-community.cachix.org" "https://lockejan-nur.cachix.org" ];
+      substituters = [
+        "https://nix-community.cachix.org"
+        "https://lockejan-nur.cachix.org"
+      ];
 
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
