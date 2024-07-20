@@ -12,7 +12,7 @@ in
         poetry-core
         pynvim
         # python-lsp-server
-        ruff-lsp
+        # ruff-lsp
       ]))
   ];
 }

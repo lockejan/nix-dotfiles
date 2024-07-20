@@ -67,6 +67,7 @@ in
     LESS = "-R --use-color Du+b";
     # MANPAGER="less -R --use-color -Dd+r -Du+b";
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
+    # FZF_CTRL_T_OPTS = "--preview 'bat --color=always --style=numbers --line-range=:500 {}'";
   };
 
   home.stateVersion = "24.05";

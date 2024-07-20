@@ -39,6 +39,7 @@ in
     unstable.nodejs_20
     # omnisharp-roslyn
     # python39Packages.python-lsp-server
+    ruff
     rust-analyzer
     rustc
     # rnix-lsp
