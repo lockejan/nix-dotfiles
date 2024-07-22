@@ -15,7 +15,6 @@ in
     autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
-    # completionInit = "autoload -Uz compinit; compinit -u";
     # https://github.com/nix-community/home-manager/issues/2562#issuecomment-1009381061
     initExtraBeforeCompInit = ''
       fpath+=("${config.home.profileDirectory}"/share/zsh/site-functions
@@ -23,6 +22,7 @@ in
       "${config.home.profileDirectory}"/share/zsh/vendor-completions
       /usr/local/share/zsh/site-functions/)
     '';
+    completionInit = "autoload -Uz compinit; compinit -u";
     defaultKeymap = "emacs";
     plugins = [
       {
@@ -30,8 +30,8 @@ in
         src = pkgs.fetchFromGitHub {
           owner = "Aloxaf";
           repo = "fzf-tab";
-          rev = "f3d892cf19bba09c0c44fa9fcaf6d616fe5b18e6";
-          sha256 = "sha256-5vQodWvw9akVvvmpVQH0KjdWmCP7vQz2QOK4Yn24MbA=";
+          rev = "14e16f0d36ae9938e28b2f6efdb7344cd527a1a6";
+          sha256 = "sha256-o8hgnTl84nI7jMVfA5jEcDXkMFFlnxKbRva+l/Fx4jI=";
           # sha256 = lib.fakeSha256;
         };
       }
@@ -72,6 +72,7 @@ in
       '';
       du = "du -cksh";
       df = "df -h";
+      tn = "open 'xyz.kondor.znotch://v1/manage?action=hide'";
       mkdir = "command mkdir -p";
       sed = "sed -E";
       uuid = "uuidgen | tr '[:upper:]' '[:lower:]' | tr -d '\n' | pbcopy";

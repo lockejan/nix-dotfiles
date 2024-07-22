@@ -31,7 +31,6 @@ in
     nodePackages.dockerfile-language-server-nodejs
     nodePackages.eslint
     # nodePackages.intelephense
-    nodePackages.pyright
     nodePackages.typescript
     nodePackages.typescript-language-server
     # nodePackages.vim-language-server
