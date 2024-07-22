@@ -20,6 +20,7 @@ in
     graphviz
     # haskell-language-server
     hlint
+    helm-ls
     stylish-haskell
     lua
     # neovim-nightly
