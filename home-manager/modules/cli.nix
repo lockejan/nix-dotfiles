@@ -212,6 +212,10 @@ in
         };
       };
     };
+
+    k9s = {
+      enable = true;
+    };
   };
 
   home.file."random_doc.clj".source =

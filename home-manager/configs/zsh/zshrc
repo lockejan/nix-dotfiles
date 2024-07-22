@@ -17,10 +17,8 @@ if [[ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
   source "$HOME/.sdkman/bin/sdkman-init.sh"
 fi
 
-if [[ -f "$HOME/.config/fzf/fzf-git.sh" ]]; then
-  source "$HOME/.config/fzf/fzf-git.sh"
-else
-  echo "fzf-git.sh not found. CHECK PATH!!!"
+if [[ -d "$HOME/.krew/" ]]; then
+    export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 fi
 
 if [[ -d "$HOME/.rd" ]]; then

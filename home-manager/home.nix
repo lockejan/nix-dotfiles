@@ -19,12 +19,15 @@ in
     cachix
     ctop
     curl
+    unstable.coreutils-full
     dive
     dockutil
     dogdns
     entr
     exif
     fd
+    fluxcd
+    fzf-git-sh
     geckodriver
     glances
     gnugrep
@@ -36,7 +39,9 @@ in
     unstable.ijq
     jdk17_headless
     jq
+    unstable.kubectl
     unstable.kubernetes-helm
+    unstable.krew
     less
     mob
     ncurses
