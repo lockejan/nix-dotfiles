@@ -1,8 +1,17 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, username, stateVersion, ... }:
 let
   unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
+  user = username;
 in
 {
+
+  # home.username = builtins.getEnv "USER";
+  # home.homeDirectory = builtins.getEnv "HOME";
+  home.username = user;
+  # home.username = "schmitt";
+  home.homeDirectory = "/Users/${user}/";
+
+  home.stateVersion = stateVersion;
 
   home.packages = with pkgs; [
     unstable.act
@@ -55,9 +64,6 @@ in
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
-
-  # home.username = builtins.getEnv "USER";
-  # home.homeDirectory = builtins.getEnv "HOME";
 
   home.sessionVariables = {
     EDITOR = "nvim";

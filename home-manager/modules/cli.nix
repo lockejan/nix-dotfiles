@@ -1,8 +1,12 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, inputs, ... }:
 let
   dir = "${config.home.homeDirectory}/dotfiles/home-manager/machines";
+  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
 in
 {
+  # home.packages = with unstable;[
+  #   zsh-fzf-tab
+  # ];
 
   programs.zsh = {
     enable = true;

@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }:
+let
+  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
+in
+{
   programs.git = {
     userName = "Jan Schmitt";
     signing.signByDefault = true;
@@ -93,5 +97,12 @@
   home.file.".gitignore".source = ../configs/git/gitignore;
   xdg.configFile."git/attributes".source = ../configs/git/attributes;
 
-  home.packages = with pkgs; [ git-crypt git-filter-repo git-trim gh ];
+  home.packages = with unstable; [
+    git-crypt
+    git-filter-repo
+    git-trim
+    git-sizer
+    gh
+    copilot-cli
+  ];
 }
