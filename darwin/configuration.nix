@@ -1,6 +1,6 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, home, ... }:
 let
-  user = "lockejan";
+  user = home.username;
   unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
 in
 {

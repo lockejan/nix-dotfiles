@@ -10,9 +10,10 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    # home-manager.url = "github:lockejan/home-manager/ssh-addKeysToAgent";
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -29,11 +30,12 @@
 
   outputs = { self, home-manager, darwin, ... }@inputs:
     let
-      system.work = "aarch64-darwin";
+      system.silicon = "aarch64-darwin";
       user.work = "schmitt";
-      system.m1 = "aarch64-darwin";
       user.m1 = "lockejan";
       system.raspbi = "aarch64-linux";
+      pkgs = inputs.nixpkgs.legacyPackages.${system.silicon};
+      stateVersion = "24.05";
       # pkgs = import inputs.nixpkgs {
       #   inherit system;
       #   config = { allowUnfree = true; };
@@ -64,12 +66,16 @@
                     ./home-manager/modules/tmux.nix
                     ./home-manager/machines/personal.nix
                   ];
-                extraSpecialArgs = { inherit inputs; };
+                extraSpecialArgs = {
+                  inherit inputs;
+                  inherit stateVersion;
+                  username = user.m1;
+                };
               };
             }
           ];
           specialArgs = { inherit inputs; };
-          system = system.m1;
+          system = system.silicon;
         };
 
         work = darwin.lib.darwinSystem {
@@ -92,12 +98,46 @@
                     ./home-manager/modules/tmux.nix
                     ./home-manager/machines/work.nix
                   ];
-                extraSpecialArgs = { inherit inputs; };
+                extraSpecialArgs = {
+                  inherit inputs;
+                  inherit stateVersion;
+                  username = user.work;
+                };
               };
             }
           ];
-          specialArgs = { inherit inputs; };
-          system = system.work;
+          specialArgs = {
+            inherit inputs;
+          };
+          system = system.silicon;
+        };
+      };
+
+      homeConfigurations."${user.work}" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        # Specify your home configuration modules here, for example,
+        # the path to your home.nix.
+        modules = [
+          ./home-manager/home.nix
+          ./home-manager/modules/osx.nix
+          ./home-manager/modules/cli.nix
+          ./home-manager/modules/git.nix
+          ./home-manager/modules/gpg.nix
+          ./home-manager/modules/kitty.nix
+          ./home-manager/modules/neovim.nix
+          ./home-manager/modules/python.nix
+          ./home-manager/modules/ssh.nix
+          ./home-manager/modules/tmux.nix
+          ./home-manager/machines/work.nix
+        ];
+
+        # Optionally use extraSpecialArgs
+        # to pass through arguments to home.nix
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit stateVersion;
+          username = user.work;
         };
       };
 

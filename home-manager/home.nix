@@ -70,7 +70,6 @@ in
     # FZF_CTRL_T_OPTS = "--preview 'bat --color=always --style=numbers --line-range=:500 {}'";
   };
 
-  home.stateVersion = "24.05";
 
   xdg.configFile."nix/nix.conf".text = ''
     experimental-features = nix-command flakes
