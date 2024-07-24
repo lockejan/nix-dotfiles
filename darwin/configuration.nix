@@ -1,7 +1,7 @@
-{ pkgs, inputs, home, ... }:
+{ pkgs, inputs, username, ... }:
 let
-  user = home.username;
   unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
+  user = username;
 in
 {
   users.users."${user}" = {
@@ -51,6 +51,7 @@ in
     taps = [
       # "homebrew/cask"
       "clojure-lsp/brew"
+      "zkondor/dist"
     ];
 
     brews = [ "clojure-lsp-native" ];
@@ -97,6 +98,7 @@ in
       "yubico-authenticator"
       "yubico-yubikey-manager"
       "zap"
+      "znotch"
       # "alacritty"
       # "coconutbattery"
       # "emacs"
@@ -108,7 +110,6 @@ in
       # "raspberry-pi-imager"
       # "raycast"
       # "tor-browser"
-      # "znotch"
       # "zoom"
     ];
 

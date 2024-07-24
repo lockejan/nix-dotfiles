@@ -74,7 +74,10 @@
               };
             }
           ];
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+            username = user.m1;
+          };
           system = system.silicon;
         };
 

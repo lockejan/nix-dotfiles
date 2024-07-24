@@ -8,8 +8,7 @@ in
   # home.username = builtins.getEnv "USER";
   # home.homeDirectory = builtins.getEnv "HOME";
   home.username = user;
-  # home.username = "schmitt";
-  home.homeDirectory = "/Users/${user}/";
+  home.homeDirectory = "/Users/${user}";
 
   home.stateVersion = stateVersion;
 
