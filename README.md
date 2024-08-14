@@ -17,12 +17,14 @@ It's still very much work in progress.
 2. Install [nix-darwin](https://github.com/LnL7/nix-darwin).
 
 3. The first build needs to be made manually:
+
 ```shell
 nix build '$HOME/dotfiles?submodules=1#darwinConfigurations.m1.system'
 ./result/sw/bin/darwin-rebuild switch --flake $HOME/dotfiles?submodules=1#m1
 ```
 
 Consecutive runs can be done via
+
 ```shell
 darwin-rebuild switch --flake "$HOME/dotfiles?submodules=1#m1"
 ```

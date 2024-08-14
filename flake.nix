@@ -80,40 +80,6 @@
           };
           system = system.silicon;
         };
-
-        work = darwin.lib.darwinSystem {
-          modules = [
-            home-manager.darwinModules.home-manager
-            ./darwin/work-configuration.nix
-            {
-              home-manager = {
-                users.${user.work}.imports =
-                  [
-                    ./home-manager/home.nix
-                    ./home-manager/modules/alacritty.nix
-                    ./home-manager/modules/osx.nix
-                    ./home-manager/modules/cli.nix
-                    ./home-manager/modules/git.nix
-                    ./home-manager/modules/gpg.nix
-                    ./home-manager/modules/kitty.nix
-                    ./home-manager/modules/neovim.nix
-                    ./home-manager/modules/python.nix
-                    ./home-manager/modules/tmux.nix
-                    ./home-manager/machines/work.nix
-                  ];
-                extraSpecialArgs = {
-                  inherit inputs;
-                  inherit stateVersion;
-                  username = user.work;
-                };
-              };
-            }
-          ];
-          specialArgs = {
-            inherit inputs;
-          };
-          system = system.silicon;
-        };
       };
 
       homeConfigurations."${user.work}" = home-manager.lib.homeManagerConfiguration {
