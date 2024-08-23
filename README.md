@@ -14,13 +14,13 @@ It's still very much work in progress.
 
 1. Install [nix](https://nixos.org/guides/install-nix.html) on your machine.
 
-2. Install [nix-darwin](https://github.com/LnL7/nix-darwin).
-
-3. The first build needs to be made manually:
+2. The first build which will also setup nix-darwin needs to be made manually:
 
 ```shell
-nix build '$HOME/dotfiles?submodules=1#darwinConfigurations.m1.system'
-./result/sw/bin/darwin-rebuild switch --flake $HOME/dotfiles?submodules=1#m1
+nix --extra-experimental-features nix-command \
+    --extra-experimental-features flakes \
+    run nix-darwin -- switch --flake "$HOME/dotfiles?submodules=1#m1"
+
 ```
 
 Consecutive runs can be done via
