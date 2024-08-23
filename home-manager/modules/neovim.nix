@@ -36,6 +36,7 @@ in
     # nodePackages.vim-language-server
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
+    lua51Packages.tiktoken_core
     unstable.nodejs_20
     # omnisharp-roslyn
     # python39Packages.python-lsp-server
