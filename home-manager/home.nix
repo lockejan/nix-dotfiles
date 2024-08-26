@@ -39,6 +39,7 @@ in
     jdk17_headless
     jq
     unstable.kubectl
+    unstable.kubecolor
     unstable.kubernetes-helm
     unstable.krew
     less

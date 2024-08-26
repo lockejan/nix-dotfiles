@@ -1,5 +1,5 @@
-{ config, pkgs, libs, ... }: {
-  home.packages = with pkgs; [ ssh-audit sshpass openssh mosh ];
+{ pkgs, ... }: {
+  home.packages = with pkgs; [ ssh-audit sshpass mosh ];
 
   programs.ssh = {
     enable = true;
@@ -9,10 +9,11 @@
     controlPersist = "10m";
     forwardAgent = true;
     hashKnownHosts = false;
-    # addKeysToAgent = "yes";
+    addKeysToAgent = "yes";
     # includes = [ "hosts" ];
     extraConfig = ''
-      addKeysToAgent = yes
+      # AddKeysToAgent yes
+      UseKeychain yes
     '';
 
   };

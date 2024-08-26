@@ -78,6 +78,7 @@ in
       push = {
         default = "simple";
         autoSetupRemote = true;
+        followTags = "true";
       };
       init = { defaultBranch = "main"; };
       pull = { rebase = true; };

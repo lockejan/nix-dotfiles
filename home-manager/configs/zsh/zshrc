@@ -18,7 +18,7 @@ if [[ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
 fi
 
 if [[ -d "$HOME/.krew/" ]]; then
-    export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+    export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
 fi
 
 if [[ -d "$HOME/.rd" ]]; then
@@ -28,6 +28,9 @@ elif [[ -d "$HOME/.docker" ]]; then
 fi
 
 export GPG_TTY=$(tty)
+
+# Make "kubecolor" borrow the same completion logic as "kubectl"
+compdef kubecolor=kubectl
 
 # echo "Docstring of the day:"
 # ~/random_doc.clj

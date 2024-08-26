@@ -2,7 +2,7 @@
   targets.darwin.defaults = {
     NSGlobalDomain = {
       AppleLanguages = [ "en" "de" ];
-      AppleLocale = "en_US";
+      # AppleLocale = "en_US";
       AppleMetricUnits = true;
       AppleTemperatureUnit = "Celsius";
       NSAutomaticSpellingCorrectionEnabled = false;

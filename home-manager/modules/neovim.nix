@@ -5,6 +5,7 @@ in
 {
   home.packages = with pkgs; [
     # ansible-lint
+    ansible-language-server
     black
     clojure
     # clojure-lsp
@@ -19,6 +20,7 @@ in
     gopls
     graphviz
     # haskell-language-server
+    hadolint
     hlint
     helm-ls
     stylish-haskell
@@ -51,6 +53,7 @@ in
     sumneko-lua-language-server
     terraform-ls
     unstable.texlab
+    unstable.vue-language-server
     yamllint
     (yarn.override { nodejs = unstable.nodejs_20; })
   ];
