@@ -1,6 +1,7 @@
 { config, pkgs, inputs, username, stateVersion, ... }:
 let
   unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
+  kubectl-gs = inputs.nix-kubectl-gs.packages.${pkgs.system}.kubectl-gs;
   user = username;
 in
 {
@@ -39,6 +40,7 @@ in
     jdk17_headless
     jq
     unstable.kubectl
+    kubectl-gs
     unstable.kubecolor
     unstable.kubernetes-helm
     unstable.krew
