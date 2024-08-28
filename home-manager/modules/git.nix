@@ -40,6 +40,9 @@ in
       prs = "!gh pr status";
       prm = "!gh pr merge -d";
       nosub = "push --recurse-submodules=no";
+      tidy = ''
+        !git branch --merged | grep -Ev "(^\*|master|main|dev)" | xargs git branch -d
+      '';
     };
     extraConfig = {
       color = {
