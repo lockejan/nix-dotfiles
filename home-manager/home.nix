@@ -43,7 +43,6 @@ in
     kubectl-gs
     unstable.kubecolor
     unstable.kubernetes-helm
-    unstable.krew
     less
     mob
     ncurses
