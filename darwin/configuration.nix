@@ -62,6 +62,7 @@ in
       "anki"
       "brave-browser"
       "breitbandmessung"
+      "calibre"
       "docker"
       "electrum"
       "element"
