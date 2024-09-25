@@ -44,6 +44,7 @@ in
     unstable.kubecolor
     unstable.kubernetes-helm
     less
+    unstable.minikube
     mob
     ncurses
     # ncdu
