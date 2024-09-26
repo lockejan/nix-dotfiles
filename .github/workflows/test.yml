@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@v4
       with:
         submodules: true
-    - uses: cachix/install-nix-action@v27
+    - uses: cachix/install-nix-action@v29
       with:
         extra_nix_config: "access-tokens = github.com=${{ secrets.TOKEN }}"
     - name: install git-crypt on the runner via nix flakes
