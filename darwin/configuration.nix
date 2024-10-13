@@ -138,46 +138,73 @@ in
   # programs.gnupg.agent.enable = true;
   # programs.gnupg.agent.enableSSHSupport = true;
 
-  system.defaults = {
-    dock.appswitcher-all-displays = false;
-    dock.autohide = true;
-    # dock.autohide-delay = 0.2;
-    dock.mru-spaces = false;
-    dock.orientation = "left";
-    dock.showhidden = true;
-    dock.wvous-bl-corner = 1;
-    dock.wvous-br-corner = 1;
-    dock.wvous-tl-corner = 2;
-    dock.wvous-tr-corner = 1;
+  system = {
+    defaults = {
+      dock = {
+        appswitcher-all-displays = true;
+        autohide = true;
+        # autohide-delay = 0.2;
+        mru-spaces = false;
+        orientation = "left";
+        showhidden = true;
+        wvous-bl-corner = 1;
+        wvous-br-corner = 1;
+        wvous-tl-corner = 2;
+        wvous-tr-corner = 1;
+        persistent-apps = [
+          "/System/Applications/System Settings.app"
+          "/System/Applications/Utilities/Activity Monitor.app"
+          "/Applications/Safari.app"
+          "/Applications/Brave Browser.app"
+          "/Applications/kitty.app"
+          "/Applications/Visual Studio Code.app"
+          "/Applications/Joplin.app"
+        ];
+        persistent-others = [
+          "/Users/${user}/Downloads"
+          "/Users/${user}/Scratchpad"
+          "/Users/${user}/git"
+        ];
+      };
 
-    finder.ShowPathbar = true;
-    finder.ShowStatusBar = true;
-    finder.FXPreferredViewStyle = "clmv";
-    loginwindow.GuestEnabled = false;
-    loginwindow.autoLoginUser = "${user}";
-    # ActivityMonitor.SortDirection = 0;
+      finder = {
+        ShowStatusBar = true;
+        ShowPathbar = true;
+        FXPreferredViewStyle = "clmv";
+      };
 
-    SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
+      loginwindow.GuestEnabled = false;
+      loginwindow.autoLoginUser = "${user}";
+      # ActivityMonitor.SortDirection = 0;
 
-    NSGlobalDomain.AppleMeasurementUnits = "Centimeters";
-    NSGlobalDomain.AppleShowAllExtensions = true;
-    # NSGlobalDomain.AppleShowScrollBars = "Always";
-    NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
-    NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
-    NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
-    NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
-    NSGlobalDomain.PMPrintingExpandedStateForPrint = true;
-    # NSGlobalDomain.com.apple.mouse.tapBehavior = 1;
+      SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
 
-    LaunchServices.LSQuarantine = false;
+      NSGlobalDomain = {
+        # AppleInterfaceStyle = "Dark";
+        AppleMeasurementUnits = "Centimeters";
+        AppleShowAllExtensions = true;
+        # AppleShowScrollBars = "Always";
+        NSAutomaticCapitalizationEnabled = false;
+        NSAutomaticSpellingCorrectionEnabled = false;
+        NSDocumentSaveNewDocumentsToCloud = false;
+        NSNavPanelExpandedStateForSaveMode = true;
+        PMPrintingExpandedStateForPrint = true;
+        "com.apple.mouse.tapBehavior" = 1;
+      };
 
-    trackpad.Clicking = true;
-    trackpad.TrackpadThreeFingerDrag = false;
+      LaunchServices.LSQuarantine = false;
+
+      trackpad.Clicking = true;
+      trackpad.TrackpadThreeFingerDrag = false;
+    };
+
+    keyboard =
+      {
+        enableKeyMapping = true;
+        nonUS.remapTilde = true;
+        remapCapsLockToControl = true;
+      };
   };
-
-  system.keyboard.enableKeyMapping = true;
-  system.keyboard.nonUS.remapTilde = true;
-  system.keyboard.remapCapsLockToControl = true;
 
   # environment.etc."DefaultKeyBinding.dict".text = ''
   #   {
