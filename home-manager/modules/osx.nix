@@ -10,12 +10,17 @@
       NSAutomaticDashSubstitutionEnabled = true;
       NSAutomaticCapitalizedEnabled = false;
     };
-    com.apple = {
-      dock.tilesize = 64;
-      Safari.SandboxBroker.ShowDevelopMenu = true;
-      Safari.WebKitPreferences.developerExtrasEnabled = true;
-      menuextra.battery.ShowPercent = "YES";
-      desktopservices.DSDontWriteUSBStores = true;
+    "com.apple.Safari" = {
+      SandboxBroker.ShowDevelopMenu = true;
+      WebKitPreferences.developerExtrasEnabled = true;
+    };
+    "com.apple.desktopservices" = {
+      DSDontWriteUSBStores = true;
+    };
+    "com.apple.dock" = {
+      autohide = true;
+      tilesize = 32;
+      orientation = "left";
     };
 
   };
