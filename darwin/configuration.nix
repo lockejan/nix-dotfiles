@@ -51,7 +51,7 @@ in
     taps = [
       # "homebrew/cask"
       "clojure-lsp/brew"
-      "zkondor/dist"
+      # "zkondor/dist"
     ];
 
     brews = [ "clojure-lsp-native" ];
