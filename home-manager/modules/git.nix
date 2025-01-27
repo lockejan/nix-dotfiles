@@ -104,7 +104,7 @@ in
   home.packages = with unstable; [
     git-crypt
     git-filter-repo
-    git-trim
+    pkgs.git-trim # currently broken in unstable
     git-sizer
     gh
     copilot-cli
