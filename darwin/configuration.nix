@@ -67,10 +67,10 @@ in
       "electrum"
       "element"
       "firefox"
-      "flux"
+      # "flux"
       "focusrite-control"
-      "google-chrome"
-      "hammerspoon"
+      # "google-chrome"
+      # "hammerspoon"
       "hiddenbar"
       "insomnia"
       "itsycal"
@@ -78,11 +78,22 @@ in
       "joplin"
       "kitty"
       "maccy"
-      "microsoft-teams"
+      {
+        name = "microsoft-auto-update";
+        greedy = true;
+      }
+      {
+        name = "microsoft-teams";
+        greedy = true;
+      }
+      {
+        name = "microsoft-outlook";
+        greedy = true;
+      }
       "monitorcontrol"
       "nextcloud"
-      "obsidian"
-      "postman"
+      # "obsidian"
+      # "postman"
       "portfolioperformance"
       "rectangle"
       "signal"
@@ -90,7 +101,7 @@ in
       "spotify"
       "stats"
       "teamviewer"
-      "telegram-desktop"
+      # "telegram-desktop"
       "tomighty"
       "utm"
       "visual-studio-code"
