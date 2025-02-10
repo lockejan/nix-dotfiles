@@ -2,7 +2,7 @@
   description = "Machine configurations with nix";
 
   inputs = {
-    # nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
     nixpkgs-nixos.url = "github:NixOs/nixpkgs/nixos-24.11";
