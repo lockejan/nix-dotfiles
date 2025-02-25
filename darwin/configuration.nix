@@ -54,16 +54,18 @@ in
       # "zkondor/dist"
     ];
 
-    brews = [ "clojure-lsp-native" ];
+    brews = [
+      # "clojure-lsp-native"
+    ];
 
     # whalebrews = [ "whalebrew/wget" ];
 
     casks = [
       "anki"
       "brave-browser"
-      "breitbandmessung"
+      # "breitbandmessung"
       "calibre"
-      "docker"
+      # "docker"
       "electrum"
       "element"
       "firefox"
@@ -97,8 +99,8 @@ in
       "portfolioperformance"
       "rectangle"
       "signal"
-      "sonos"
-      "spotify"
+      # "sonos"
+      # "spotify"
       "stats"
       "teamviewer"
       # "telegram-desktop"
