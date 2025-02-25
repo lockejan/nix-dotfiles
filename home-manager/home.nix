@@ -17,11 +17,15 @@ in
     unstable.act
     babashka
     cachix
+    colima
     ctop
     curl
     unstable.coreutils-full
     dive
     dockutil
+    docker
+    docker-buildx
+    docker-compose
     dogdns
     entr
     exif
