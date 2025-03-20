@@ -21,6 +21,7 @@
       autohide = true;
       tilesize = 32;
       orientation = "left";
+      appswitcher-all-displays = true;
     };
 
   };

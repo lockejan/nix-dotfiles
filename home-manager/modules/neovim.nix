@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 let
   unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
 in
@@ -12,10 +12,10 @@ in
     # clojure-lsp
     cargo
     # dotnet-sdk
-    elmPackages.elm
-    elmPackages.elm-test
-    elmPackages.elm-format
-    elmPackages.elm-language-server
+    # elmPackages.elm
+    # elmPackages.elm-test
+    # elmPackages.elm-format
+    # elmPackages.elm-language-server
     glow
     go
     gopls
@@ -30,17 +30,17 @@ in
     unstable.neovim
     nil
     nixfmt-classic
-    nodePackages.bash-language-server
-    nodePackages.dockerfile-language-server-nodejs
-    nodePackages.eslint
+    bash-language-server
+    dockerfile-language-server-nodejs
+    eslint
     # nodePackages.intelephense
-    nodePackages.typescript
-    nodePackages.typescript-language-server
+    typescript
+    typescript-language-server
     # nodePackages.vim-language-server
-    unstable.nodePackages.vscode-langservers-extracted
-    nodePackages.yaml-language-server
+    unstable.vscode-langservers-extracted
+    yaml-language-server
     lua51Packages.tiktoken_core
-    unstable.nodejs_20
+    unstable.nodejs_22
     # omnisharp-roslyn
     # python39Packages.python-lsp-server
     ruff
@@ -56,8 +56,11 @@ in
     unstable.texlab
     unstable.vue-language-server
     yamllint
-    (yarn.override { nodejs = unstable.nodejs_20; })
+    (yarn.override { nodejs = unstable.nodejs-slim; })
   ];
-  xdg.configFile."nvim".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/configs/nvim";
+  home.activation.linkNeovimConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    if [ ! -e ${config.home.homeDirectory}/.config/nvim ]; then
+      ln -s ${config.home.homeDirectory}/dotfiles/home-manager/configs/nvim ${config.home.homeDirectory}/.config/nvim
+    fi
+  '';
 }
