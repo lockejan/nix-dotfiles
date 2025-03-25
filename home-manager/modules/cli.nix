@@ -17,10 +17,11 @@ in
     syntaxHighlighting.enable = true;
     # https://github.com/nix-community/home-manager/issues/2562#issuecomment-1009381061
     initExtraBeforeCompInit = ''
-      fpath+=("${config.home.profileDirectory}"/share/zsh/site-functions
+      fpath+=(
+      "${config.home.profileDirectory}"/share/zsh/site-functions
       "${config.home.profileDirectory}"/share/zsh/$ZSH_VERSION/functions
       "${config.home.profileDirectory}"/share/zsh/vendor-completions
-      /usr/local/share/zsh/site-functions/)
+      )
     '';
     completionInit = "autoload -Uz compinit; compinit -u";
     defaultKeymap = "emacs";
