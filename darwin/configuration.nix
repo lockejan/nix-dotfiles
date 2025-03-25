@@ -43,6 +43,7 @@ in
   homebrew = {
     enable = true;
     # global.autoUpdate = false;
+    global.brewfile = true;
     onActivation = {
       autoUpdate = false;
       cleanup = "zap";
@@ -62,9 +63,11 @@ in
 
     casks = [
       "anki"
+      "asana"
       "brave-browser"
       # "breitbandmessung"
       "calibre"
+      "cursor"
       # "docker"
       "electrum"
       "element"
@@ -80,18 +83,9 @@ in
       "joplin"
       "kitty"
       "maccy"
-      {
-        name = "microsoft-auto-update";
-        greedy = true;
-      }
-      {
-        name = "microsoft-teams";
-        greedy = true;
-      }
-      {
-        name = "microsoft-outlook";
-        greedy = true;
-      }
+      "microsoft-auto-update"
+      "microsoft-teams"
+      "microsoft-outlook"
       "monitorcontrol"
       "nextcloud"
       # "obsidian"
