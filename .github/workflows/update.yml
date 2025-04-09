@@ -1,0 +1,52 @@
+name: Weekly flake.lock update
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: macos-14
+    steps:
+
+    - uses: actions/checkout@v4
+      with:
+        submodules: true
+
+    - uses: cachix/install-nix-action@v31
+      with:
+        extra_nix_config: "access-tokens = github.com=${{ secrets.TOKEN }}"
+
+    - name: install git-crypt on the runner via nix flakes
+      run: nix profile install nixpkgs#git-crypt
+
+    - name: provide and temporarily unlock secrets as preparation for nix build
+      run: |
+        echo "$GIT_CRYPT_KEY" | base64  -d > ./git-crypt-key && \
+        git-crypt unlock ./git-crypt-key && \
+        rm ./git-crypt-key
+      env:
+        GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
+
+    - name: create dirty git worktree to omit git-crypt errors with flakes
+      run: echo " " >> flake.nix
+
+    - name: Update flake.lock
+      run: nix flake update
+      shell: bash
+
+    - name: build darwinConfiguration for apple silicon
+      run: nix build '.?submodules=1#darwinConfigurations.m1.system'
+
+    - name: Set up git identity
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Commit and push flake.lock if changed
+      run: |
+          git add flake.lock
+          git commit -m "chore: Update flake inputs"
+          git push origin main
+      shell: bash
