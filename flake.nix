@@ -61,6 +61,7 @@
                     ./home-manager/modules/git.nix
                     ./home-manager/modules/gpg.nix
                     ./home-manager/modules/kitty.nix
+                    ./home-manager/modules/k8s.nix
                     ./home-manager/modules/neovim.nix
                     ./home-manager/modules/python.nix
                     ./home-manager/modules/ssh.nix
@@ -95,6 +96,7 @@
           ./home-manager/modules/git.nix
           ./home-manager/modules/gpg.nix
           ./home-manager/modules/kitty.nix
+          ./home-manager/modules/k8s.nix
           ./home-manager/modules/neovim.nix
           ./home-manager/modules/python.nix
           ./home-manager/modules/ssh.nix
