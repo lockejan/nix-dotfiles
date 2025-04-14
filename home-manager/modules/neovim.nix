@@ -3,9 +3,9 @@ let
   unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
 in
 {
-  home.packages = with pkgs; [
+  home.packages = with unstable; [
     # ansible-lint
-    unstable.actionlint
+    actionlint
     ansible-language-server
     black
     clojure
@@ -27,7 +27,7 @@ in
     stylish-haskell
     lua
     # neovim-nightly
-    unstable.neovim
+    neovim
     nil
     nixfmt-classic
     bash-language-server
@@ -37,10 +37,10 @@ in
     typescript
     typescript-language-server
     # nodePackages.vim-language-server
-    unstable.vscode-langservers-extracted
+    vscode-langservers-extracted
     yaml-language-server
     lua51Packages.tiktoken_core
-    unstable.nodejs_22
+    nodejs_22
     # omnisharp-roslyn
     # python39Packages.python-lsp-server
     ruff
@@ -53,10 +53,11 @@ in
     stylua
     sumneko-lua-language-server
     terraform-ls
-    unstable.texlab
-    unstable.vue-language-server
+    texlab
+    tree-sitter
+    vue-language-server
     yamllint
-    (yarn.override { nodejs = unstable.nodejs-slim; })
+    (yarn.override { nodejs = nodejs_22; })
   ];
   home.activation.linkNeovimConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     if [ ! -e ${config.home.homeDirectory}/.config/nvim ]; then

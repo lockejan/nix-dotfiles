@@ -13,53 +13,48 @@ in
 
     inherit stateVersion;
 
-    packages = with pkgs; [
-      unstable.act
-      babashka
+    packages = with unstable; [
       # cachix
+      # google-java-format
+      # jdk17_headless
+      # mob
+      # ncdu
+      # niv
+      # nix-doc
+      # page
+      # solo2-cli
+      # vagrant
+      babashka
+      coreutils-full
       ctop
       curl
-      unstable.coreutils-full
-      dive
       dockutil
-      dogdns
-      entr
-      exif
-      fd
-      fluxcd
+      dogdns # dns client
+      entr # watch files for changes
+      exif # show exif data
+      fd # find alternative
       fzf-git-sh
       geckodriver
-      glances
+      # glances
       gnugrep
-      # google-java-format
-      hexyl
+      hexyl # cli hex viewer
       htop
-      hyperfine
-      inetutils
-      unstable.ijq
-      # jdk17_headless
+      hyperfine # time alternative
+      ijq
+      inetutils # telnet, ftp, etc
       jq
       less
-      # mob
       ncurses
-      # ncdu
-      # nix-doc
       nix-prefetch-git
-      nixpkgs-fmt
-      nixpkgs-review
       nix-tree
       nix-update
-      # niv
+      nixpkgs-fmt
+      nixpkgs-review
       openssl
-      # page
       pwgen
       ripgrep
-      # solo2-cli
-      sourceHighlight
       tldr
       trash-cli
-      tree-sitter
-      # vagrant
       watch
     ];
 

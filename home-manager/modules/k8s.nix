@@ -2,20 +2,23 @@
 
 let
   unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
-  kubectl-gs = inputs.nix-kubectl-gs.packages.${pkgs.system}.kubectl-gs;
+  inherit (inputs.nix-kubectl-gs.packages.${pkgs.system}) kubectl-gs;
 in
 
 {
-  home.packages = with pkgs; [
+  home.packages = with unstable; [
+    act
     colima
     docker
     docker-buildx
     docker-compose
-    unstable.kubectl
+    dive
+    fluxcd
+    kubectl
     kubectl-gs
-    unstable.kubecolor
-    unstable.kubernetes-helm
-    unstable.minikube
+    kubecolor
+    kubernetes-helm
+    minikube
   ];
 
 }
