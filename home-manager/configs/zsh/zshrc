@@ -19,6 +19,8 @@ fi
 
 export GPG_TTY=$(tty)
 
+export DOCKER_HOST=unix://$HOME/.colima/default/docker.sock
+
 # Make "kubecolor" borrow the same completion logic as "kubectl"
 compdef kubecolor=kubectl
 

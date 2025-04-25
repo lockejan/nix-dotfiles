@@ -14,11 +14,13 @@ in
     docker-compose
     dive
     fluxcd
+    grype
     kubectl
     kubectl-gs
     kubecolor
     kubernetes-helm
     minikube
+    trivy
   ];
 
 }
