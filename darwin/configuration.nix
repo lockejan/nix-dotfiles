@@ -10,6 +10,9 @@ in
     shell = pkgs.zsh;
   };
 
+
+  ids.gids.nixbld = 350;
+
   home-manager.backupFileExtension = "bak";
 
   # List packages installed in system profile. To search by name, run:
