@@ -16,13 +16,16 @@ in
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     # https://github.com/nix-community/home-manager/issues/2562#issuecomment-1009381061
-    initExtraBeforeCompInit = ''
-      fpath+=(
-      "${config.home.profileDirectory}"/share/zsh/site-functions
-      "${config.home.profileDirectory}"/share/zsh/$ZSH_VERSION/functions
-      "${config.home.profileDirectory}"/share/zsh/vendor-completions
-      )
-    '';
+    initContent = lib.mkMerge [
+      (lib.mkOrder 550 ''
+        fpath+=(
+        "${config.home.profileDirectory}"/share/zsh/site-functions
+        "${config.home.profileDirectory}"/share/zsh/$ZSH_VERSION/functions
+        "${config.home.profileDirectory}"/share/zsh/vendor-completions
+        )
+      '')
+      (builtins.readFile ../configs/zsh/zshrc)
+    ];
     completionInit = "autoload -Uz compinit; compinit -u";
     defaultKeymap = "emacs";
     plugins = [
@@ -80,7 +83,6 @@ in
       rollback = ''
         home-manager generations | fzf | awk '{activate=$NF"/activate"; print activate}' | bash - '';
     };
-    initExtra = builtins.readFile ../configs/zsh/zshrc;
   };
 
   programs = {
