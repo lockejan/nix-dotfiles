@@ -4,13 +4,13 @@
   inputs = {
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
-    nixpkgs-nixos.url = "github:NixOs/nixpkgs/nixos-24.11";
-    darwin.url = "github:lnl7/nix-darwin/nix-darwin-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
+    nixpkgs-nixos.url = "github:NixOs/nixpkgs/nixos-25.05";
+    darwin.url = "github:lnl7/nix-darwin/nix-darwin-25.05";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -36,7 +36,7 @@
       user.m1 = "lockejan";
       system.raspbi = "aarch64-linux";
       pkgs = inputs.nixpkgs.legacyPackages.${system.silicon};
-      stateVersion = "24.11";
+      stateVersion = "25.05";
       # pkgs = import inputs.nixpkgs {
       #   inherit system;
       #   config = { allowUnfree = true; };

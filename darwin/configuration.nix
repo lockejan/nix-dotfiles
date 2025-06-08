@@ -150,6 +150,7 @@ in
   # programs.gnupg.agent.enableSSHSupport = true;
 
   system = {
+    primaryUser = "${user}";
     defaults = {
       dock = {
         appswitcher-all-displays = true;
@@ -242,14 +243,9 @@ in
   #   }
   # '';
 
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
-
   nix = {
 
     package = pkgs.nix;
-
-    configureBuildUsers = true;
 
     settings = {
       sandbox = false;
@@ -288,7 +284,7 @@ in
   # Fonts
   fonts.packages = with pkgs; [
     recursive
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
   ];
 
   # Create /etc/bashrc that loads the nix-darwin environment.
