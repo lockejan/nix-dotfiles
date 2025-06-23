@@ -54,7 +54,7 @@ in
     };
     taps = [
       # "homebrew/cask"
-      "clojure-lsp/brew"
+      # "clojure-lsp/brew"
       # "zkondor/dist"
     ];
 
@@ -72,6 +72,7 @@ in
       "calibre"
       "cursor"
       # "docker"
+      "dotnet-sdk"
       "electrum"
       "element"
       "firefox"
