@@ -52,6 +52,7 @@ in
       nixpkgs-review
       openssl
       pwgen
+      renovate
       ripgrep
       tldr
       trash-cli
