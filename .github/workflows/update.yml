@@ -37,7 +37,7 @@ jobs:
       shell: bash
 
     - name: build darwinConfiguration for apple silicon
-      run: nix build '.?submodules=1#darwinConfigurations.m1.system'
+      run: nix build '.?submodules=1#darwinConfigurations.m1.system' --option sandbox false
 
     - name: Set up git identity
       run: |
