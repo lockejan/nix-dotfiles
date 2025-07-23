@@ -16,7 +16,7 @@ in
     packages = with unstable; [
       # cachix
       # google-java-format
-      # jdk17_headless
+      jdk
       # mob
       # ncdu
       # niv
