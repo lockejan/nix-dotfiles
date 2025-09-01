@@ -60,6 +60,7 @@ in
 
     brews = [
       # "clojure-lsp-native"
+      "azure-cli"
     ];
 
     # whalebrews = [ "whalebrew/wget" ];
@@ -107,7 +108,7 @@ in
       "visual-studio-code"
       "vlc"
       "whatsapp"
-      "wireshark"
+      "wireshark-app"
       "yubico-authenticator"
       "yubico-yubikey-manager"
       "zap"
