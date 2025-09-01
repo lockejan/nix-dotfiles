@@ -250,7 +250,7 @@ in
     package = pkgs.nix;
 
     settings = {
-      sandbox = false;
+      sandbox = true;
       trusted-users = [ "@admin" ];
       extra-sandbox-paths = [
         "/private/tmp"
