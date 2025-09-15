@@ -31,7 +31,7 @@ in
     nil
     nixfmt-classic
     bash-language-server
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     eslint
     # nodePackages.intelephense
     typescript
