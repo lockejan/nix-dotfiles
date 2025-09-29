@@ -6,7 +6,7 @@ in
   home.packages = with unstable; [
     # ansible-lint
     actionlint
-    ansible-language-server
+    pkgs.ansible-language-server
     black
     clojure
     # clojure-lsp
