@@ -1,6 +1,5 @@
-{ config, pkgs, inputs, username, stateVersion, ... }:
+{ config, pkgs, pkgsUnstable, inputs, username, stateVersion, ... }:
 let
-  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
   user = username;
 in
 {
@@ -13,7 +12,7 @@ in
 
     inherit stateVersion;
 
-    packages = with unstable; [
+    packages = with pkgsUnstable; [
       # cachix
       # google-java-format
       jdk
@@ -26,6 +25,7 @@ in
       # vagrant
       babashka
       coreutils-full
+      claude-code
       ctop
       curl
       dockutil
@@ -79,7 +79,6 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  nixpkgs.config.allowUnfree = true;
 
   xdg.configFile."nix/nix.conf".text = ''
     experimental-features = nix-command flakes
