@@ -1,7 +1,4 @@
-{ pkgs, inputs, ... }:
-let
-  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
-in
+{ pkgs, pkgsUnstable, ... }:
 {
   programs.git = {
     userName = "Jan Schmitt";
@@ -101,7 +98,7 @@ in
   home.file.".gitignore".source = ../configs/git/gitignore;
   xdg.configFile."git/attributes".source = ../configs/git/attributes;
 
-  home.packages = with unstable; [
+  home.packages = with pkgsUnstable; [
     git-crypt
     git-filter-repo
     pkgs.git-trim # currently broken in unstable

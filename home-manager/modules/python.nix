@@ -1,10 +1,8 @@
-{ pkgs, inputs, ... }:
-let
-  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
-in
+{ pkgs, pkgsUnstable, ... }:
 {
 
-  home.packages = with unstable; [
+  home.packages = with pkgsUnstable; [
+    uv
     (python3.withPackages (ps:
       with ps; [
         ipython

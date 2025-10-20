@@ -1,10 +1,9 @@
-{ lib, config, pkgs, inputs, ... }:
+{ lib, config, pkgs, pkgsUnstable, ... }:
 let
   dir = "${config.home.homeDirectory}/dotfiles/home-manager/machines";
-  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
 in
 {
-  # home.packages = with unstable;[
+  # home.packages = with pkgsUnstable;[
   #   zsh-fzf-tab
   # ];
 
@@ -34,8 +33,8 @@ in
         src = pkgs.fetchFromGitHub {
           owner = "Aloxaf";
           repo = "fzf-tab";
-          rev = "14e16f0d36ae9938e28b2f6efdb7344cd527a1a6";
-          sha256 = "sha256-o8hgnTl84nI7jMVfA5jEcDXkMFFlnxKbRva+l/Fx4jI=";
+          rev = "fac145167f7ec1861233c54de0c8900b09c650fe";
+          sha256 = "sha256-1Ior+/9e+M+Fc1u0uq5HhknlGRS96q7tazhEE6rmx9Y=";
           # sha256 = lib.fakeSha256;
         };
       }
@@ -44,8 +43,8 @@ in
         src = pkgs.fetchFromGitHub {
           owner = "agkozak";
           repo = "zsh-z";
-          rev = "afaf2965b41fdc6ca66066e09382726aa0b6aa04";
-          sha256 = "sha256-FnGjp/VJLPR6FaODY0GtCwcsTYA4d6D8a6dMmNpXQ+g=";
+          rev = "cf9225feebfae55e557e103e95ce20eca5eff270";
+          sha256 = "sha256-C79eSOaWNHSJiUGmHzu9d0zO0NdW+dktK21a2niPZm0=";
           # sha256 = lib.fakeSha256;
         };
       }

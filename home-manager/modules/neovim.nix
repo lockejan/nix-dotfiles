@@ -1,9 +1,6 @@
-{ config, pkgs, inputs, lib, ... }:
-let
-  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
-in
+{ config, pkgs, pkgsUnstable, lib, ... }:
 {
-  home.packages = with unstable; [
+  home.packages = with pkgsUnstable; [
     # ansible-lint
     pkgs.actionlint
     pkgs.ansible-language-server
@@ -57,6 +54,7 @@ in
     tree-sitter
     vue-language-server
     yamllint
+    yamlfmt
     (yarn.override { nodejs = nodejs_22; })
   ];
   home.activation.linkNeovimConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

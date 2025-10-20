@@ -1,7 +1,4 @@
-{ pkgs, inputs, ... }:
-let
-  unstable = inputs.nixpkgs-master.legacyPackages.${pkgs.system};
-in
+{ pkgs, pkgsUnstable, ... }:
 {
 
   programs.tmux = {
@@ -14,7 +11,7 @@ in
     keyMode = "emacs";
     # aggressiveResize = true;
     newSession = false;
-    plugins = with unstable; [
+    plugins = with pkgsUnstable; [
       tmuxPlugins.tmux-fzf
       tmuxPlugins.fzf-tmux-url
       tmuxPlugins.prefix-highlight

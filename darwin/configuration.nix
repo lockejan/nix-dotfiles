@@ -1,6 +1,5 @@
-{ pkgs, inputs, username, ... }:
+{ pkgs, pkgsUnstable, username, ... }:
 let
-  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
   user = username;
 in
 {
@@ -19,7 +18,7 @@ in
   # $ nix-env -qaP | grep wget
   environment = {
 
-    systemPackages = [ unstable.vim ];
+    systemPackages = [ pkgsUnstable.vim ];
     # environment.shells = [ pkgs.zsh ];
     variables.SHELL = "${pkgs.zsh}/bin/zsh";
 
