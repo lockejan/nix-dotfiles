@@ -36,7 +36,26 @@
       user.m1 = "lockejan";
       system.raspbi = "aarch64-linux";
       pkgs = inputs.nixpkgs.legacyPackages.${system.silicon};
+      pkgsUnstable = import inputs.nixpkgs-unstable {
+        system = system.silicon;
+        config.allowUnfree = true;
+      };
       stateVersion = "25.05";
+
+      # Common home-manager modules shared across configurations
+      commonHomeModules = [
+        ./home-manager/home.nix
+        ./home-manager/modules/cli.nix
+        ./home-manager/modules/git.nix
+        ./home-manager/modules/gpg.nix
+        ./home-manager/modules/kitty.nix
+        ./home-manager/modules/k8s.nix
+        ./home-manager/modules/neovim.nix
+        ./home-manager/modules/python.nix
+        ./home-manager/modules/ssh.nix
+        ./home-manager/modules/tmux.nix
+      ];
+
       # pkgs = import inputs.nixpkgs {
       #   inherit system;
       #   config = { allowUnfree = true; };
@@ -50,27 +69,19 @@
           modules = [
             home-manager.darwinModules.home-manager
             ./darwin/configuration.nix
+            { nixpkgs.config.allowUnfree = true; }
             {
               home-manager = {
-                users.${user.m1}.imports =
-                  [
-                    ./home-manager/home.nix
-                    ./home-manager/modules/alacritty.nix
-                    # ./home-manager/modules/osx.nix
-                    ./home-manager/modules/cli.nix
-                    ./home-manager/modules/git.nix
-                    ./home-manager/modules/gpg.nix
-                    ./home-manager/modules/kitty.nix
-                    ./home-manager/modules/k8s.nix
-                    ./home-manager/modules/neovim.nix
-                    ./home-manager/modules/python.nix
-                    ./home-manager/modules/ssh.nix
-                    ./home-manager/modules/tmux.nix
-                    ./home-manager/machines/personal.nix
-                  ];
+                users.${user.m1}.imports = commonHomeModules ++ [
+                  # Machine-specific modules
+                  ./home-manager/modules/alacritty.nix
+                  # ./home-manager/modules/osx.nix
+                  ./home-manager/machines/personal.nix
+                ];
                 extraSpecialArgs = {
                   inherit inputs;
                   inherit stateVersion;
+                  inherit pkgsUnstable;
                   username = user.m1;
                 };
               };
@@ -78,6 +89,7 @@
           ];
           specialArgs = {
             inherit inputs;
+            inherit pkgsUnstable;
             username = user.m1;
           };
           system = system.silicon;
@@ -89,18 +101,9 @@
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
-        modules = [
-          ./home-manager/home.nix
+        modules = commonHomeModules ++ [
+          # Machine-specific modules
           ./home-manager/modules/osx.nix
-          ./home-manager/modules/cli.nix
-          ./home-manager/modules/git.nix
-          ./home-manager/modules/gpg.nix
-          ./home-manager/modules/kitty.nix
-          ./home-manager/modules/k8s.nix
-          ./home-manager/modules/neovim.nix
-          ./home-manager/modules/python.nix
-          ./home-manager/modules/ssh.nix
-          ./home-manager/modules/tmux.nix
           ./home-manager/machines/work.nix
         ];
 
@@ -109,6 +112,7 @@
         extraSpecialArgs = {
           inherit inputs;
           inherit stateVersion;
+          inherit pkgsUnstable;
           username = user.work;
         };
       };
