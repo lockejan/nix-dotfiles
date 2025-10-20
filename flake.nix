@@ -40,6 +40,7 @@
       # Common home-manager modules shared across configurations
       commonHomeModules = [
         ./home-manager/home.nix
+        ./home-manager/modules/alacritty.nix
         ./home-manager/modules/cli.nix
         ./home-manager/modules/git.nix
         ./home-manager/modules/gpg.nix
@@ -70,7 +71,6 @@
               home-manager = {
                 users.${user.m1}.imports = commonHomeModules ++ [
                   # Machine-specific modules
-                  ./home-manager/modules/alacritty.nix
                   # ./home-manager/modules/osx.nix
                   ./home-manager/machines/personal.nix
                 ];
