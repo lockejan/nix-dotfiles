@@ -27,7 +27,10 @@
       user.work = "schmitt";
       user.m1 = "lockejan";
       system.raspbi = "aarch64-linux";
-      pkgs = inputs.nixpkgs.legacyPackages.${system.silicon};
+      pkgs = import inputs.nixpkgs {
+        system = system.silicon;
+        config.allowUnfree = true;
+      };
       pkgsUnstable = import inputs.nixpkgs-unstable {
         system = system.silicon;
         config.allowUnfree = true;
