@@ -19,14 +19,6 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     nix-kubectl-gs.url = "github:swoehrl-mw/nix-kubectl-gs";
-
-    # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    # neovim-nightly-overlay.inputs.nixpkgs.follows = "nixpkgs";
-
-    # nvim-config = {
-    #   url = "github:lockejan/neovim-config";
-    #   flake = false;
-    # };
   };
 
   outputs = { self, home-manager, darwin, ... }@inputs:
@@ -56,11 +48,12 @@
         ./home-manager/modules/tmux.nix
       ];
 
-      # pkgs = import inputs.nixpkgs {
-      #   inherit system;
-      #   config = { allowUnfree = true; };
-      #   # overlays = [ inputs.neovim-nightly-overlay.overlay ];
-      # };
+      # Common special arguments passed to all home-manager configurations
+      commonExtraSpecialArgs = {
+        inherit inputs;
+        inherit stateVersion;
+        inherit pkgsUnstable;
+      };
     in
     {
 
@@ -78,10 +71,7 @@
                   # ./home-manager/modules/osx.nix
                   ./home-manager/machines/personal.nix
                 ];
-                extraSpecialArgs = {
-                  inherit inputs;
-                  inherit stateVersion;
-                  inherit pkgsUnstable;
+                extraSpecialArgs = commonExtraSpecialArgs // {
                   username = user.m1;
                 };
               };
@@ -109,10 +99,7 @@
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
-        extraSpecialArgs = {
-          inherit inputs;
-          inherit stateVersion;
-          inherit pkgsUnstable;
+        extraSpecialArgs = commonExtraSpecialArgs // {
           username = user.work;
         };
       };
