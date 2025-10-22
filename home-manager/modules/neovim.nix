@@ -1,62 +1,116 @@
 { config, pkgs, pkgsUnstable, lib, ... }:
-{
-  home.packages = with pkgsUnstable; [
-    # ansible-lint
-    pkgs.actionlint
-    pkgs.ansible-language-server
-    black
-    clojure
-    # clojure-lsp
-    cargo
-    # dotnet-sdk
-    # elmPackages.elm
-    # elmPackages.elm-test
-    # elmPackages.elm-format
-    # elmPackages.elm-language-server
-    glow
-    go
-    gopls
-    graphviz
-    # haskell-language-server
-    hadolint
-    hlint
-    helm-ls
-    stylish-haskell
-    lua
-    # neovim-nightly
+let
+  # Core packages (always installed)
+  corePackages = with pkgsUnstable; [
     neovim
-    nil
-    nixfmt-classic
-    bash-language-server
-    dockerfile-language-server
-    eslint
-    # nodePackages.intelephense
-    typescript
-    typescript-language-server
-    # nodePackages.vim-language-server
-    vscode-langservers-extracted
-    yaml-language-server
-    lua51Packages.tiktoken_core
-    nodejs_22
-    # omnisharp-roslyn
-    # python39Packages.python-lsp-server
-    ruff
-    rust-analyzer
-    rustc
-    # rnix-lsp
-    # rubyPackages.solargraph
-    shfmt
-    statix
+    tree-sitter
+    glow        # Markdown renderer
+    graphviz    # Diagram rendering
+  ];
+
+  # Lua language (always enabled for Neovim config)
+  luaPackages = with pkgsUnstable; [
+    lua
+    lua51Packages.tiktoken_core  # For Copilot
     stylua
     sumneko-lua-language-server
-    terraform-ls
-    texlab
-    tree-sitter
+  ];
+
+  goPackages = with pkgsUnstable; [
+    go
+    gopls
+  ];
+
+  rustPackages = with pkgsUnstable; [
+    cargo
+    rustc
+    rust-analyzer
+  ];
+
+  pythonPackages = with pkgsUnstable; [
+    black
+    ruff
+  ];
+
+  webPackages = with pkgsUnstable; [
+    nodejs_22
+    (yarn.override { nodejs = nodejs_22; })
+    typescript
+    typescript-language-server
     vue-language-server
+    vscode-langservers-extracted  # html, css, json, eslint LSPs
+    eslint
+  ];
+
+  nixPackages = with pkgsUnstable; [
+    nil
+    nixfmt-classic
+    statix
+  ];
+
+  shellPackages = with pkgsUnstable; [
+    bash-language-server
+    shfmt
+  ];
+
+  devopsPackages = with pkgsUnstable; [
+    dockerfile-language-server
+    hadolint
+    helm-ls
+    terraform-ls
+    yaml-language-server
     yamllint
     yamlfmt
-    (yarn.override { nodejs = nodejs_22; })
+    pkgs.actionlint            # GitHub Actions linter
+    pkgs.ansible-language-server
   ];
+
+  latexPackages = with pkgsUnstable; [
+    texlab
+  ];
+
+  clojurePackages = with pkgsUnstable; [
+    clojure
+    clojure-lsp
+  ];
+
+  haskellPackages = with pkgsUnstable; [
+    haskell-language-server
+    hadolint
+    hlint
+    stylish-haskell
+  ];
+
+  dotnetPackages = with pkgsUnstable; [
+    dotnet-sdk
+    omnisharp-roslyn
+  ];
+
+  elmPackages = with pkgsUnstable; [
+    elmPackages.elm
+    elmPackages.elm-test
+    elmPackages.elm-format
+    elmPackages.elm-language-server
+  ];
+
+in
+{
+  home.packages =
+    corePackages
+    # ++ clojurePackages
+    ++ devopsPackages
+    # ++ dotnetPackages
+    # ++ elmPackages
+    ++ goPackages
+    # ++ haskellPackages
+    # ++ latexPackages
+    ++ luaPackages
+    ++ nixPackages
+    ++ pythonPackages
+    ++ rustPackages
+    ++ shellPackages
+    ++ webPackages;
+
   home.activation.linkNeovimConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     if [ ! -e ${config.home.homeDirectory}/.config/nvim ]; then
       ln -s ${config.home.homeDirectory}/dotfiles/home-manager/configs/nvim ${config.home.homeDirectory}/.config/nvim

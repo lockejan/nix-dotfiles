@@ -41,6 +41,7 @@
       "hiddenbar"
       "insomnia"
       "itsycal"
+      "iterm2"
       "jetbrains-toolbox"
       "joplin"
       "kitty"
