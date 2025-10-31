@@ -1,9 +1,9 @@
 { pkgs, pkgsUnstable, ... }:
-{
 
+{
   programs.tmux = {
     enable = true;
-    package = pkgs.tmux;
+    package = pkgsUnstable.tmux;
     baseIndex = 1;
     disableConfirmationPrompt = false;
     escapeTime = 40;

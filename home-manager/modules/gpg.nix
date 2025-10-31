@@ -1,10 +1,7 @@
-{ config, pkgs, libs, inputs, ... }:
-let
-  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
-  inherit (inputs.nixpkgs-unstable) pinentry_mac;
-in
+{ pkgs, pkgsUnstable, ... }:
+
 {
-  home.packages = with unstable; [
+  home.packages = with pkgsUnstable; [
     gnupg1
     gpg-tui
     yubikey-manager

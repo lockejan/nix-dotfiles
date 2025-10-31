@@ -1,9 +1,7 @@
-{ pkgs, inputs, ... }:
-let
-  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
-in
+{ pkgs, pkgsUnstable, ... }:
+
 {
-  home.packages = with unstable; [ ssh-audit sshpass mosh ];
+  home.packages = with pkgsUnstable; [ ssh-audit sshpass mosh ];
 
   programs.ssh = {
     enable = true;

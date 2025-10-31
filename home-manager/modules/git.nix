@@ -1,4 +1,5 @@
 { pkgs, pkgsUnstable, ... }:
+
 {
   programs.git = {
     userName = "Jan Schmitt";
@@ -94,16 +95,19 @@
       credential.helper = "osxkeychain";
     };
   };
-  home.file.".ignore".source = ../configs/git/ignore;
-  home.file.".gitignore".source = ../configs/git/gitignore;
   xdg.configFile."git/attributes".source = ../configs/git/attributes;
 
-  home.packages = with pkgsUnstable; [
-    git-crypt
-    git-filter-repo
-    pkgs.git-trim # currently broken in unstable
-    git-sizer
-    gh
-    copilot-cli
-  ];
+  home = {
+    file.".ignore".source = ../configs/git/ignore;
+    file.".gitignore".source = ../configs/git/gitignore;
+
+    packages = with pkgsUnstable; [
+      git-crypt
+      git-filter-repo
+      git-trim # currently broken in unstable
+      git-sizer
+      gh
+      copilot-cli
+    ];
+  };
 }

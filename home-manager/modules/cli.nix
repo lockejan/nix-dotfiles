@@ -9,6 +9,7 @@ in
 
   programs.zsh = {
     enable = true;
+    package = pkgsUnstable.zsh;
     autocd = true;
     # dotDir = ".config/zsh";
     autosuggestion.enable = true;
@@ -94,11 +95,13 @@ in
 
     eza = {
       enable = true;
+      package = pkgsUnstable.eza;
       enableZshIntegration = true;
     };
 
     bat = {
       enable = true;
+      package = pkgsUnstable.bat;
       config = {
         # theme = "OneHalfDark";
         italic-text = "always";
@@ -107,6 +110,7 @@ in
 
     fzf = {
       enable = true;
+      package = pkgsUnstable.fzf;
       enableZshIntegration = true;
       defaultCommand = "fd --type f";
       defaultOptions = [
@@ -133,12 +137,17 @@ in
 
     direnv = {
       enable = true;
-      nix-direnv.enable = true;
+      package = pkgsUnstable.direnv;
+      nix-direnv = {
+        enable = true;
+        package = pkgsUnstable.nix-direnv;
+      };
       enableZshIntegration = true;
     };
 
     starship = {
       enable = true;
+      package = pkgsUnstable.starship;
       enableZshIntegration = true;
       settings = {
 

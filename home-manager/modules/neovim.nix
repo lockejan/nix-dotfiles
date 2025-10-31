@@ -30,6 +30,7 @@ let
   pythonPackages = with pkgsUnstable; [
     black
     ruff
+    basedpyright
   ];
 
   webPackages = with pkgsUnstable; [

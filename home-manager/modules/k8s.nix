@@ -1,12 +1,11 @@
-{ pkgs, inputs, ... }:
+{ pkgs, pkgsUnstable, inputs, ... }:
 
 let
-  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
   inherit (inputs.nix-kubectl-gs.packages.${pkgs.system}) kubectl-gs;
 in
 
 {
-  home.packages = with unstable; [
+  home.packages = with pkgsUnstable; [
     act
     colima
     docker

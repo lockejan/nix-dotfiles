@@ -1,4 +1,4 @@
-{ config, pkgs, pkgsUnstable, inputs, username, stateVersion, ... }:
+{ config, pkgs, pkgsUnstable, username, stateVersion, ... }:
 let
   user = username;
 in
