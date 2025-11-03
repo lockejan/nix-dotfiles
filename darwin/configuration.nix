@@ -9,7 +9,7 @@ in
   users.users."${user}" = {
     name = "${user}";
     home = "/Users/${user}";
-    shell = pkgs.zsh;
+    shell = pkgsUnstable.zsh;
   };
 
 
@@ -23,7 +23,12 @@ in
 
     systemPackages = [ pkgsUnstable.vim ];
     # environment.shells = [ pkgs.zsh ];
-    variables.SHELL = "${pkgs.zsh}/bin/zsh";
+
+    variables = {
+      SHELL = "${pkgsUnstable.zsh}/bin/zsh";
+      LANG = "en_US.UTF-8";
+      LC_ALL = "en_US.UTF-8";
+    };
 
     etc."sudoers.d/000-sudo-touchid" = {
       text = ''
@@ -34,7 +39,7 @@ in
 
     etc."pam.d/sudo-touchid" = {
       text = ''
-        auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so ignore_ssh
+        auth       optional       ${pkgsUnstable.pam-reattach}/lib/pam/pam_reattach.so ignore_ssh
         auth       sufficient     pam_tid.so
         auth       sufficient     pam_smartcard.so
         auth       required       pam_opendirectory.so
@@ -183,7 +188,7 @@ in
   # programs.nix-index.enable = true;
 
   # Fonts
-  fonts.packages = with pkgs; [
+  fonts.packages = with pkgsUnstable; [
     recursive
     nerd-fonts.jetbrains-mono
   ];
