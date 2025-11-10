@@ -13,7 +13,7 @@ let
     lua
     lua51Packages.tiktoken_core  # For Copilot
     stylua
-    sumneko-lua-language-server
+    lua-language-server
   ];
 
   goPackages = with pkgsUnstable; [

@@ -12,7 +12,7 @@ bindkey '^x^e' edit-command-line
 # export PATH="/usr/local/sbin:$PATH"
 # export PATH="/usr/local/bin:$PATH"
 export PATH="$PATH:$HOME/bin:/opt/homebrew/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.cargo/bin:$HOME/.go/bin"
 
 if [[ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
   source "$HOME/.sdkman/bin/sdkman-init.sh"

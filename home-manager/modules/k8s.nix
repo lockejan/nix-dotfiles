@@ -11,6 +11,7 @@ in
     docker
     docker-buildx
     docker-compose
+    docker-sbom
     dive
     fluxcd
     grype
