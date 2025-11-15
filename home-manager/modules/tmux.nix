@@ -35,7 +35,7 @@
     resizeAmount = 10;
     secureSocket = true;
     sensibleOnTop = false;
-    terminal = "xterm-256color";
+    terminal = "screen-256color";
     extraConfig = builtins.readFile ../configs/tmux/tmux.conf;
   };
 
