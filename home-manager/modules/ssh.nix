@@ -3,7 +3,7 @@
 {
   home.packages = with pkgsUnstable; [ ssh-audit sshpass mosh ];
 
-  programs.ssh = {
+  programs.ssh.matchBlocks."*" = {
     enable = true;
     compression = true;
     controlMaster = "auto";

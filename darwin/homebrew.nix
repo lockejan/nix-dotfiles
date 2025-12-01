@@ -18,6 +18,7 @@
     brews = [
       # "clojure-lsp-native"
       "azure-cli"
+      "ansible-language-server"
     ];
 
     # whalebrews = [ "whalebrew/wget" ];

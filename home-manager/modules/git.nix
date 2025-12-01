@@ -2,47 +2,47 @@
 
 {
   programs.git = {
-    userName = "Jan Schmitt";
     signing.signByDefault = true;
-    aliases = {
-      br = "branch";
-      branch-name = "!git rev-parse --abbrev-ref HEAD";
-      bd = "branch -d";
-      bdr = "push origin --delete";
-      cm = "commit";
-      cmns = "-c commit.gpgsign=false commit";
-      cma = "commit --amend";
-      co = "checkout";
-      cob = "switch -c";
-      di = "diff";
-      ds = "diff --staged";
-      fixup = "commit --amend --no-edit";
-      history = "log --follow --patch";
-      last = "log -n 1 --format=%H";
-      lgo = "log --pretty=oneline";
-      lgf =
-        "log --graph --abbrev-commit --decorate --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)<%an>%C(reset)%n %C(dim black)%s%C(reset) %C(dim white) - %an%C(reset)' --all";
-      lg =
-        "log --graph --date=human --pretty=format:'%C(bold blue)%h %C(yellow)%d%Creset %s %Cgreen(%ad) %C(cyan)<%an>%Creset' --all";
-      lg-fancier =
-        "log --graph --pretty=format:'%C(yellow)%d%Creset %C(cyan)%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --all";
-      praise = "blame";
-      push-branch = "!git push -u origin $(git branch-name)";
-      st = "status";
-      sti = "status --ignored";
-      unstage = "reset HEAD --";
-      undo = "reset HEAD~1 --mixed";
-      amend = "commit -a --amend";
-      prv = "!gh pr view";
-      prc = "!gh pr create";
-      prs = "!gh pr status";
-      prm = "!gh pr merge -d";
-      nosub = "push --recurse-submodules=no";
-      tidy = ''
-        !git branch --merged | grep -Ev "(^\*|master|main|dev)" | xargs git branch -d
-      '';
-    };
-    extraConfig = {
+    settings = {
+      user.name = "Jan Schmitt";
+      alias = {
+        br = "branch";
+        branch-name = "!git rev-parse --abbrev-ref HEAD";
+        bd = "branch -d";
+        bdr = "push origin --delete";
+        cm = "commit";
+        cmns = "-c commit.gpgsign=false commit";
+        cma = "commit --amend";
+        co = "checkout";
+        cob = "switch -c";
+        di = "diff";
+        ds = "diff --staged";
+        fixup = "commit --amend --no-edit";
+        history = "log --follow --patch";
+        last = "log -n 1 --format=%H";
+        lgo = "log --pretty=oneline";
+        lgf =
+          "log --graph --abbrev-commit --decorate --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)<%an>%C(reset)%n %C(dim black)%s%C(reset) %C(dim white) - %an%C(reset)' --all";
+        lg =
+          "log --graph --date=human --pretty=format:'%C(bold blue)%h %C(yellow)%d%Creset %s %Cgreen(%ad) %C(cyan)<%an>%Creset' --all";
+        lg-fancier =
+          "log --graph --pretty=format:'%C(yellow)%d%Creset %C(cyan)%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --all";
+        praise = "blame";
+        push-branch = "!git push -u origin $(git branch-name)";
+        st = "status";
+        sti = "status --ignored";
+        unstage = "reset HEAD --";
+        undo = "reset HEAD~1 --mixed";
+        amend = "commit -a --amend";
+        prv = "!gh pr view";
+        prc = "!gh pr create";
+        prs = "!gh pr status";
+        prm = "!gh pr merge -d";
+        nosub = "push --recurse-submodules=no";
+        tidy = ''
+          !git branch --merged | grep -Ev "(^\*|master|main|dev)" | xargs git branch -d
+        '';
+      };
       color = {
         ui = "auto";
         branch = "auto";

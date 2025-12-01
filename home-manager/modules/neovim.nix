@@ -63,7 +63,6 @@ let
     yamllint
     yamlfmt
     pkgs.actionlint            # GitHub Actions linter
-    pkgs.ansible-language-server
   ];
 
   latexPackages = with pkgsUnstable; [
