@@ -1,7 +1,7 @@
 { pkgs, pkgsUnstable, inputs, ... }:
 
 let
-  inherit (inputs.nix-kubectl-gs.packages.${pkgs.system}) kubectl-gs;
+  inherit (inputs.nix-kubectl-gs.packages.${pkgs.stdenv.hostPlatform.system}) kubectl-gs;
 in
 
 {
@@ -12,6 +12,7 @@ in
     docker-buildx
     docker-compose
     docker-sbom
+    docker-slim
     dive
     fluxcd
     grype
@@ -22,5 +23,13 @@ in
     minikube
     trivy
   ];
+
+  # Setup Docker CLI plugins
+  # These enable running commands like: docker buildx, docker compose, docker sbom
+  home.file = {
+    ".docker/cli-plugins/docker-buildx".source = "${pkgsUnstable.docker-buildx}/bin/docker-buildx";
+    ".docker/cli-plugins/docker-compose".source = "${pkgsUnstable.docker-compose}/bin/docker-compose";
+    ".docker/cli-plugins/docker-sbom".source = "${pkgsUnstable.docker-sbom}/bin/docker-sbom";
+  };
 
 }
