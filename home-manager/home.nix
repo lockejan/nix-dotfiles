@@ -29,7 +29,7 @@ in
       ctop
       curl
       dockutil
-      dogdns # dns client
+      doggo # dns client
       entr # watch files for changes
       exif # show exif data
       fd # find alternative
