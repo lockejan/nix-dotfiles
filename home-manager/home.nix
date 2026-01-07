@@ -57,6 +57,7 @@ in
       tldr
       trash-cli
       watch
+      wget
     ];
 
     sessionVariables = {

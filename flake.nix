@@ -18,7 +18,7 @@
 
     flake-utils.url = "github:numtide/flake-utils";
 
-    nix-kubectl-gs.url = "github:swoehrl-mw/nix-kubectl-gs";
+    nix-kubectl-gs.url = "github:lockejan/nix-kubectl-gs";
   };
 
   outputs = { self, home-manager, darwin, ... }@inputs:

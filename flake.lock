@@ -65,15 +65,15 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1759906822,
-        "narHash": "sha256-zDjKMtG3AQF9ibS1XQfTeRIAVcroX3tMoimVXQZ8an4=",
-        "owner": "swoehrl-mw",
+        "lastModified": 1767794721,
+        "narHash": "sha256-lT74dTJDhbBvhxbU5S2Zica7/y9RgIKQAILp4blxcc0=",
+        "owner": "lockejan",
         "repo": "nix-kubectl-gs",
-        "rev": "37ce467708ecff354ac209b4e77db26e3f578c64",
+        "rev": "17e170e1aab132560f41df64856bccb8d5807efb",
         "type": "github"
       },
       "original": {
-        "owner": "swoehrl-mw",
+        "owner": "lockejan",
         "repo": "nix-kubectl-gs",
         "type": "github"
       }
