@@ -4,14 +4,14 @@ let
   corePackages = with pkgsUnstable; [
     neovim
     tree-sitter
-    glow        # Markdown renderer
-    graphviz    # Diagram rendering
+    glow # Markdown renderer
+    graphviz # Diagram rendering
   ];
 
   # Lua language (always enabled for Neovim config)
   luaPackages = with pkgsUnstable; [
     lua
-    lua51Packages.tiktoken_core  # For Copilot
+    lua51Packages.tiktoken_core # For Copilot
     stylua
     lua-language-server
   ];
@@ -39,13 +39,13 @@ let
     typescript
     typescript-language-server
     vue-language-server
-    vscode-langservers-extracted  # html, css, json, eslint LSPs
+    vscode-langservers-extracted # html, css, json, eslint LSPs
     eslint
   ];
 
   nixPackages = with pkgsUnstable; [
     nil
-    nixfmt-classic
+    nixfmt
     statix
   ];
 
@@ -62,7 +62,7 @@ let
     yaml-language-server
     yamllint
     yamlfmt
-    pkgs.actionlint            # GitHub Actions linter
+    pkgs.actionlint # GitHub Actions linter
   ];
 
   latexPackages = with pkgsUnstable; [
