@@ -31,7 +31,7 @@
         '';
       }
     ];
-    prefix = "C-a";
+    # prefix = "C-a";
     resizeAmount = 10;
     secureSocket = true;
     sensibleOnTop = false;
