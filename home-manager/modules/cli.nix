@@ -118,9 +118,9 @@ in
         "--border"
         # "--preview 'bat --color=always --style=numbers --line-range=:500 {}'"
       ];
-      # fileWidgetCommand = "fd --type f";
+      fileWidgetCommand = "fd --type f";
       fileWidgetOptions = [ "--preview 'bat --color=always --style=numbers --line-range=:500 {}'" ];
-      # historyWidgetOptions = [ "--sort" "--exact" ];
+      historyWidgetOptions = [ "--sort" "--exact" ];
       changeDirWidgetCommand = "fd --type d";
       tmux = {
         enableShellIntegration = true;
