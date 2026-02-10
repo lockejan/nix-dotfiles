@@ -30,10 +30,16 @@
       pkgs = import inputs.nixpkgs {
         system = system.silicon;
         config.allowUnfree = true;
+        overlays = [
+          (import ./overlays/inetutils-fix.nix)
+        ];
       };
       pkgsUnstable = import inputs.nixpkgs-unstable {
         system = system.silicon;
         config.allowUnfree = true;
+        overlays = [
+          (import ./overlays/inetutils-fix.nix)
+        ];
       };
       stateVersion = "25.11";
 
@@ -81,7 +87,7 @@
             }
           ];
           specialArgs = {
-            inherit inputs;
+            # inherit inputs;
             inherit pkgsUnstable;
             username = user.m1;
           };
