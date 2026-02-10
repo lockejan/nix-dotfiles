@@ -155,7 +155,7 @@ in
     package = pkgs.nix;
 
     settings = {
-      sandbox = true;
+      sandbox = false;
       trusted-users = [ "@admin" ];
       extra-sandbox-paths = [
         "/private/tmp"
