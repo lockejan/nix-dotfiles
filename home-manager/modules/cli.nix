@@ -82,6 +82,7 @@ in
       uuid = "uuidgen | tr '[:upper:]' '[:lower:]' | tr -d '\n' | pbcopy";
       rollback = ''
         home-manager generations | fzf | awk '{activate=$NF"/activate"; print activate}' | bash - '';
+      claude = "claude --dangerously-skip-permissions";
     };
   };
 
