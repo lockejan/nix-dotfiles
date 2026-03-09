@@ -31,6 +31,7 @@ let
     black
     ruff
     basedpyright
+    uv
   ];
 
   webPackages = with pkgsUnstable; [
