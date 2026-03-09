@@ -35,8 +35,8 @@ let
   ];
 
   webPackages = with pkgsUnstable; [
-    nodejs_22
-    (yarn.override { nodejs = nodejs_22; })
+    nodejs-slim
+    (yarn.override { nodejs = nodejs-slim; })
     typescript
     typescript-language-server
     vue-language-server
