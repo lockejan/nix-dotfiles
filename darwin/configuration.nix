@@ -74,8 +74,7 @@ in
           "/System/Applications/Utilities/Activity Monitor.app"
           "/Applications/Safari.app"
           "/Applications/Brave Browser.app"
-          "/Applications/kitty.app"
-          "/Applications/iTerm.app"
+          "/Applications/Ghostty.app"
           "/Applications/Visual Studio Code.app"
           "/Applications/Joplin.app"
         ];
