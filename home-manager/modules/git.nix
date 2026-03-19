@@ -107,7 +107,6 @@
       git-trim # currently broken in unstable
       git-sizer
       gh
-      copilot-cli
     ];
   };
 }

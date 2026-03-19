@@ -24,8 +24,8 @@ in
       # solo2-cli
       # vagrant
       babashka
-      coreutils-full
       claude-code
+      coreutils-full
       ctop
       curl
       dockutil
