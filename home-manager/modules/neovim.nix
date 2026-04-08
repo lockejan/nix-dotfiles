@@ -32,6 +32,14 @@ let
     ruff
     basedpyright
     uv
+    (python312.withPackages (ps:
+      with ps; [
+        # pynvim
+        ipython
+        pip
+        # python-lsp-server
+        # ruff-lsp
+      ]))
   ];
 
   webPackages = with pkgsUnstable; [
