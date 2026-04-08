@@ -185,5 +185,8 @@ latex.out/
 # tags file for vim
 tags
 
+# ignore nvim session files
+Session.vim
+
 # ignore docker volumes
 docker-mysql-home/

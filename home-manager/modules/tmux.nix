@@ -20,7 +20,7 @@
         extraConfig = ''
           set -g @resurrect-strategy-nvim 'session'
           set -g @resurrect-dir '~/.local/share/tmux/resurrect'
-          set -g @resurrect-capture-pane-contents 'off'
+          set -g @resurrect-capture-pane-contents 'on'
         '';
       }
       {
