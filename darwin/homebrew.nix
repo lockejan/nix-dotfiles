@@ -92,21 +92,21 @@
       # "zoom"
     ];
 
-    masApps = {
-      "AdGuard for Safari" = 1440147259;
-      "AusweisApp Bund" = 948660805;
-      # Bitwarden = 1352778147;
-      iMovie = 408981434;
-      "irealb Pro" = 409035833;
-      Keynote = 409183694;
-      Kindle = 302584613;
-      "Logic Pro" = 634148309;
-      Mactracker = 430255202;
-      Numbers = 409203825;
-      # Pages = 409201541;
-      # "Slack for Desktop" = 803453959;
-      "WireGuard" = 1451685025;
-      # Xcode = 497799835;
-    };
+    # masApps = {
+    #   "AdGuard for Safari" = 1440147259;
+    #   "AusweisApp Bund" = 948660805;
+    #   # Bitwarden = 1352778147;
+    #   iMovie = 408981434;
+    #   "irealb Pro" = 409035833;
+    #   Keynote = 409183694;
+    #   Kindle = 302584613;
+    #   "Logic Pro" = 634148309;
+    #   Mactracker = 430255202;
+    #   Numbers = 409203825;
+    #   # Pages = 409201541;
+    #   # "Slack for Desktop" = 803453959;
+    #   "WireGuard" = 1451685025;
+    #   # Xcode = 497799835;
+    # };
   };
 }

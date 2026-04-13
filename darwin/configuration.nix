@@ -58,17 +58,9 @@ in
   system = {
     primaryUser = "${user}";
     defaults = {
+      # persistent-apps/others stay here: nix-darwin generates the nested plist
+      # dict format Dock.app requires; targets.darwin.defaults can't do this.
       dock = {
-        appswitcher-all-displays = true;
-        autohide = true;
-        # autohide-delay = 0.2;
-        mru-spaces = false;
-        orientation = "left";
-        showhidden = true;
-        wvous-bl-corner = 1;
-        wvous-br-corner = 1;
-        wvous-tl-corner = 2;
-        wvous-tr-corner = 1;
         persistent-apps = [
           "/System/Applications/System Settings.app"
           "/System/Applications/Utilities/Activity Monitor.app"
@@ -85,35 +77,11 @@ in
         ];
       };
 
-      finder = {
-        ShowStatusBar = true;
-        ShowPathbar = true;
-        FXPreferredViewStyle = "clmv";
-      };
-
+      # System-level settings that require root — cannot live in home-manager.
       loginwindow.GuestEnabled = false;
       loginwindow.autoLoginUser = "${user}";
       # ActivityMonitor.SortDirection = 0;
-
       SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
-
-      NSGlobalDomain = {
-        # AppleInterfaceStyle = "Dark";
-        AppleMeasurementUnits = "Centimeters";
-        AppleShowAllExtensions = true;
-        # AppleShowScrollBars = "Always";
-        NSAutomaticCapitalizationEnabled = false;
-        NSAutomaticSpellingCorrectionEnabled = false;
-        NSDocumentSaveNewDocumentsToCloud = false;
-        NSNavPanelExpandedStateForSaveMode = true;
-        PMPrintingExpandedStateForPrint = true;
-        "com.apple.mouse.tapBehavior" = 1;
-      };
-
-      LaunchServices.LSQuarantine = false;
-
-      trackpad.Clicking = true;
-      trackpad.TrackpadThreeFingerDrag = false;
     };
 
     keyboard =
