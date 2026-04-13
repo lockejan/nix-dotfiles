@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, pkgs, ... }: {
   targets.darwin.defaults = {
     NSGlobalDomain = {
       AppleLanguages = [ "en" "de" ];
@@ -54,10 +54,6 @@
     };
   };
   targets.darwin.search = "Google";
-
-  home.activation.restartDock = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    /usr/bin/killall Dock || true
-  '';
 
   launchd.agents.dotfiles-update = {
     enable = true;
