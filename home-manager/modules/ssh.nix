@@ -7,14 +7,14 @@
     enable = true;
     enableDefaultConfig = false;
 
-    matchBlocks."*" = {
-      compression = true;
-      controlMaster = "auto";
-      controlPath = "/tmp/ssh_mux_%h_%p_%r";
-      controlPersist = "10m";
-      forwardAgent = true;
-      hashKnownHosts = false;
-      addKeysToAgent = "yes";
+    settings."*" = {
+      Compression = true;
+      ControlMaster = "auto";
+      ControlPath = "/tmp/ssh_mux_%h_%p_%r";
+      ControlPersist = "10m";
+      ForwardAgent = true;
+      HashKnownHosts = false;
+      AddKeysToAgent = "yes";
     };
     extraConfig = ''
       # AddKeysToAgent yes
