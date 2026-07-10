@@ -30,6 +30,7 @@
       "brave-browser"
       # "breitbandmessung"
       "calibre"
+      "claude"
       "copilot-cli"
       # "cursor"
       # "docker"

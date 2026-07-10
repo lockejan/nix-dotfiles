@@ -47,7 +47,7 @@ let
     (yarn.override { nodejs = nodejs-slim; })
     typescript
     typescript-language-server
-    vue-language-server
+    pkgs.vue-language-server
     vscode-langservers-extracted # html, css, json, eslint LSPs
     eslint
   ];
