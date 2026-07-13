@@ -50,6 +50,8 @@ in
       nix-update
       nixpkgs-fmt
       nixpkgs-review
+      ollama
+      opencode
       openssl
       pwgen
       # renovate
