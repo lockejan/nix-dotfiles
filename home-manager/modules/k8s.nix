@@ -7,7 +7,7 @@ in
 {
   home.packages = with pkgsUnstable; [
     act
-    colima
+    pkgs.colima
     docker
     docker-buildx
     docker-compose
@@ -16,7 +16,9 @@ in
     dive
     fluxcd
     grype
-    kubectl
+    # minikube bundles its own bin/kubectl, which collides with the
+    # standalone kubectl in buildEnv. hiPrio makes this one win.
+    (pkgs.lib.hiPrio kubectl)
     kubectl-gs
     kubecolor
     kubernetes-helm
