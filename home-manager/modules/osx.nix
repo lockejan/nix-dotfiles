@@ -55,6 +55,22 @@
   };
   targets.darwin.search = "Google";
 
+  launchd.agents.colima = {
+    enable = true;
+    config = {
+      ProgramArguments = [
+        "/bin/zsh"
+        "-l"
+        "-c"
+        "colima status 2>/dev/null || colima start"
+      ];
+      RunAtLoad = true;
+      KeepAlive = false;
+      StandardOutPath = "/tmp/colima-start.log";
+      StandardErrorPath = "/tmp/colima-start.err";
+    };
+  };
+
   launchd.agents.dotfiles-update = {
     enable = true;
     config = {

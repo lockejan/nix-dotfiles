@@ -73,7 +73,7 @@ in
         persistent-others = [
           "/Users/${user}/Downloads"
           "/Users/${user}/Scratchpad"
-          "/Users/${user}/git"
+          "/Users/${user}/Developer"
         ];
       };
 
