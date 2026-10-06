@@ -23,13 +23,7 @@
           set -g @resurrect-capture-pane-contents 'on'
         '';
       }
-      {
-        plugin = tmuxPlugins.continuum;
-        extraConfig = ''
-          set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '10' # minutes
-        '';
-      }
+      # continuum is loaded at the end of extraConfig instead, see below.
     ];
     # prefix = "C-a";
     resizeAmount = 10;
@@ -38,7 +32,16 @@
     secureSocket = pkgs.stdenv.isLinux;
     sensibleOnTop = false;
     terminal = "tmux-256color";
-    extraConfig = builtins.readFile ../configs/tmux/tmux.conf;
+    # Home Manager runs plugins before extraConfig. continuum hooks itself into
+    # status-right when it loads, and our status line config then overwrites
+    # that option, so autosave silently never fires. Load continuum last.
+    extraConfig = builtins.readFile ../configs/tmux/tmux.conf + ''
+
+      # tmuxplugin-continuum (must come after status-right is set)
+      set -g @continuum-restore 'on'
+      set -g @continuum-save-interval '10' # minutes
+      run-shell ${pkgsUnstable.tmuxPlugins.continuum.rtp}
+    '';
   };
 
   xdg.configFile."tmux/tmux.mac.conf".source = ../configs/tmux/tmux.mac.conf;
