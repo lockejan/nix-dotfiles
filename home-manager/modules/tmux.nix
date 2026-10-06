@@ -1,4 +1,4 @@
-{ pkgs, pkgsUnstable, ... }:
+{ config, lib, pkgs, pkgsUnstable, ... }:
 
 {
   programs.tmux = {
@@ -33,11 +33,22 @@
     ];
     # prefix = "C-a";
     resizeAmount = 10;
-    secureSocket = true;
+    # Puts TMUX_TMPDIR under /run/user/<uid>, which only exists on Linux
+    # (systemd-logind). On macOS tmux would silently fall back to /tmp.
+    secureSocket = pkgs.stdenv.isLinux;
     sensibleOnTop = false;
     terminal = "tmux-256color";
     extraConfig = builtins.readFile ../configs/tmux/tmux.conf;
   };
 
   xdg.configFile."tmux/tmux.mac.conf".source = ../configs/tmux/tmux.mac.conf;
+
+  # macOS reaps entries in /tmp that have not been accessed for ~3 days, and a
+  # unix socket's atime is not touched by connect(). A long-running tmux server
+  # then loses its socket ("error connecting to /private/tmp/tmux-<uid>/default").
+  # Keep the socket in a persistent, user-owned directory instead.
+  home.sessionVariables = lib.mkIf pkgs.stdenv.isDarwin {
+    TMUX_TMPDIR = "${config.xdg.stateHome}/tmux";
+  };
+  xdg.stateFile."tmux/.keep" = lib.mkIf pkgs.stdenv.isDarwin { text = ""; };
 }
