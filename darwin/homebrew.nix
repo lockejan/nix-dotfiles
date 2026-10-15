@@ -36,6 +36,7 @@
       # "docker"
       # "dotnet-sdk"
       "drawio"
+      "darrylmorley/whatcable/whatcable"
       "electrum"
       "element"
       "firefox"
