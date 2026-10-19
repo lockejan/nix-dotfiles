@@ -35,7 +35,7 @@
         system = system.silicon;
         config.allowUnfree = true;
       };
-      stateVersion = "25.11";
+      stateVersion = "26.05";
 
       # Common home-manager modules shared across configurations
       commonHomeModules = [
