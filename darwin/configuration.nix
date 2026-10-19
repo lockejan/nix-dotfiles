@@ -66,7 +66,7 @@ in
           "/System/Applications/Utilities/Activity Monitor.app"
           "/Applications/Safari.app"
           "/Applications/Brave Browser.app"
-          "/Applications/Ghostty.app"
+          "/Users/${user}/Applications/Home Manager Apps/Ghostty.app"
           "/Applications/Visual Studio Code.app"
           "/Applications/Joplin.app"
         ];

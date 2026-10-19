@@ -71,6 +71,7 @@
                 users.${user.m1}.imports = commonHomeModules ++ [
                   # Machine-specific modules
                   ./home-manager/modules/osx.nix
+                  ./home-manager/modules/gui-apps.nix
                   ./home-manager/machines/personal.nix
                 ];
                 extraSpecialArgs = commonExtraSpecialArgs // {

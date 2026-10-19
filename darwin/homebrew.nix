@@ -17,8 +17,8 @@
 
     brews = [
       # "clojure-lsp-native"
-      "azure-cli"
-      "ansible-language-server"
+      # "azure-cli" # via nix: home-manager/machines/personal.nix
+      # "ansible-language-server" # via nix: home-manager/machines/personal.nix
     ];
 
     # whalebrews = [ "whalebrew/wget" ];
@@ -26,12 +26,12 @@
     casks = [
       "anki"
       "asana"
-      "bitwarden"
+      # "bitwarden"
       "brave-browser"
       # "breitbandmessung"
       # "calibre"
       "claude"
-      "copilot-cli"
+      # "copilot-cli"
       # "cursor"
       # "docker"
       # "dotnet-sdk"
@@ -43,17 +43,17 @@
       # "flux"
       "focusrite-control"
       "garmin-express"
-      "ghostty"
+      # "ghostty" # via nix: home-manager/modules/gui-apps.nix
       # "google-chrome"
       # "hammerspoon"
-      "hiddenbar"
+      # "hiddenbar" # via nix: home-manager/modules/gui-apps.nix
       "insomnia"
       "itsycal"
       # "iterm2"
       "jetbrains-toolbox"
       "joplin"
       # "kitty"
-      "maccy"
+      # "maccy" # via nix: home-manager/modules/gui-apps.nix
       "microsoft-auto-update"
       # "microsoft-teams" # not receiving updates from upstream currently
       "microsoft-outlook"
@@ -79,7 +79,7 @@
       "wireshark-app"
       "wispr-flow"
       "yubico-authenticator"
-      "zap"
+      # "zap"
       # "znotch"
       # "alacritty"
       # "coconutbattery"
