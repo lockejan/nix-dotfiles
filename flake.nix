@@ -97,6 +97,7 @@
         modules = commonHomeModules ++ [
           # Machine-specific modules
           ./home-manager/modules/osx.nix
+          ./home-manager/modules/gui-apps.nix
           ./home-manager/machines/work.nix
         ];
 
