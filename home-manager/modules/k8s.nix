@@ -7,7 +7,6 @@ in
 {
   home.packages = with pkgsUnstable; [
     act
-    pkgs.colima
     docker
     docker-buildx
     docker-compose

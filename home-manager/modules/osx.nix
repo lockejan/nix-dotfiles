@@ -55,21 +55,9 @@
   };
   targets.darwin.search = "Google";
 
-  launchd.agents.colima = {
-    enable = true;
-    config = {
-      ProgramArguments = [
-        "/bin/zsh"
-        "-l"
-        "-c"
-        "colima status 2>/dev/null || colima start"
-      ];
-      RunAtLoad = true;
-      KeepAlive = false;
-      StandardOutPath = "/tmp/colima-start.log";
-      StandardErrorPath = "/tmp/colima-start.err";
-    };
-  };
+  # Runs `colima start -f` for the default profile as a launchd agent; the
+  # profile's colima.yaml stays unmanaged (settings = { }).
+  services.colima.enable = true;
 
   launchd.agents.dotfiles-update = {
     enable = true;
