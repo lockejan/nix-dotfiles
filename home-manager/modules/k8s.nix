@@ -20,6 +20,7 @@ in
     (pkgs.lib.hiPrio kubectl)
     kubectl-gs
     kubecolor
+    kubectx
     kubernetes-helm
     minikube
     trivy
