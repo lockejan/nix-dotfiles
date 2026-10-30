@@ -43,8 +43,8 @@ let
   ];
 
   webPackages = with pkgsUnstable; [
-    nodejs-slim
-    (yarn.override { nodejs = nodejs-slim; })
+    nodejs
+    (yarn.override { inherit nodejs; })
     typescript
     typescript-language-server
     pkgs.vue-language-server
