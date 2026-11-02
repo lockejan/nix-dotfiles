@@ -19,6 +19,11 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     nix-kubectl-gs.url = "github:swoehrl-mw/nix-kubectl-gs";
+
+    anchorline = {
+      url = "git+ssh://git@github.com/WEPA-digital/gitops-ui?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, home-manager, darwin, ... }@inputs:

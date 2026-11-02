@@ -1,5 +1,26 @@
 {
   "nodes": {
+    "anchorline": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793441221,
+        "narHash": "sha256-YaaqQ0SpN+OYJRHEt4zfte27bdgP2NHQhgub93NjlDg=",
+        "ref": "main",
+        "rev": "db694d93512f2c42086b751747f3026eb7e6c3b0",
+        "revCount": 48,
+        "type": "git",
+        "url": "ssh://git@github.com/WEPA-digital/gitops-ui"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "ssh://git@github.com/WEPA-digital/gitops-ui"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -113,11 +134,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1793356235,
-        "narHash": "sha256-7bv8xiyzcUeSGHj9wGY5mx6E1IG4libILuWIorWTcXw=",
+        "lastModified": 1793611426,
+        "narHash": "sha256-Mc5D8VZDMzxLHU21e22GH4R4ALt7icQTN5SDzK/fztI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4b86c3446168275a695ce789526524327de71908",
+        "rev": "ae887109fd1944edc66150218f5d753ac785153e",
         "type": "github"
       },
       "original": {
@@ -129,11 +150,11 @@
     },
     "nixpkgs-nixos": {
       "locked": {
-        "lastModified": 1793294725,
-        "narHash": "sha256-loLMnbbS4KhmG2ln9EY6f0YMNCA273Yx02oWYQ9IMeE=",
+        "lastModified": 1793526781,
+        "narHash": "sha256-2Cxxgpz1+cRgKZJFi12/9LG3aIBN66f2RvFs34Oj/A0=",
         "owner": "NixOs",
         "repo": "nixpkgs",
-        "rev": "6f06d204d8f2d8761d9da78778745974a3216381",
+        "rev": "9bb52223f4f6a0cc606fd0852d8784f896c137d5",
         "type": "github"
       },
       "original": {
@@ -145,11 +166,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1793225069,
-        "narHash": "sha256-sx1f99WGrDfJ83KKuQrqGPmot0rnDgmpLJDzpU2oHQQ=",
+        "lastModified": 1793582901,
+        "narHash": "sha256-WDValiY9se78X2Wh7aWWaq/c7HN29U555+OKbHEzYrw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e62746b0b472753ef019baceab6f1e2e52014980",
+        "rev": "5c9de89ec55bff981cb8da1a4ee92b10f1438ffc",
         "type": "github"
       },
       "original": {
@@ -190,6 +211,7 @@
     },
     "root": {
       "inputs": {
+        "anchorline": "anchorline",
         "darwin": "darwin",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
