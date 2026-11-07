@@ -139,16 +139,31 @@ in
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "lockejan-nur.cachix.org-1:xRzsQG4xTHMx7piti7DD6iwu+bR7pdeAJEd5VwdZCv4="
       ];
+
+      log-lines = 128;
+
+      # Let the collector drop build-time dependencies (compilers, sources)
+      # once nothing live needs them. Keeping them pinned the whole build
+      # closure of every generation and let the store grow past 300 GB.
+      keep-outputs = false;
+      keep-derivations = false;
     };
 
-    # Automatically remove unused packages and their dependencies.
-    extraOptions = ''
-      auto-optimise-store = true
-      gc-keep-derivations = true
-      gc-keep-outputs = true
-      log-lines = 128
-      extra-platforms = x86_64-darwin aarch64-darwin
-    '';
+    # Monday-morning GC of generations older than two weeks, scheduled for
+    # when the laptop is awake. Runs as root via launchd, so it also prunes
+    # the system profile that a user-level `nix-collect-garbage` cannot reach.
+    gc = {
+      automatic = true;
+      interval = { Weekday = 1; Hour = 10; Minute = 30; };
+      options = "--delete-older-than 14d";
+    };
+
+    # Hard-link deduplication of the store, an hour after GC. Replaces
+    # `auto-optimise-store`, which is unreliable on macOS.
+    optimise = {
+      automatic = true;
+      interval = { Weekday = 1; Hour = 11; Minute = 30; };
+    };
 
   };
 
