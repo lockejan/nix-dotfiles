@@ -86,11 +86,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1793254759,
-        "narHash": "sha256-m3mC+M165OKLAB6C9IVuUqo5Ze7NQDyUQOuW8KNo+s4=",
+        "lastModified": 1793686595,
+        "narHash": "sha256-99beOUkHY5f+vSwGxzVB1Jy2FRfxC3zpUnllVPLWn0E=",
         "owner": "swoehrl-mw",
         "repo": "nix-kubectl-gs",
-        "rev": "61186e5b7660d068b186070bbc2cff4ba8f40ad8",
+        "rev": "b984a300f0627eead5e5e1f5d846521728cf3e82",
         "type": "github"
       },
       "original": {

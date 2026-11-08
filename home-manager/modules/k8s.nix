@@ -15,6 +15,7 @@ in
     dive
     fluxcd
     grype
+    kyverno
     # minikube bundles its own bin/kubectl, which collides with the
     # standalone kubectl in buildEnv. hiPrio makes this one win.
     (pkgs.lib.hiPrio kubectl)
