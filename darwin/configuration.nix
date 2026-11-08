@@ -124,6 +124,8 @@ in
     settings = {
       sandbox = false;
       trusted-users = [ "@admin" ];
+      # System-wide so root (sudo nix ..., launchd jobs) gets them too.
+      experimental-features = [ "nix-command" "flakes" ];
       extra-sandbox-paths = [
         "/private/tmp"
         "/private/var/tmp"
