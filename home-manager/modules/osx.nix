@@ -59,6 +59,12 @@
   # profile's colima.yaml stays unmanaged (settings = { }).
   services.colima.enable = true;
 
+  # docker login stores tokens in the macOS keychain instead of plaintext in
+  # ~/.docker/config.json. That file stays unmanaged (colima writes
+  # currentContext into it), so "credsStore": "osxkeychain" is set there by
+  # hand once.
+  home.packages = [ pkgs.docker-credential-helpers ];
+
   launchd.agents.dotfiles-update = {
     enable = true;
     config = {
