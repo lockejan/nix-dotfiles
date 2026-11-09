@@ -32,8 +32,11 @@ jobs:
     - name: create dirty git worktree to omit git-crypt errors with flakes
       run: echo " " >> flake.nix
 
-    - name: Update flake.lock
-      run: nix flake update
+    - name: Update flake.lock (all inputs except SSH-only ones)
+      run: |
+        inputs=$(nix eval --raw --file flake.nix inputs \
+          --apply 'i: builtins.concatStringsSep " " (builtins.filter (n: n != "anchorline") (builtins.attrNames i))')
+        nix flake update $inputs
       shell: bash
 
     - name: build darwinConfiguration for apple silicon
